@@ -1,0 +1,2220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>DC - Store</title>
+    <meta name="description" content="Loja de roupas masculinas premium com estilo, conforto e qualidade. Camisetas, camisas, calças e acessórios com entrega rápida."/>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <style>
+        /* Estilos anteriores mantidos */
+        /* Reset e Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* Botão Primário */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: #1a1a1a;
+            color: #fff;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.95rem;
+            border: none;
+        }
+        .btn:hover {
+            background: #333;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #1a1a1a;
+            color: #1a1a1a;
+        }
+        .btn-outline:hover {
+            background: #1a1a1a;
+            color: #fff;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .header-scrolled {
+            padding: 10px 0;
+            background: rgba(255,255,255,0.98);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: -1px;
+        }
+        .logo span {
+            color: #d4af37;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        nav ul li a {
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #d4af37;
+            transition: width 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #d4af37;
+        }
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 1.3rem;
+            align-items: center;
+        }
+        .cart-icon {
+            position: relative;
+        }
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #d4af37;
+            color: #1a1a1a;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1505028106030-e07ea1bd80c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(26,26,26,0.8), rgba(212,175,55,0.2));
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            animation: fadeInUp 1s ease forwards;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        /* Seções */
+        section {
+            padding: 100px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            font-weight: 600;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: #d4af37;
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+        
+        /* Produtos em Destaque */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .product-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            cursor: pointer;
+        }
+        .product-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .product-img {
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+        }
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .product-card:hover .product-img img {
+            transform: scale(1.08);
+        }
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #d4af37;
+            color: #1a1a1a;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        .product-info {
+            padding: 20px;
+        }
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        .product-price del {
+            color: #999;
+            font-weight: 400;
+            font-size: 1rem;
+            margin-left: 8px;
+        }
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+        .add-to-cart {
+            flex: 1;
+            background: #1a1a1a;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .add-to-cart:hover {
+            background: #333;
+        }
+        .wishlist {
+            width: 44px;
+            height: 44px;
+            background: #f8f9fa;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .wishlist:hover, .wishlist.active {
+            color: #d4af37;
+            border-color: #d4af37;
+        }
+        
+        /* === PÁGINA DE PRODUTO DETALHADA === */
+        .product-detail {
+            padding: 120px 0 80px;
+            display: none;
+        }
+        .product-detail.active {
+            display: block;
+        }
+        .product-detail-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+        .product-gallery {
+            position: relative;
+        }
+        .main-image {
+            height: 600px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .thumbnail-gallery {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 5px 0;
+        }
+        .thumbnail {
+            width: 90px;
+            height: 90px;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+        .thumbnail.active, .thumbnail:hover {
+            border-color: #d4af37;
+            opacity: 1;
+        }
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .product-info-detail {
+            padding: 20px 0;
+        }
+        .product-breadcrumb {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+        .product-breadcrumb a {
+            color: #d4af37;
+            text-decoration: underline;
+        }
+        .product-title-detail {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .stars {
+            color: #ffc107;
+            font-size: 1.1rem;
+        }
+        .review-count {
+            color: #777;
+            font-size: 0.95rem;
+        }
+        .product-price-detail {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        .product-price-detail del {
+            color: #999;
+            font-size: 1.5rem;
+            margin-left: 15px;
+        }
+        .discount-badge {
+            display: inline-block;
+            background: #e74c3c;
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 15px;
+        }
+        .product-description {
+            margin: 25px 0;
+            line-height: 1.8;
+            color: #555;
+        }
+        .product-features {
+            list-style: none;
+            margin: 25px 0;
+        }
+        .product-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: #444;
+        }
+        .product-features li i {
+            color: #27ae60;
+            font-size: 1.1rem;
+        }
+        .size-selector, .color-selector {
+            margin-bottom: 25px;
+        }
+        .selector-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .size-options, .color-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .size-btn, .color-btn {
+            padding: 10px 16px;
+            border: 2px solid #ddd;
+            background: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        .size-btn:hover, .color-btn:hover {
+            border-color: #d4af37;
+        }
+        .size-btn.active, .color-btn.active {
+            border-color: #1a1a1a;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        .color-btn {
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            border-radius: 50%;
+            position: relative;
+        }
+        .color-btn::after {
+            content: '';
+            position: absolute;
+            top: -4px; left: -4px;
+            right: -4px; bottom: -4px;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            transition: border-color 0.3s ease;
+        }
+        .color-btn.active::after {
+            border-color: #1a1a1a;
+        }
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        .quantity-btn:hover {
+            background: #eee;
+        }
+        .quantity-input {
+            width: 60px;
+            text-align: center;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        .product-actions-detail {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .add-to-cart-detail {
+            flex: 1;
+            font-size: 1.1rem;
+            padding: 16px;
+        }
+        .wishlist-detail {
+            width: 60px;
+            height: 60px;
+            background: #f8f9fa;
+            border: 2px solid #ddd;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+        }
+        .wishlist-detail:hover, .wishlist-detail.active {
+            background: #d4af37;
+            color: #1a1a1a;
+            border-color: #d4af37;
+        }
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .share-btn {
+            width: 40px;
+            height: 40px;
+            background: #f8f9fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            transition: all 0.3s ease;
+        }
+        .share-btn:hover {
+            background: #d4af37;
+            color: #1a1a1a;
+            transform: translateY(-3px);
+        }
+        
+        /* Tabs de Informações */
+        .product-tabs {
+            margin-top: 80px;
+            border-top: 1px solid #eee;
+            padding-top: 50px;
+        }
+        .tab-buttons {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+        }
+        .tab-btn {
+            padding: 15px 0;
+            font-weight: 600;
+            color: #777;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .tab-btn.active {
+            color: #1a1a1a;
+        }
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #d4af37;
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .reviews-list {
+            margin-top: 20px;
+        }
+        .review-item {
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .review-author {
+            font-weight: 600;
+        }
+        .review-date {
+            color: #999;
+            font-size: 0.9rem;
+        }
+        .review-text {
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        /* Back to home */
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #777;
+            font-weight: 500;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .back-to-home:hover {
+            color: #d4af37;
+        }
+        
+        /* Categorias */
+        .categories {
+            background: #111;
+            color: #fff;
+        }
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .category-card {
+            position: relative;
+            height: 300px;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        .category-card.visible {
+            opacity: 1;
+            transform: scale(1);
+            transition: all 0.6s ease;
+        }
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .category-card:hover img {
+            transform: scale(1.1);
+        }
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: #fff;
+        }
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        
+        /* Por que Escolher */
+        .features {
+            background: #fff;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        .feature-item {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .feature-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+        .feature-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            color: #fff;
+            text-align: center;
+        }
+        .newsletter h2 {
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        .newsletter p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .newsletter-form input {
+            flex: 1;
+            padding: 18px 25px;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+        }
+        .newsletter-form button {
+            padding: 18px 30px;
+            background: #d4af37;
+            color: #1a1a1a;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .newsletter-form button:hover {
+            background: #e0c567;
+        }
+        
+        /* Footer */
+        footer {
+            background: #111;
+            color: #aaa;
+            padding: 80px 0 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        .footer-col h3 {
+            color: #fff;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+            position: relative;
+        }
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #d4af37;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        .footer-col ul li a {
+            transition: color 0.3s ease;
+        }
+        .footer-col ul li a:hover {
+            color: #d4af37;
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #222;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            background: #d4af37;
+            color: #1a1a1a;
+            transform: translateY(-3px);
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #222;
+            font-size: 0.9rem;
+        }
+        
+        /* Modal Carrinho */
+        .cart-modal {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+        .cart-content {
+            background: #fff;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 16px;
+            overflow: hidden;
+            animation: slideDown 0.4s ease;
+        }
+        .cart-header {
+            padding: 20px;
+            background: #1a1a1a;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cart-close {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .cart-body {
+            padding: 20px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .cart-item-info {
+            flex: 1;
+        }
+        .cart-item-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .cart-item-price {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+        .cart-item-remove {
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+        .cart-total {
+            padding: 20px;
+            background: #f8f9fa;
+            text-align: right;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        .cart-actions {
+            padding: 20px;
+            display: flex;
+            gap: 15px;
+        }
+        .empty-cart {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+        
+        /* Responsivo */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            nav ul {
+                gap: 20px;
+            }
+            .product-detail-container {
+                grid-template-columns: 1fr;
+            }
+            .main-image {
+                height: 500px;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero {
+                height: 80vh;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            section {
+                padding: 80px 0;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .newsletter-form {
+                flex-direction: column;
+            }
+            .newsletter-form button {
+                border-radius: 0;
+            }
+            .product-title-detail {
+                font-size: 2rem;
+            }
+            .product-actions-detail {
+                flex-direction: column;
+            }
+            .wishlist-detail {
+                width: 100%;
+                height: 50px;
+            }
+        }
+        
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* === NOVOS ESTILOS ADICIONADOS === */
+        
+        /* Botão WhatsApp no carrinho */
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+        
+        /* Modal de confirmação de pedido */
+        .order-confirmation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 3000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .order-content {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            animation: zoomIn 0.4s ease;
+        }
+        .order-content h3 {
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+        .order-content p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        /* Animações para adicionar produto */
+        @keyframes addToCartAnimation {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        .add-to-cart-animation {
+            animation: addToCartAnimation 0.5s ease;
+        }
+        
+        /* Personalização de camisas */
+        .shirt-customization {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+        }
+        .customization-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .customization-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .customization-option {
+            padding: 8px 15px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .customization-option.active {
+            background: #1a1a1a;
+            color: white;
+            border-color: #1a1a1a;
+        }
+        .add-more-btn {
+            background: transparent;
+            border: 1px dashed #ddd;
+            color: #777;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .add-more-btn:hover {
+            border-color: #d4af37;
+            color: #d4af37;
+        }
+        
+        /* Detalhes do produto no carrinho */
+        .cart-item-details {
+            font-size: 0.85rem;
+            color: #777;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Alpha<span>Wear</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#categorias">Categorias</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#" class="cart-icon" id="cart-toggle">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </a>
+                <a href="#"><i class="fas fa-user"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1 class="animate__animated animate__fadeInUp">Estilo que Define</h1>
+            <p class="animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                Descubra a coleção premium de roupas masculinas com design moderno, tecidos de alta qualidade e caimento perfeito.
+            </p>
+            <a href="#produtos" class="btn animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+                Comprar Agora
+            </a>
+        </div>
+    </section>
+
+    <!-- Produtos em Destaque -->
+    <section id="produtos">
+        <div class="container">
+            <h2 class="section-title">Produtos em Destaque</h2>
+            <div class="products-grid">
+                <!-- Produto 1 -->
+                <div class="product-card" data-product-id="1">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1622446273984-7b1f9d8e8a7c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Camisa Social Premium">
+                        <div class="product-badge">Novo</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Camisa Oxford Premium</h3>
+                        <p class="product-price">R$ 249,90 <del>R$ 329,90</del></p>
+                        <div class="product-actions">
+                            <button class="add-to-cart" data-id="1" data-name="Camisa Oxford Premium" data-price="249.90">
+                                Adicionar
+                            </button>
+                            <button class="wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 2 -->
+                <div class="product-card" data-product-id="2">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jaqueta de Couro">
+                        <div class="product-badge">-25%</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Jaqueta de Couro Clássica</h3>
+                        <p class="product-price">R$ 599,90 <del>R$ 799,90</del></p>
+                        <div class="product-actions">
+                            <button class="add-to-cart" data-id="2" data-name="Jaqueta de Couro Clássica" data-price="599.90">
+                                Adicionar
+                            </button>
+                            <button class="wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 3 -->
+                <div class="product-card" data-product-id="3">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Calça Jeans">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Calça Jeans Slim Fit</h3>
+                        <p class="product-price">R$ 189,90</p>
+                        <div class="product-actions">
+                            <button class="add-to-cart" data-id="3" data-name="Calça Jeans Slim Fit" data-price="189.90">
+                                Adicionar
+                            </button>
+                            <button class="wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 4 -->
+                <div class="product-card" data-product-id="4">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1543503103-7c44b66b7c71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tênis Casual">
+                        <div class="product-badge">Best Seller</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Tênis Urban Casual</h3>
+                        <p class="product-price">R$ 349,90</p>
+                        <div class="product-actions">
+                            <button class="add-to-cart" data-id="4" data-name="Tênis Urban Casual" data-price="349.90">
+                                Adicionar
+                            </button>
+                            <button class="wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === PÁGINA DE PRODUTO DETALHADA === -->
+    <section class="product-detail" id="product-detail">
+        <div class="container">
+            <div class="back-to-home" id="back-to-home">
+                <i class="fas fa-arrow-left"></i> Voltar para Produtos
+            </div>
+            <div class="product-detail-container">
+                <!-- Galeria de Imagens -->
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img id="main-img" src="" alt="">
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <div class="thumbnail active" data-img="0">
+                            <img src="" alt="">
+                        </div>
+                        <div class="thumbnail" data-img="1">
+                            <img src="" alt="">
+                        </div>
+                        <div class="thumbnail" data-img="2">
+                            <img src="" alt="">
+                        </div>
+                        <div class="thumbnail" data-img="3">
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informações do Produto -->
+                <div class="product-info-detail">
+                    <div class="product-breadcrumb">
+                        <a href="#home">Início</a> / <a href="#produtos">Produtos</a> / <span id="breadcrumb-category">Camisas</span>
+                    </div>
+                    <h1 class="product-title-detail" id="detail-title"></h1>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="review-count">(42 avaliações)</span>
+                    </div>
+                    <div class="product-price-detail" id="detail-price"></div>
+                    <p class="product-description" id="detail-description">
+                        Camisa Oxford de algodão premium com corte slim fit. Ideal para ocasiões formais e casuais. Tecido respirável, botões de madrepérola e costura reforçada.
+                    </p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> Algodão 100% orgânico</li>
+                        <li><i class="fas fa-check"></i> Corte slim fit moderno</li>
+                        <li><i class="fas fa-check"></i> Botões de madrepérola</li>
+                        <li><i class="fas fa-check"></i> Lavagem a máquina</li>
+                        <li><i class="fas fa-check"></i> Disponível em 5 cores</li>
+                    </ul>
+
+                    <!-- Personalização de Camisas -->
+                    <div class="shirt-customization" id="shirt-customization">
+                        <div class="customization-title">Personalize sua camisa:</div>
+                        
+                        <!-- Seleção de Tamanho -->
+                        <div class="size-selector">
+                            <label class="selector-label">Tamanho</label>
+                            <div class="size-options">
+                                <button class="size-btn active">P</button>
+                                <button class="size-btn">M</button>
+                                <button class="size-btn">G</button>
+                                <button class="size-btn">GG</button>
+                                <button class="size-btn">XG</button>
+                            </div>
+                        </div>
+
+                        <!-- Seleção de Cor -->
+                        <div class="color-selector">
+                            <label class="selector-label">Cor</label>
+                            <div class="color-options">
+                                <button class="color-btn active" style="background: #2c3e50;"></button>
+                                <button class="color-btn" style="background: #3498db;"></button>
+                                <button class="color-btn" style="background: #e74c3c;"></button>
+                                <button class="color-btn" style="background: #f39c12;"></button>
+                            </div>
+                        </div>
+                        
+                        <!-- Botão para adicionar mais camisas -->
+                        <button class="add-more-btn" id="add-more-shirts">
+                            <i class="fas fa-plus"></i> Adicionar outra camisa com personalização diferente
+                        </button>
+                    </div>
+
+                    <!-- Quantidade -->
+                    <div class="quantity-selector">
+                        <span class="selector-label">Quantidade:</span>
+                        <button class="quantity-btn" id="qty-decrease">-</button>
+                        <input type="text" class="quantity-input" id="qty-input" value="1">
+                        <button class="quantity-btn" id="qty-increase">+</button>
+                    </div>
+
+                    <!-- Ações -->
+                    <div class="product-actions-detail">
+                        <button class="btn add-to-cart-detail" id="add-to-cart-detail">
+                            <i class="fas fa-shopping-bag"></i> Adicionar ao Carrinho
+                        </button>
+                        <button class="wishlist-detail" id="wishlist-detail">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+
+                    <div class="share-buttons">
+                        <span style="margin-right: 10px; color: #777;">Compartilhar:</span>
+                        <a href="#" class="share-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="share-btn"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="share-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="share-btn"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="product-tabs">
+                <div class="tab-buttons">
+                    <div class="tab-btn active" data-tab="description">Descrição</div>
+                    <div class="tab-btn" data-tab="specs">Especificações</div>
+                    <div class="tab-btn" data-tab="reviews">Avaliações</div>
+                </div>
+                <div class="tab-content active" id="tab-description">
+                    <p>Camisa Oxford de algodão premium com corte slim fit. Ideal para ocasiões formais e casuais. Tecido respirável, botões de madrepérola e costura reforçada.</p>
+                    <p><strong>Características:</strong></p>
+                    <ul>
+                        <li>Algodão 100% orgânico</li>
+                        <li>Corte slim fit moderno</li>
+                        <li>Botões de madrepérola</li>
+                        <li>Lavagem a máquina</li>
+                        <li>Disponível em 5 cores</li>
+                    </ul>
+                </div>
+                <div class="tab-content" id="tab-specs">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #eee;"><strong>Material</strong></td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #eee;">Algodão 100%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #eee;"><strong>Marca</strong></td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #eee;">AlphaWear Premium</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #eee;"><strong>Peso</strong></td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #eee;">280g</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 0;"><strong>País de Origem</strong></td>
+                            <td style="padding: 12px 0;">Brasil</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab-content" id="tab-reviews">
+                    <div class="reviews-list">
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="review-author">João Silva</div>
+                                <div class="review-date">12 de Novembro, 2025</div>
+                            </div>
+                            <div class="stars" style="color: #ffc107; margin-bottom: 8px;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="review-text">Excelente qualidade! O tecido é muito confortável e o caimento perfeito. Recomendo!</p>
+                        </div>
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="review-author">Carlos Mendes</div>
+                                <div class="review-date">08 de Novembro, 2025</div>
+                            </div>
+                            <div class="stars" style="color: #ffc107; margin-bottom: 8px;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                            <p class="review-text">Gostei bastante, mas o tamanho P ficou um pouco apertado. Troquei por M e ficou ótimo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorias -->
+    <section class="categories" id="categorias">
+        <div class="container">
+            <h2 class="section-title" style="color: #fff;">Explore por Categoria</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1603251569198-2164f4d66a20?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Camisas">
+                    <div class="category-overlay">
+                        <h3 class="category-title">Camisas</h3>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Calças">
+                    <div class="category-overlay">
+                        <h3 class="category-title">Calças</h3>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1602293589930-4d1ff952d4f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jaquetas">
+                    <div class="category-overlay">
+                        <h3 class="category-title">Jaquetas</h3>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d9702?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tênis">
+                    <div class="category-overlay">
+                        <h3 class="category-title">Tênis</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Por que Escolher -->
+    <section class="features" id="sobre">
+        <div class="container">
+            <h2 class="section-title">Por que Escolher a AlphaWear?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="feature-title">Qualidade Premium</h3>
+                    <p>Tecidos selecionados e acabamento impecável em todas as peças.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-truck"></i></div>
+                    <h3 class="feature-title">Entrega Rápida</h3>
+                    <p>Enviamos para todo o Brasil com frete grátis acima de R$ 400.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-sync-alt"></i></div>
+                    <h3 class="feature-title">Troca Fácil</h3>
+                    <p>30 dias para troca ou devolução sem complicação.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                    <h3 class="feature-title">Suporte 24/7</h3>
+                    <p>Atendimento humanizado sempre que você precisar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter" id="contato">
+        <div class="container">
+            <h2>Fique por Dentro das Novidades</h2>
+            <p>Receba promoções exclusivas e lançamentos em primeira mão.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Seu e-mail" required />
+                <button type="submit">Inscrever</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>AlphaWear</h3>
+                    <p>Moda masculina premium com estilo, conforto e qualidade incomparáveis.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#produtos">Produtos</a></li>
+                        <li><a href="#categorias">Categorias</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Atendimento</h3>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                        <li><a href="#">Entregas</a></li>
+                        <li><a href="#">Fale Conosco</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Formas de Pagamento</h3>
+                    <p>Cartão, Boleto, PIX e Parcelamento em até 12x sem juros.</p>
+                    <p style="margin-top: 15px; font-size: 0.9rem;">
+                        <i class="fas fa-lock"></i> Compra 100% segura
+                    </p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 AlphaWear. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal do Carrinho -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Seu Carrinho</h3>
+                <button class="cart-close" id="cart-close">×</button>
+            </div>
+            <div class="cart-body" id="cart-items">
+                <p class="empty-cart">Seu carrinho está vazio.</p>
+            </div>
+            <div class="cart-total">
+                Total: <span id="cart-total">R$ 0,00</span>
+            </div>
+            <div class="cart-actions">
+                <button class="btn" id="checkout-btn" style="flex: 1;">Finalizar Compra</button>
+                <button class="btn" style="background: transparent; border: 2px solid #1a1a1a; color: #1a1a1a;" id="continue-shopping">
+                    Continuar Comprando
+                </button>
+            </div>
+            <!-- Botão WhatsApp -->
+            <div style="padding: 0 20px 20px;">
+                <button class="whatsapp-btn" id="whatsapp-order">
+                    <i class="fab fa-whatsapp"></i> Enviar Pedido por WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação de Pedido -->
+    <div class="order-confirmation" id="order-confirmation">
+        <div class="order-content">
+            <h3>Pedido Enviado com Sucesso!</h3>
+            <p>Seu pedido foi enviado para o WhatsApp. Em breve nossa equipe entrará em contato para confirmar os detalhes.</p>
+            <button class="btn" id="close-confirmation">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        // Dados dos produtos
+        const products = [
+            {
+                id: 1,
+                name: "Camisa Oxford Premium",
+                price: 249.90,
+                oldPrice: 329.90,
+                category: "Camisas",
+                description: "Camisa Oxford de algodão premium com corte slim fit. Ideal para ocasiões formais e casuais. Tecido respirável, botões de madrepérola e costura reforçada.",
+                images: [
+                    "https://images.unsplash.com/photo-1622446273984-7b1f9d8e8a7c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1603833797131-3c8032c704b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1622446273984-7b1f9d8e8a7c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            {
+                id: 2,
+                name: "Jaqueta de Couro Clássica",
+                price: 599.90,
+                oldPrice: 799.90,
+                category: "Jaquetas",
+                description: "Jaqueta de couro genuíno com forro acolchoado. Design atemporal, zíperes metálicos e bolsos funcionais. Perfeita para o inverno.",
+                images: [
+                    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1520975954732-35dd308295d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            {
+                id: 3,
+                name: "Calça Jeans Slim Fit",
+                price: 189.90,
+                oldPrice: null,
+                category: "Calças",
+                description: "Calça jeans com elastano para maior conforto. Corte slim fit moderno, 5 bolsos e lavagem stone wash.",
+                images: [
+                    "https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1602293589930-4d1ff952d4f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            {
+                id: 4,
+                name: "Tênis Urban Casual",
+                price: 349.90,
+                oldPrice: null,
+                category: "Tênis",
+                description: "Tênis casual com sola em borracha antiderrapante. Cabedal em couro sintético premium e palmilha acolchoada.",
+                images: [
+                    "https://images.unsplash.com/photo-1543503103-7c44b66b7c71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1605348532760-9539d9b729d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1562183241-b937e1de65e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1543503103-7c44b66b7c71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ]
+            }
+        ];
+
+        // Estado da aplicação
+        let cart = [];
+        let currentProduct = null;
+        let currentQuantity = 1;
+        let currentSize = 'P';
+        let currentColor = '#2c3e50';
+        let shirtCustomizations = [];
+
+        // Elementos DOM
+        const homeSection = document.getElementById('home');
+        const produtosSection = document.getElementById('produtos');
+        const productDetail = document.getElementById('product-detail');
+        const backToHome = document.getElementById('back-to-home');
+        const cartCount = document.getElementById('cart-count');
+        const cartModal = document.getElementById('cart-modal');
+        const cartItems = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+        const cartToggle = document.getElementById('cart-toggle');
+        const cartClose = document.getElementById('cart-close');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        const continueShoppingBtn = document.getElementById('continue-shopping');
+        const whatsappBtn = document.getElementById('whatsapp-order');
+        const orderConfirmation = document.getElementById('order-confirmation');
+        const closeConfirmation = document.getElementById('close-confirmation');
+        const addMoreShirtsBtn = document.getElementById('add-more-shirts');
+
+        // Abrir produto detalhado
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const productId = parseInt(card.dataset.productId);
+                const product = products.find(p => p.id === productId);
+                if (product) {
+                    loadProductDetail(product);
+                }
+            });
+        });
+
+        // Carregar detalhes do produto
+        function loadProductDetail(product) {
+            currentProduct = product;
+            
+            // Atualizar conteúdo
+            document.getElementById('detail-title').textContent = product.name;
+            document.getElementById('breadcrumb-category').textContent = product.category;
+            document.getElementById('detail-description').textContent = product.description;
+            
+            // Preço
+            let priceHTML = `R$ ${product.price.toFixed(2)}`;
+            if (product.oldPrice) {
+                const discount = Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100);
+                priceHTML += ` <del>R$ ${product.oldPrice.toFixed(2)}</del> <span class="discount-badge">-${discount}%</span>`;
+            }
+            document.getElementById('detail-price').innerHTML = priceHTML;
+            
+            // Imagens
+            const mainImg = document.getElementById('main-img');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            mainImg.src = product.images[0];
+            thumbnails.forEach((thumb, index) => {
+                if (index < product.images.length) {
+                    thumb.querySelector('img').src = product.images[index];
+                    thumb.style.display = 'block';
+                } else {
+                    thumb.style.display = 'none';
+                }
+            });
+            document.querySelector('.thumbnail.active').classList.remove('active');
+            thumbnails[0].classList.add('active');
+            
+            // Resetar quantidade e personalizações
+            currentQuantity = 1;
+            document.getElementById('qty-input').value = 1;
+            shirtCustomizations = [];
+            
+            // Mostrar/ocultar personalização de camisas
+            const shirtCustomization = document.getElementById('shirt-customization');
+            if (product.category === 'Camisas') {
+                shirtCustomization.style.display = 'block';
+            } else {
+                shirtCustomization.style.display = 'none';
+            }
+            
+            // Mostrar página de detalhe
+            homeSection.style.display = 'none';
+            produtosSection.style.display = 'none';
+            productDetail.classList.add('active');
+            
+            // Scroll suave para o topo
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Voltar para produtos
+        backToHome.addEventListener('click', () => {
+            productDetail.classList.remove('active');
+            homeSection.style.display = 'block';
+            produtosSection.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Galeria de imagens
+        document.querySelectorAll('.thumbnail').forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+                document.getElementById('main-img').src = thumb.querySelector('img').src;
+            });
+        });
+
+        // Seleção de tamanho
+        document.querySelectorAll('.size-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentSize = btn.textContent;
+            });
+        });
+
+        // Seleção de cor
+        document.querySelectorAll('.color-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentColor = btn.style.backgroundColor;
+            });
+        });
+
+        // Quantidade
+        document.getElementById('qty-decrease').addEventListener('click', () => {
+            if (currentQuantity > 1) {
+                currentQuantity--;
+                document.getElementById('qty-input').value = currentQuantity;
+            }
+        });
+
+        document.getElementById('qty-increase').addEventListener('click', () => {
+            currentQuantity++;
+            document.getElementById('qty-input').value = currentQuantity;
+        });
+
+        // Wishlist detalhe
+        document.getElementById('wishlist-detail').addEventListener('click', () => {
+            const btn = document.getElementById('wishlist-detail');
+            btn.classList.toggle('active');
+            btn.innerHTML = btn.classList.contains('active') 
+                ? '<i class="fas fa-heart"></i>' 
+                : '<i class="far fa-heart"></i>';
+        });
+
+        // Adicionar mais camisas personalizadas
+        addMoreShirtsBtn.addEventListener('click', () => {
+            if (currentProduct && currentProduct.category === 'Camisas') {
+                // Adiciona a personalização atual à lista
+                shirtCustomizations.push({
+                    size: currentSize,
+                    color: currentColor,
+                    quantity: currentQuantity
+                });
+                
+                // Reset para nova personalização
+                currentQuantity = 1;
+                document.getElementById('qty-input').value = 1;
+                
+                showNotification('Personalização adicionada! Configure a próxima camisa.');
+            }
+        });
+
+        // Adicionar ao carrinho (detalhe)
+        document.getElementById('add-to-cart-detail').addEventListener('click', () => {
+            if (!currentProduct) return;
+            
+            // Adiciona animação ao botão
+            const btn = document.getElementById('add-to-cart-detail');
+            btn.classList.add('add-to-cart-animation');
+            setTimeout(() => {
+                btn.classList.remove('add-to-cart-animation');
+            }, 500);
+            
+            // Se for uma camisa e houver personalizações adicionais
+            if (currentProduct.category === 'Camisas' && shirtCustomizations.length > 0) {
+                // Adiciona a personalização atual à lista
+                shirtCustomizations.push({
+                    size: currentSize,
+                    color: currentColor,
+                    quantity: currentQuantity
+                });
+                
+                // Adiciona cada personalização ao carrinho
+                shirtCustomizations.forEach(custom => {
+                    const existingItem = cart.find(item => 
+                        item.id === currentProduct.id && 
+                        item.size === custom.size && 
+                        item.color === custom.color
+                    );
+                    
+                    if (existingItem) {
+                        existingItem.quantity += custom.quantity;
+                    } else {
+                        cart.push({
+                            id: currentProduct.id,
+                            name: currentProduct.name,
+                            price: currentProduct.price,
+                            quantity: custom.quantity,
+                            size: custom.size,
+                            color: custom.color
+                        });
+                    }
+                });
+                
+                showNotification(`Adicionado: ${currentProduct.name} (${shirtCustomizations.length} personalizações)`);
+                shirtCustomizations = [];
+            } else {
+                // Produto normal ou camisa sem personalizações adicionais
+                const existingItem = cart.find(item => 
+                    item.id === currentProduct.id && 
+                    (!item.size || item.size === currentSize) && 
+                    (!item.color || item.color === currentColor)
+                );
+                
+                if (existingItem) {
+                    existingItem.quantity += currentQuantity;
+                } else {
+                    const itemToAdd = {
+                        id: currentProduct.id,
+                        name: currentProduct.name,
+                        price: currentProduct.price,
+                        quantity: currentQuantity
+                    };
+                    
+                    // Adiciona tamanho e cor se for uma camisa
+                    if (currentProduct.category === 'Camisas') {
+                        itemToAdd.size = currentSize;
+                        itemToAdd.color = currentColor;
+                    }
+                    
+                    cart.push(itemToAdd);
+                }
+                
+                showNotification(`Adicionado: ${currentProduct.name} (x${currentQuantity})`);
+            }
+            
+            updateCartCount();
+            currentQuantity = 1;
+            document.getElementById('qty-input').value = 1;
+        });
+
+        // Tabs
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(`tab-${btn.dataset.tab}`).classList.add('active');
+            });
+        });
+
+        // Carrinho
+        cartToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            cartModal.style.display = 'flex';
+            renderCart();
+        });
+
+        cartClose.addEventListener('click', () => {
+            cartModal.style.display = 'none';
+        });
+
+        cartModal.addEventListener('click', (e) => {
+            if (e.target === cartModal) {
+                cartModal.style.display = 'none';
+            }
+        });
+
+        // Continuar comprando
+        continueShoppingBtn.addEventListener('click', () => {
+            cartModal.style.display = 'none';
+        });
+
+        // Adicionar ao carrinho (grid)
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation(); // Evita abrir detalhe
+                
+                // Adiciona animação ao botão
+                button.classList.add('add-to-cart-animation');
+                setTimeout(() => {
+                    button.classList.remove('add-to-cart-animation');
+                }, 500);
+                
+                const id = parseInt(button.dataset.id);
+                const product = products.find(p => p.id === id);
+                if (product) {
+                    const existingItem = cart.find(item => item.id === id);
+                    if (existingItem) {
+                        existingItem.quantity += 1;
+                    } else {
+                        cart.push({ id, name: product.name, price: product.price, quantity: 1 });
+                    }
+                    updateCartCount();
+                    showNotification('Produto adicionado ao carrinho!');
+                }
+            });
+        });
+
+        // Finalizar compra
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                showNotification('Seu carrinho está vazio!');
+                return;
+            }
+            
+            // Aqui você pode implementar a lógica de checkout
+            // Por enquanto, apenas fechamos o modal
+            cartModal.style.display = 'none';
+            showNotification('Redirecionando para o checkout...');
+        });
+
+        // Enviar pedido por WhatsApp
+        whatsappBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                showNotification('Seu carrinho está vazio!');
+                return;
+            }
+            
+            // Formatar mensagem para WhatsApp
+            let message = "Olá! Gostaria de fazer um pedido:\n\n";
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                message += `• ${item.name}`;
+                
+                // Adiciona detalhes de personalização se existirem
+                if (item.size) {
+                    message += ` (Tamanho: ${item.size})`;
+                }
+                if (item.color) {
+                    // Converte cor hexadecimal para nome (simplificado)
+                    const colorNames = {
+                        '#2c3e50': 'Azul Marinho',
+                        '#3498db': 'Azul',
+                        '#e74c3c': 'Vermelho',
+                        '#f39c12': 'Laranja'
+                    };
+                    message += ` (Cor: ${colorNames[item.color] || item.color})`;
+                }
+                
+                message += ` - ${item.quantity}x R$ ${item.price.toFixed(2)} = R$ ${itemTotal.toFixed(2)}\n`;
+            });
+            
+            message += `\n*Total: R$ ${total.toFixed(2)}*`;
+            message += `\n\nPor favor, confirme meu pedido!`;
+            
+            // Codificar mensagem para URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Número de WhatsApp (substitua pelo número da sua empresa)
+            const phoneNumber = "5511999999999"; // Exemplo: (11) 99999-9999
+            
+            // Criar link do WhatsApp
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            
+            // Abrir WhatsApp em nova aba
+            window.open(whatsappURL, '_blank');
+            
+            // Mostrar confirmação
+            orderConfirmation.style.display = 'flex';
+            
+            // Limpar carrinho após envio
+            cart = [];
+            updateCartCount();
+        });
+
+        // Fechar confirmação de pedido
+        closeConfirmation.addEventListener('click', () => {
+            orderConfirmation.style.display = 'none';
+        });
+
+        function updateCartCount() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+
+        function renderCart() {
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="empty-cart">Seu carrinho está vazio.</p>';
+                cartTotal.textContent = 'R$ 0,00';
+                return;
+            }
+
+            cartItems.innerHTML = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                const div = document.createElement('div');
+                div.className = 'cart-item';
+                
+                let detailsHTML = '';
+                if (item.size || item.color) {
+                    detailsHTML = `<div class="cart-item-details">`;
+                    if (item.size) detailsHTML += `Tamanho: ${item.size} `;
+                    if (item.color) {
+                        // Converte cor hexadecimal para nome (simplificado)
+                        const colorNames = {
+                            '#2c3e50': 'Azul Marinho',
+                            '#3498db': 'Azul',
+                            '#e74c3c': 'Vermelho',
+                            '#f39c12': 'Laranja'
+                        };
+                        detailsHTML += `Cor: ${colorNames[item.color] || item.color}`;
+                    }
+                    detailsHTML += `</div>`;
+                }
+                
+                div.innerHTML = `
+                    <img src="https://via.placeholder.com/80" alt="${item.name}">
+                    <div class="cart-item-info">
+                        <div class="cart-item-title">${item.name}</div>
+                        ${detailsHTML}
+                        <div class="cart-item-price">R$ ${item.price.toFixed(2)} x ${item.quantity}</div>
+                    </div>
+                    <button class="cart-item-remove" data-id="${item.id}" data-size="${item.size || ''}" data-color="${item.color || ''}">×</button>
+                `;
+                cartItems.appendChild(div);
+            });
+
+            cartTotal.textContent = `R$ ${total.toFixed(2)}`;
+
+            document.querySelectorAll('.cart-item-remove').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = parseInt(btn.dataset.id);
+                    const size = btn.dataset.size;
+                    const color = btn.dataset.color;
+                    
+                    cart = cart.filter(item => 
+                        !(item.id === id && 
+                        (item.size || '') === size && 
+                        (item.color || '') === color)
+                    );
+                    
+                    updateCartCount();
+                    renderCart();
+                });
+            });
+        }
+
+        function showNotification(message) {
+            const notif = document.createElement('div');
+            notif.style.cssText = `
+                position: fixed; top: 100px; right: 20px; 
+                background: #1a1a1a; color: #fff; padding: 15px 25px;
+                border-radius: 8px; z-index: 3000; font-weight: 500;
+                animation: slideInRight 0.4s ease, fadeOut 0.4s ease 2.6s forwards;
+                opacity: 0;
+            `;
+            notif.textContent = message;
+            document.body.appendChild(notif);
+            
+            setTimeout(() => notif.style.opacity = '1', 100);
+            setTimeout(() => {
+                if (notif.parentNode) {
+                    notif.parentNode.removeChild(notif);
+                }
+            }, 3000);
+        }
+
+        // Animações ao rolar
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    if (entry.target.classList.contains('animate-on-scroll')) {
+                        entry.target.classList.add('animated');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.product-card, .category-card, .feature-item, .animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        // Wishlist
+        document.querySelectorAll('.wishlist').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                btn.classList.toggle('active');
+                btn.innerHTML = btn.classList.contains('active') 
+                    ? '<i class="fas fa-heart"></i>' 
+                    : '<i class="far fa-heart"></i>';
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target && !this.closest('.product-card')) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animações CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(100px); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes fadeOut {
+                from { opacity: 1; }
+                to { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
