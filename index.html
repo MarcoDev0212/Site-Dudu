@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>DC - Store</title>
+    <title>AlphaWear - Moda Masculina Premium</title>
     <meta name="description" content="Loja de roupas masculinas premium com estilo, conforto e qualidade. Camisetas, camisas, calças e acessórios com entrega rápida."/>
     
     <!-- Google Fonts -->
@@ -238,20 +238,96 @@
             transform: translateY(-15px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
-        .product-img {
+
+        /* === CARROSSEL DE IMAGENS === */
+        .product-carousel {
+            position: relative;
             height: 320px;
             overflow: hidden;
+            border-radius: 16px 16px 0 0;
+        }
+        
+        .carousel-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
             position: relative;
         }
-        .product-img img {
+        
+        .carousel-slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
         }
-        .product-card:hover .product-img img {
-            transform: scale(1.08);
+        
+        .carousel-nav {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            z-index: 3;
         }
+        
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-dot.active {
+            background: #fff;
+            transform: scale(1.2);
+        }
+        
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 3;
+            opacity: 0;
+            font-size: 1.2rem;
+            color: #1a1a1a;
+        }
+        
+        .product-carousel:hover .carousel-arrow {
+            opacity: 1;
+        }
+        
+        .carousel-arrow:hover {
+            background: #fff;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .carousel-arrow.prev {
+            left: 15px;
+        }
+        
+        .carousel-arrow.next {
+            right: 15px;
+        }
+
         .product-badge {
             position: absolute;
             top: 15px;
@@ -264,6 +340,7 @@
             font-weight: 600;
             z-index: 2;
         }
+
         .product-info {
             padding: 20px;
         }
@@ -284,6 +361,51 @@
             font-size: 1rem;
             margin-left: 8px;
         }
+
+        /* Personalização nos cards de produto */
+        .product-customization {
+            margin-bottom: 15px;
+        }
+        .customization-options {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        .customization-btn {
+            padding: 6px 12px;
+            border: 1px solid #ddd;
+            background: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+        }
+        .customization-btn.active {
+            border-color: #1a1a1a;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        .color-btn {
+            width: 24px;
+            height: 24px;
+            padding: 0;
+            border-radius: 50%;
+            position: relative;
+        }
+        .color-btn::after {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px;
+            right: -2px; bottom: -2px;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            transition: border-color 0.3s ease;
+        }
+        .color-btn.active::after {
+            border-color: #1a1a1a;
+        }
+
         .product-actions {
             display: flex;
             gap: 10px;
@@ -318,467 +440,8 @@
             color: #d4af37;
             border-color: #d4af37;
         }
-        
-        /* === PÁGINA DE PRODUTO DETALHADA === */
-        .product-detail {
-            padding: 120px 0 80px;
-            display: none;
-        }
-        .product-detail.active {
-            display: block;
-        }
-        .product-detail-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: start;
-        }
-        .product-gallery {
-            position: relative;
-        }
-        .main-image {
-            height: 600px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            margin-bottom: 15px;
-        }
-        .main-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-        .thumbnail-gallery {
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            padding: 5px 0;
-        }
-        .thumbnail {
-            width: 90px;
-            height: 90px;
-            border-radius: 12px;
-            overflow: hidden;
-            cursor: pointer;
-            border: 3px solid transparent;
-            transition: all 0.3s ease;
-            opacity: 0.7;
-        }
-        .thumbnail.active, .thumbnail:hover {
-            border-color: #d4af37;
-            opacity: 1;
-        }
-        .thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .product-info-detail {
-            padding: 20px 0;
-        }
-        .product-breadcrumb {
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-            color: #777;
-        }
-        .product-breadcrumb a {
-            color: #d4af37;
-            text-decoration: underline;
-        }
-        .product-title-detail {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            line-height: 1.2;
-        }
-        .product-rating {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .stars {
-            color: #ffc107;
-            font-size: 1.1rem;
-        }
-        .review-count {
-            color: #777;
-            font-size: 0.95rem;
-        }
-        .product-price-detail {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 15px;
-        }
-        .product-price-detail del {
-            color: #999;
-            font-size: 1.5rem;
-            margin-left: 15px;
-        }
-        .discount-badge {
-            display: inline-block;
-            background: #e74c3c;
-            color: #fff;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-left: 15px;
-        }
-        .product-description {
-            margin: 25px 0;
-            line-height: 1.8;
-            color: #555;
-        }
-        .product-features {
-            list-style: none;
-            margin: 25px 0;
-        }
-        .product-features li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-            color: #444;
-        }
-        .product-features li i {
-            color: #27ae60;
-            font-size: 1.1rem;
-        }
-        .size-selector, .color-selector {
-            margin-bottom: 25px;
-        }
-        .selector-label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        .size-options, .color-options {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .size-btn, .color-btn {
-            padding: 10px 16px;
-            border: 2px solid #ddd;
-            background: #fff;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-        .size-btn:hover, .color-btn:hover {
-            border-color: #d4af37;
-        }
-        .size-btn.active, .color-btn.active {
-            border-color: #1a1a1a;
-            background: #1a1a1a;
-            color: #fff;
-        }
-        .color-btn {
-            width: 40px;
-            height: 40px;
-            padding: 0;
-            border-radius: 50%;
-            position: relative;
-        }
-        .color-btn::after {
-            content: '';
-            position: absolute;
-            top: -4px; left: -4px;
-            right: -4px; bottom: -4px;
-            border: 2px solid transparent;
-            border-radius: 50%;
-            transition: border-color 0.3s ease;
-        }
-        .color-btn.active::after {
-            border-color: #1a1a1a;
-        }
-        .quantity-selector {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        .quantity-btn {
-            width: 40px;
-            height: 40px;
-            background: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-        .quantity-btn:hover {
-            background: #eee;
-        }
-        .quantity-input {
-            width: 60px;
-            text-align: center;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-weight: 600;
-        }
-        .product-actions-detail {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        .add-to-cart-detail {
-            flex: 1;
-            font-size: 1.1rem;
-            padding: 16px;
-        }
-        .wishlist-detail {
-            width: 60px;
-            height: 60px;
-            background: #f8f9fa;
-            border: 2px solid #ddd;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.4rem;
-            transition: all 0.3s ease;
-        }
-        .wishlist-detail:hover, .wishlist-detail.active {
-            background: #d4af37;
-            color: #1a1a1a;
-            border-color: #d4af37;
-        }
-        .share-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .share-btn {
-            width: 40px;
-            height: 40px;
-            background: #f8f9fa;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #777;
-            transition: all 0.3s ease;
-        }
-        .share-btn:hover {
-            background: #d4af37;
-            color: #1a1a1a;
-            transform: translateY(-3px);
-        }
-        
-        /* Tabs de Informações */
-        .product-tabs {
-            margin-top: 80px;
-            border-top: 1px solid #eee;
-            padding-top: 50px;
-        }
-        .tab-buttons {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #eee;
-        }
-        .tab-btn {
-            padding: 15px 0;
-            font-weight: 600;
-            color: #777;
-            cursor: pointer;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        .tab-btn.active {
-            color: #1a1a1a;
-        }
-        .tab-btn.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: #d4af37;
-        }
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        .reviews-list {
-            margin-top: 20px;
-        }
-        .review-item {
-            padding: 20px 0;
-            border-bottom: 1px solid #eee;
-        }
-        .review-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .review-author {
-            font-weight: 600;
-        }
-        .review-date {
-            color: #999;
-            font-size: 0.9rem;
-        }
-        .review-text {
-            color: #555;
-            line-height: 1.7;
-        }
-        
-        /* Back to home */
-        .back-to-home {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #777;
-            font-weight: 500;
-            margin-bottom: 20px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-        .back-to-home:hover {
-            color: #d4af37;
-        }
-        
-        /* Categorias */
-        .categories {
-            background: #111;
-            color: #fff;
-        }
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .category-card {
-            position: relative;
-            height: 300px;
-            border-radius: 16px;
-            overflow: hidden;
-            cursor: pointer;
-            opacity: 0;
-            transform: scale(0.9);
-        }
-        .category-card.visible {
-            opacity: 1;
-            transform: scale(1);
-            transition: all 0.6s ease;
-        }
-        .category-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        .category-card:hover img {
-            transform: scale(1.1);
-        }
-        .category-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 30px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: #fff;
-        }
-        .category-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-        }
-        
-        /* Por que Escolher */
-        .features {
-            background: #fff;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            text-align: center;
-        }
-        .feature-item {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        .feature-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.6s ease;
-        }
-        .feature-icon {
-            font-size: 3rem;
-            color: #d4af37;
-            margin-bottom: 20px;
-        }
-        .feature-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        
-        /* Newsletter */
-        .newsletter {
-            background: linear-gradient(135deg, #1a1a1a, #333);
-            color: #fff;
-            text-align: center;
-        }
-        .newsletter h2 {
-            margin-bottom: 20px;
-            font-size: 2.2rem;
-        }
-        .newsletter p {
-            margin-bottom: 30px;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .newsletter-form {
-            display: flex;
-            max-width: 500px;
-            margin: 0 auto;
-            border-radius: 50px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        .newsletter-form input {
-            flex: 1;
-            padding: 18px 25px;
-            border: none;
-            font-size: 1rem;
-            outline: none;
-        }
-        .newsletter-form button {
-            padding: 18px 30px;
-            background: #d4af37;
-            color: #1a1a1a;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .newsletter-form button:hover {
-            background: #e0c567;
-        }
-        
-        /* Footer */
+
+        /* Footer e outros estilos mantidos */
         footer {
             background: #111;
             color: #aaa;
@@ -843,7 +506,7 @@
             border-top: 1px solid #222;
             font-size: 0.9rem;
         }
-        
+
         /* Modal Carrinho */
         .cart-modal {
             position: fixed;
@@ -859,7 +522,7 @@
         .cart-content {
             background: #fff;
             width: 90%;
-            max-width: 500px;
+            max-width: 600px;
             border-radius: 16px;
             overflow: hidden;
             animation: slideDown 0.4s ease;
@@ -889,6 +552,7 @@
             gap: 15px;
             padding: 15px 0;
             border-bottom: 1px solid #eee;
+            align-items: center;
         }
         .cart-item img {
             width: 80px;
@@ -907,12 +571,57 @@
             color: #1a1a1a;
             font-weight: 600;
         }
+        .cart-item-details {
+            font-size: 0.85rem;
+            color: #777;
+            margin-top: 5px;
+        }
+        
+        /* Controles de quantidade no carrinho */
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+        }
+        .cart-quantity-btn {
+            width: 28px;
+            height: 28px;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        .cart-quantity-btn:hover {
+            background: #eee;
+        }
+        .cart-quantity-input {
+            width: 40px;
+            text-align: center;
+            padding: 4px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
         .cart-item-remove {
             background: none;
             border: none;
-            color: #999;
+            color: #e74c3c;
             cursor: pointer;
             font-size: 1.2rem;
+            padding: 5px;
+            transition: all 0.3s ease;
+        }
+        .cart-item-remove:hover {
+            color: #c0392b;
+            transform: scale(1.1);
         }
         .cart-total {
             padding: 20px;
@@ -931,57 +640,22 @@
             padding: 40px;
             color: #999;
         }
-        
+
         /* Responsivo */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-            .nav-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-            nav ul {
-                gap: 20px;
-            }
-            .product-detail-container {
-                grid-template-columns: 1fr;
-            }
-            .main-image {
-                height: 500px;
-            }
-        }
         @media (max-width: 768px) {
-            .hero {
-                height: 80vh;
+            .carousel-arrow {
+                opacity: 1;
+                width: 35px;
+                height: 35px;
             }
-            .hero h1 {
-                font-size: 2.5rem;
+            .carousel-arrow.prev {
+                left: 8px;
             }
-            section {
-                padding: 80px 0;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .newsletter-form {
-                flex-direction: column;
-            }
-            .newsletter-form button {
-                border-radius: 0;
-            }
-            .product-title-detail {
-                font-size: 2rem;
-            }
-            .product-actions-detail {
-                flex-direction: column;
-            }
-            .wishlist-detail {
-                width: 100%;
-                height: 50px;
+            .carousel-arrow.next {
+                right: 8px;
             }
         }
-        
+
         /* Animações */
         @keyframes fadeInUp {
             from {
@@ -1016,62 +690,7 @@
             opacity: 1;
             transform: translateY(0);
         }
-        
-        /* === NOVOS ESTILOS ADICIONADOS === */
-        
-        /* Botão WhatsApp no carrinho */
-        .whatsapp-btn {
-            background: #25D366;
-            color: white;
-            border: none;
-            padding: 15px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            width: 100%;
-            margin-top: 10px;
-        }
-        .whatsapp-btn:hover {
-            background: #128C7E;
-            transform: translateY(-2px);
-        }
-        
-        /* Modal de confirmação de pedido */
-        .order-confirmation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 3000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-        }
-        .order-content {
-            background: white;
-            padding: 30px;
-            border-radius: 16px;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-            animation: zoomIn 0.4s ease;
-        }
-        .order-content h3 {
-            margin-bottom: 15px;
-            color: #1a1a1a;
-        }
-        .order-content p {
-            margin-bottom: 20px;
-            color: #555;
-        }
-        
+
         /* Animações para adicionar produto */
         @keyframes addToCartAnimation {
             0% {
@@ -1084,75 +703,8 @@
                 transform: scale(1);
             }
         }
-        @keyframes zoomIn {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
         .add-to-cart-animation {
             animation: addToCartAnimation 0.5s ease;
-        }
-        
-        /* Personalização de camisas */
-        .shirt-customization {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #eee;
-        }
-        .customization-title {
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #333;
-        }
-        .customization-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        .customization-option {
-            padding: 8px 15px;
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .customization-option.active {
-            background: #1a1a1a;
-            color: white;
-            border-color: #1a1a1a;
-        }
-        .add-more-btn {
-            background: transparent;
-            border: 1px dashed #ddd;
-            color: #777;
-            padding: 10px 15px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 10px;
-        }
-        .add-more-btn:hover {
-            border-color: #d4af37;
-            color: #d4af37;
-        }
-        
-        /* Detalhes do produto no carrinho */
-        .cart-item-details {
-            font-size: 0.85rem;
-            color: #777;
-            margin-top: 5px;
         }
     </style>
 </head>
@@ -1199,15 +751,60 @@
         <div class="container">
             <h2 class="section-title">Produtos em Destaque</h2>
             <div class="products-grid">
-                <!-- Produto 1 -->
+                <!-- Produto 1 - Camisa Oxford Premium -->
                 <div class="product-card" data-product-id="1">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1622446273984-7b1f9d8e8a7c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Camisa Social Premium">
+                    <div class="product-carousel">
+                        <div class="carousel-container" id="carousel-1">
+                            <div class="carousel-slide">
+                                <img src="https://images.unsplash.com/photo-1622446273984-7b1f9d8e8a7c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Camisa Oxford Premium - Vista frontal">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://images.unsplash.com/photo-1603833797131-3c8032c704b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Camisa Oxford Premium - Detalhes">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Camisa Oxford Premium - Costas">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Camisa Oxford Premium - Tecido">
+                            </div>
+                        </div>
+                        
+                        <button class="carousel-arrow prev" onclick="moveCarousel(-1, 'carousel-1')">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-arrow next" onclick="moveCarousel(1, 'carousel-1')">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        
+                        <div class="carousel-nav" id="nav-1">
+                            <span class="carousel-dot active" onclick="goToSlide(0, 'carousel-1')"></span>
+                            <span class="carousel-dot" onclick="goToSlide(1, 'carousel-1')"></span>
+                            <span class="carousel-dot" onclick="goToSlide(2, 'carousel-1')"></span>
+                            <span class="carousel-dot" onclick="goToSlide(3, 'carousel-1')"></span>
+                        </div>
+                        
                         <div class="product-badge">Novo</div>
                     </div>
+                    
                     <div class="product-info">
                         <h3 class="product-title">Camisa Oxford Premium</h3>
                         <p class="product-price">R$ 249,90 <del>R$ 329,90</del></p>
+                        
+                        <!-- Personalização no card do produto -->
+                        <div class="product-customization">
+                            <div class="customization-options">
+                                <button class="customization-btn size-btn active" data-size="P">P</button>
+                                <button class="customization-btn size-btn" data-size="M">M</button>
+                                <button class="customization-btn size-btn" data-size="G">G</button>
+                                <button class="customization-btn size-btn" data-size="GG">GG</button>
+                            </div>
+                            <div class="customization-options">
+                                <button class="customization-btn color-btn active" style="background: #2c3e50;" data-color="#2c3e50"></button>
+                                <button class="customization-btn color-btn" style="background: #3498db;" data-color="#3498db"></button>
+                                <button class="customization-btn color-btn" style="background: #e74c3c;" data-color="#e74c3c"></button>
+                            </div>
+                        </div>
+                        
                         <div class="product-actions">
                             <button class="add-to-cart" data-id="1" data-name="Camisa Oxford Premium" data-price="249.90">
                                 Adicionar
@@ -1217,15 +814,56 @@
                     </div>
                 </div>
 
-                <!-- Produto 2 -->
+                <!-- Produto 2 - Jaqueta de Couro -->
                 <div class="product-card" data-product-id="2">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jaqueta de Couro">
+                    <div class="product-carousel">
+                        <div class="carousel-container" id="carousel-2">
+                            <div class="carousel-slide">
+                                <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jaqueta de Couro - Vista frontal">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jaqueta de Couro - Detalhes">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://images.unsplash.com/photo-1520975954732-35dd308295d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jaqueta de Couro - Costas">
+                            </div>
+                        </div>
+                        
+                        <button class="carousel-arrow prev" onclick="moveCarousel(-1, 'carousel-2')">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-arrow next" onclick="moveCarousel(1, 'carousel-2')">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        
+                        <div class="carousel-nav" id="nav-2">
+                            <span class="carousel-dot active" onclick="goToSlide(0, 'carousel-2')"></span>
+                            <span class="carousel-dot" onclick="goToSlide(1, 'carousel-2')"></span>
+                            <span class="carousel-dot" onclick="goToSlide(2, 'carousel-2')"></span>
+                        </div>
+                        
                         <div class="product-badge">-25%</div>
                     </div>
+                    
                     <div class="product-info">
                         <h3 class="product-title">Jaqueta de Couro Clássica</h3>
                         <p class="product-price">R$ 599,90 <del>R$ 799,90</del></p>
+                        
+                        <!-- Personalização no card do produto -->
+                        <div class="product-customization">
+                            <div class="customization-options">
+                                <button class="customization-btn size-btn active" data-size="P">P</button>
+                                <button class="customization-btn size-btn" data-size="M">M</button>
+                                <button class="customization-btn size-btn" data-size="G">G</button>
+                                <button class="customization-btn size-btn" data-size="GG">GG</button>
+                            </div>
+                            <div class="customization-options">
+                                <button class="customization-btn color-btn active" style="background: #2c3e50;" data-color="#2c3e50"></button>
+                                <button class="customization-btn color-btn" style="background: #7f8c8d;" data-color="#7f8c8d"></button>
+                                <button class="customization-btn color-btn" style="background: #c0392b;" data-color="#c0392b"></button>
+                            </div>
+                        </div>
+                        
                         <div class="product-actions">
                             <button class="add-to-cart" data-id="2" data-name="Jaqueta de Couro Clássica" data-price="599.90">
                                 Adicionar
@@ -1235,14 +873,54 @@
                     </div>
                 </div>
 
-                <!-- Produto 3 -->
+                <!-- Produto 3 - Calça Jeans -->
                 <div class="product-card" data-product-id="3">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Calça Jeans">
+                    <div class="product-carousel">
+                        <div class="carousel-container" id="carousel-3">
+                            <div class="carousel-slide">
+                                <img src="https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Calça Jeans - Vista frontal">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Calça Jeans - Detalhes">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://images.unsplash.com/photo-1602293589930-4d1ff952d4f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Calça Jeans - Costas">
+                            </div>
+                        </div>
+                        
+                        <button class="carousel-arrow prev" onclick="moveCarousel(-1, 'carousel-3')">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-arrow next" onclick="moveCarousel(1, 'carousel-3')">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        
+                        <div class="carousel-nav" id="nav-3">
+                            <span class="carousel-dot active" onclick="goToSlide(0, 'carousel-3')"></span>
+                            <span class="carousel-dot" onclick="goToSlide(1, 'carousel-3')"></span>
+                            <span class="carousel-dot" onclick="goToSlide(2, 'carousel-3')"></span>
+                        </div>
                     </div>
+                    
                     <div class="product-info">
                         <h3 class="product-title">Calça Jeans Slim Fit</h3>
                         <p class="product-price">R$ 189,90</p>
+                        
+                        <!-- Personalização no card do produto -->
+                        <div class="product-customization">
+                            <div class="customization-options">
+                                <button class="customization-btn size-btn active" data-size="38">38</button>
+                                <button class="customization-btn size-btn" data-size="40">40</button>
+                                <button class="customization-btn size-btn" data-size="42">42</button>
+                                <button class="customization-btn size-btn" data-size="44">44</button>
+                            </div>
+                            <div class="customization-options">
+                                <button class="customization-btn color-btn active" style="background: #34495e;" data-color="#34495e"></button>
+                                <button class="customization-btn color-btn" style="background: #2c3e50;" data-color="#2c3e50"></button>
+                                <button class="customization-btn color-btn" style="background: #7f8c8d;" data-color="#7f8c8d"></button>
+                            </div>
+                        </div>
+                        
                         <div class="product-actions">
                             <button class="add-to-cart" data-id="3" data-name="Calça Jeans Slim Fit" data-price="189.90">
                                 Adicionar
@@ -1252,15 +930,61 @@
                     </div>
                 </div>
 
-                <!-- Produto 4 -->
+                <!-- Produto 4 - Tênis -->
                 <div class="product-card" data-product-id="4">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1543503103-7c44b66b7c71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tênis Casual">
+                    <div class="product-carousel">
+                        <div class="carousel-container" id="carousel-4">
+                            <div class="carousel-slide">
+                                <img src="https://images.unsplash.com/photo-1543503103-7c44b66b7c71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tênis Urban - Vista lateral">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://images.unsplash.com/photo-1605348532760-9539d9b729d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tênis Urban - Vista superior">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://images.unsplash.com/photo-1562183241-b937e1de65e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tênis Urban - Detalhes">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://images.unsplash.com/photo-1549298916-b41d501d9702?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tênis Urban - Sola">
+                            </div>
+                        </div>
+                        
+                        <button class="carousel-arrow prev" onclick="moveCarousel(-1, 'carousel-4')">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-arrow next" onclick="moveCarousel(1, 'carousel-4')">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        
+                        <div class="carousel-nav" id="nav-4">
+                            <span class="carousel-dot active" onclick="goToSlide(0, 'carousel-4')"></span>
+                            <span class="carousel-dot" onclick="goToSlide(1, 'carousel-4')"></span>
+                            <span class="carousel-dot" onclick="goToSlide(2, 'carousel-4')"></span>
+                            <span class="carousel-dot" onclick="goToSlide(3, 'carousel-4')"></span>
+                        </div>
+                        
                         <div class="product-badge">Best Seller</div>
                     </div>
+                    
                     <div class="product-info">
                         <h3 class="product-title">Tênis Urban Casual</h3>
                         <p class="product-price">R$ 349,90</p>
+                        
+                        <!-- Personalização no card do produto -->
+                        <div class="product-customization">
+                            <div class="customization-options">
+                                <button class="customization-btn size-btn active" data-size="38">38</button>
+                                <button class="customization-btn size-btn" data-size="39">39</button>
+                                <button class="customization-btn size-btn" data-size="40">40</button>
+                                <button class="customization-btn size-btn" data-size="41">41</button>
+                                <button class="customization-btn size-btn" data-size="42">42</button>
+                            </div>
+                            <div class="customization-options">
+                                <button class="customization-btn color-btn active" style="background: #2c3e50;" data-color="#2c3e50"></button>
+                                <button class="customization-btn color-btn" style="background: #e74c3c;" data-color="#e74c3c"></button>
+                                <button class="customization-btn color-btn" style="background: #f39c12;" data-color="#f39c12"></button>
+                            </div>
+                        </div>
+                        
                         <div class="product-actions">
                             <button class="add-to-cart" data-id="4" data-name="Tênis Urban Casual" data-price="349.90">
                                 Adicionar
@@ -1270,263 +994,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- === PÁGINA DE PRODUTO DETALHADA === -->
-    <section class="product-detail" id="product-detail">
-        <div class="container">
-            <div class="back-to-home" id="back-to-home">
-                <i class="fas fa-arrow-left"></i> Voltar para Produtos
-            </div>
-            <div class="product-detail-container">
-                <!-- Galeria de Imagens -->
-                <div class="product-gallery">
-                    <div class="main-image">
-                        <img id="main-img" src="" alt="">
-                    </div>
-                    <div class="thumbnail-gallery">
-                        <div class="thumbnail active" data-img="0">
-                            <img src="" alt="">
-                        </div>
-                        <div class="thumbnail" data-img="1">
-                            <img src="" alt="">
-                        </div>
-                        <div class="thumbnail" data-img="2">
-                            <img src="" alt="">
-                        </div>
-                        <div class="thumbnail" data-img="3">
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Informações do Produto -->
-                <div class="product-info-detail">
-                    <div class="product-breadcrumb">
-                        <a href="#home">Início</a> / <a href="#produtos">Produtos</a> / <span id="breadcrumb-category">Camisas</span>
-                    </div>
-                    <h1 class="product-title-detail" id="detail-title"></h1>
-                    <div class="product-rating">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <span class="review-count">(42 avaliações)</span>
-                    </div>
-                    <div class="product-price-detail" id="detail-price"></div>
-                    <p class="product-description" id="detail-description">
-                        Camisa Oxford de algodão premium com corte slim fit. Ideal para ocasiões formais e casuais. Tecido respirável, botões de madrepérola e costura reforçada.
-                    </p>
-                    <ul class="product-features">
-                        <li><i class="fas fa-check"></i> Algodão 100% orgânico</li>
-                        <li><i class="fas fa-check"></i> Corte slim fit moderno</li>
-                        <li><i class="fas fa-check"></i> Botões de madrepérola</li>
-                        <li><i class="fas fa-check"></i> Lavagem a máquina</li>
-                        <li><i class="fas fa-check"></i> Disponível em 5 cores</li>
-                    </ul>
-
-                    <!-- Personalização de Camisas -->
-                    <div class="shirt-customization" id="shirt-customization">
-                        <div class="customization-title">Personalize sua camisa:</div>
-                        
-                        <!-- Seleção de Tamanho -->
-                        <div class="size-selector">
-                            <label class="selector-label">Tamanho</label>
-                            <div class="size-options">
-                                <button class="size-btn active">P</button>
-                                <button class="size-btn">M</button>
-                                <button class="size-btn">G</button>
-                                <button class="size-btn">GG</button>
-                                <button class="size-btn">XG</button>
-                            </div>
-                        </div>
-
-                        <!-- Seleção de Cor -->
-                        <div class="color-selector">
-                            <label class="selector-label">Cor</label>
-                            <div class="color-options">
-                                <button class="color-btn active" style="background: #2c3e50;"></button>
-                                <button class="color-btn" style="background: #3498db;"></button>
-                                <button class="color-btn" style="background: #e74c3c;"></button>
-                                <button class="color-btn" style="background: #f39c12;"></button>
-                            </div>
-                        </div>
-                        
-                        <!-- Botão para adicionar mais camisas -->
-                        <button class="add-more-btn" id="add-more-shirts">
-                            <i class="fas fa-plus"></i> Adicionar outra camisa com personalização diferente
-                        </button>
-                    </div>
-
-                    <!-- Quantidade -->
-                    <div class="quantity-selector">
-                        <span class="selector-label">Quantidade:</span>
-                        <button class="quantity-btn" id="qty-decrease">-</button>
-                        <input type="text" class="quantity-input" id="qty-input" value="1">
-                        <button class="quantity-btn" id="qty-increase">+</button>
-                    </div>
-
-                    <!-- Ações -->
-                    <div class="product-actions-detail">
-                        <button class="btn add-to-cart-detail" id="add-to-cart-detail">
-                            <i class="fas fa-shopping-bag"></i> Adicionar ao Carrinho
-                        </button>
-                        <button class="wishlist-detail" id="wishlist-detail">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-
-                    <div class="share-buttons">
-                        <span style="margin-right: 10px; color: #777;">Compartilhar:</span>
-                        <a href="#" class="share-btn"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="share-btn"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="share-btn"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="share-btn"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tabs -->
-            <div class="product-tabs">
-                <div class="tab-buttons">
-                    <div class="tab-btn active" data-tab="description">Descrição</div>
-                    <div class="tab-btn" data-tab="specs">Especificações</div>
-                    <div class="tab-btn" data-tab="reviews">Avaliações</div>
-                </div>
-                <div class="tab-content active" id="tab-description">
-                    <p>Camisa Oxford de algodão premium com corte slim fit. Ideal para ocasiões formais e casuais. Tecido respirável, botões de madrepérola e costura reforçada.</p>
-                    <p><strong>Características:</strong></p>
-                    <ul>
-                        <li>Algodão 100% orgânico</li>
-                        <li>Corte slim fit moderno</li>
-                        <li>Botões de madrepérola</li>
-                        <li>Lavagem a máquina</li>
-                        <li>Disponível em 5 cores</li>
-                    </ul>
-                </div>
-                <div class="tab-content" id="tab-specs">
-                    <table style="width: 100%; border-collapse: collapse;">
-                        <tr>
-                            <td style="padding: 12px 0; border-bottom: 1px solid #eee;"><strong>Material</strong></td>
-                            <td style="padding: 12px 0; border-bottom: 1px solid #eee;">Algodão 100%</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 0; border-bottom: 1px solid #eee;"><strong>Marca</strong></td>
-                            <td style="padding: 12px 0; border-bottom: 1px solid #eee;">AlphaWear Premium</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 0; border-bottom: 1px solid #eee;"><strong>Peso</strong></td>
-                            <td style="padding: 12px 0; border-bottom: 1px solid #eee;">280g</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 0;"><strong>País de Origem</strong></td>
-                            <td style="padding: 12px 0;">Brasil</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="tab-content" id="tab-reviews">
-                    <div class="reviews-list">
-                        <div class="review-item">
-                            <div class="review-header">
-                                <div class="review-author">João Silva</div>
-                                <div class="review-date">12 de Novembro, 2025</div>
-                            </div>
-                            <div class="stars" style="color: #ffc107; margin-bottom: 8px;">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="review-text">Excelente qualidade! O tecido é muito confortável e o caimento perfeito. Recomendo!</p>
-                        </div>
-                        <div class="review-item">
-                            <div class="review-header">
-                                <div class="review-author">Carlos Mendes</div>
-                                <div class="review-date">08 de Novembro, 2025</div>
-                            </div>
-                            <div class="stars" style="color: #ffc107; margin-bottom: 8px;">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                            </div>
-                            <p class="review-text">Gostei bastante, mas o tamanho P ficou um pouco apertado. Troquei por M e ficou ótimo.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Categorias -->
-    <section class="categories" id="categorias">
-        <div class="container">
-            <h2 class="section-title" style="color: #fff;">Explore por Categoria</h2>
-            <div class="categories-grid">
-                <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1603251569198-2164f4d66a20?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Camisas">
-                    <div class="category-overlay">
-                        <h3 class="category-title">Camisas</h3>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Calças">
-                    <div class="category-overlay">
-                        <h3 class="category-title">Calças</h3>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1602293589930-4d1ff952d4f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jaquetas">
-                    <div class="category-overlay">
-                        <h3 class="category-title">Jaquetas</h3>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d9702?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tênis">
-                    <div class="category-overlay">
-                        <h3 class="category-title">Tênis</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Por que Escolher -->
-    <section class="features" id="sobre">
-        <div class="container">
-            <h2 class="section-title">Por que Escolher a AlphaWear?</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3 class="feature-title">Qualidade Premium</h3>
-                    <p>Tecidos selecionados e acabamento impecável em todas as peças.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon"><i class="fas fa-truck"></i></div>
-                    <h3 class="feature-title">Entrega Rápida</h3>
-                    <p>Enviamos para todo o Brasil com frete grátis acima de R$ 400.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon"><i class="fas fa-sync-alt"></i></div>
-                    <h3 class="feature-title">Troca Fácil</h3>
-                    <p>30 dias para troca ou devolução sem complicação.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon"><i class="fas fa-headset"></i></div>
-                    <h3 class="feature-title">Suporte 24/7</h3>
-                    <p>Atendimento humanizado sempre que você precisar.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section class="newsletter" id="contato">
-        <div class="container">
-            <h2>Fique por Dentro das Novidades</h2>
-            <p>Receba promoções exclusivas e lançamentos em primeira mão.</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Seu e-mail" required />
-                <button type="submit">Inscrever</button>
-            </form>
         </div>
     </section>
 
@@ -1597,25 +1064,70 @@
                     Continuar Comprando
                 </button>
             </div>
-            <!-- Botão WhatsApp -->
-            <div style="padding: 0 20px 20px;">
-                <button class="whatsapp-btn" id="whatsapp-order">
-                    <i class="fab fa-whatsapp"></i> Enviar Pedido por WhatsApp
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal de Confirmação de Pedido -->
-    <div class="order-confirmation" id="order-confirmation">
-        <div class="order-content">
-            <h3>Pedido Enviado com Sucesso!</h3>
-            <p>Seu pedido foi enviado para o WhatsApp. Em breve nossa equipe entrará em contato para confirmar os detalhes.</p>
-            <button class="btn" id="close-confirmation">Fechar</button>
         </div>
     </div>
 
     <script>
+        // Estado dos carrosseis
+        const carouselStates = {};
+
+        // Inicializar carrosseis
+        function initializeCarousels() {
+            document.querySelectorAll('.carousel-container').forEach(container => {
+                const carouselId = container.id;
+                carouselStates[carouselId] = {
+                    currentSlide: 0,
+                    totalSlides: container.children.length
+                };
+            });
+        }
+
+        // Mover carrossel
+        function moveCarousel(direction, carouselId) {
+            const state = carouselStates[carouselId];
+            const container = document.getElementById(carouselId);
+            const nav = document.getElementById(`nav-${carouselId.split('-')[1]}`);
+            
+            state.currentSlide += direction;
+            
+            if (state.currentSlide < 0) {
+                state.currentSlide = state.totalSlides - 1;
+            } else if (state.currentSlide >= state.totalSlides) {
+                state.currentSlide = 0;
+            }
+            
+            container.style.transform = `translateX(-${state.currentSlide * 100}%)`;
+            updateCarouselNav(nav, state.currentSlide);
+        }
+
+        // Ir para slide específico
+        function goToSlide(slideIndex, carouselId) {
+            const state = carouselStates[carouselId];
+            const container = document.getElementById(carouselId);
+            const nav = document.getElementById(`nav-${carouselId.split('-')[1]}`);
+            
+            state.currentSlide = slideIndex;
+            container.style.transform = `translateX(-${state.currentSlide * 100}%)`;
+            updateCarouselNav(nav, state.currentSlide);
+        }
+
+        // Atualizar navegação do carrossel
+        function updateCarouselNav(nav, currentSlide) {
+            const dots = nav.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        // Auto-play para carrosseis
+        function startCarouselAutoPlay() {
+            setInterval(() => {
+                for (const carouselId in carouselStates) {
+                    moveCarousel(1, carouselId);
+                }
+            }, 5000); // Muda a cada 5 segundos
+        }
+
         // Dados dos produtos
         const products = [
             {
@@ -1629,7 +1141,7 @@
                     "https://images.unsplash.com/photo-1622446273984-7b1f9d8e8a7c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                     "https://images.unsplash.com/photo-1603833797131-3c8032c704b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                     "https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                    "https://images.unsplash.com/photo-1622446273984-7b1f9d8e8a7c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    "https://images.unsplash.com/photo-1617137968427-85924c800a22?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                 ]
             },
             {
@@ -1642,8 +1154,7 @@
                 images: [
                     "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                     "https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                    "https://images.unsplash.com/photo-1520975954732-35dd308295d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                    "https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    "https://images.unsplash.com/photo-1520975954732-35dd308295d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                 ]
             },
             {
@@ -1656,8 +1167,7 @@
                 images: [
                     "https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                     "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                    "https://images.unsplash.com/photo-1602293589930-4d1ff952d4f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                    "https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    "https://images.unsplash.com/photo-1602293589930-4d1ff952d4f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                 ]
             },
             {
@@ -1671,24 +1181,15 @@
                     "https://images.unsplash.com/photo-1543503103-7c44b66b7c71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                     "https://images.unsplash.com/photo-1605348532760-9539d9b729d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                     "https://images.unsplash.com/photo-1562183241-b937e1de65e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                    "https://images.unsplash.com/photo-1543503103-7c44b66b7c71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    "https://images.unsplash.com/photo-1549298916-b41d501d9702?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                 ]
             }
         ];
 
         // Estado da aplicação
         let cart = [];
-        let currentProduct = null;
-        let currentQuantity = 1;
-        let currentSize = 'P';
-        let currentColor = '#2c3e50';
-        let shirtCustomizations = [];
 
         // Elementos DOM
-        const homeSection = document.getElementById('home');
-        const produtosSection = document.getElementById('produtos');
-        const productDetail = document.getElementById('product-detail');
-        const backToHome = document.getElementById('back-to-home');
         const cartCount = document.getElementById('cart-count');
         const cartModal = document.getElementById('cart-modal');
         const cartItems = document.getElementById('cart-items');
@@ -1697,237 +1198,79 @@
         const cartClose = document.getElementById('cart-close');
         const checkoutBtn = document.getElementById('checkout-btn');
         const continueShoppingBtn = document.getElementById('continue-shopping');
-        const whatsappBtn = document.getElementById('whatsapp-order');
-        const orderConfirmation = document.getElementById('order-confirmation');
-        const closeConfirmation = document.getElementById('close-confirmation');
-        const addMoreShirtsBtn = document.getElementById('add-more-shirts');
 
-        // Abrir produto detalhado
+        // Inicializar carrosseis
+        initializeCarousels();
+
+        // Iniciar auto-play (opcional - descomente se quiser)
+        // startCarouselAutoPlay();
+
+        // Inicializar personalização nos produtos
         document.querySelectorAll('.product-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const productId = parseInt(card.dataset.productId);
-                const product = products.find(p => p.id === productId);
+            const sizeButtons = card.querySelectorAll('.size-btn');
+            const colorButtons = card.querySelectorAll('.color-btn');
+            
+            // Seleção de tamanho
+            sizeButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    sizeButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+            
+            // Seleção de cor
+            colorButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    colorButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+        });
+
+        // Adicionar ao carrinho (grid)
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation(); // Evita abrir detalhe
+                
+                // Adiciona animação ao botão
+                button.classList.add('add-to-cart-animation');
+                setTimeout(() => {
+                    button.classList.remove('add-to-cart-animation');
+                }, 500);
+                
+                const id = parseInt(button.dataset.id);
+                const product = products.find(p => p.id === id);
+                
                 if (product) {
-                    loadProductDetail(product);
-                }
-            });
-        });
-
-        // Carregar detalhes do produto
-        function loadProductDetail(product) {
-            currentProduct = product;
-            
-            // Atualizar conteúdo
-            document.getElementById('detail-title').textContent = product.name;
-            document.getElementById('breadcrumb-category').textContent = product.category;
-            document.getElementById('detail-description').textContent = product.description;
-            
-            // Preço
-            let priceHTML = `R$ ${product.price.toFixed(2)}`;
-            if (product.oldPrice) {
-                const discount = Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100);
-                priceHTML += ` <del>R$ ${product.oldPrice.toFixed(2)}</del> <span class="discount-badge">-${discount}%</span>`;
-            }
-            document.getElementById('detail-price').innerHTML = priceHTML;
-            
-            // Imagens
-            const mainImg = document.getElementById('main-img');
-            const thumbnails = document.querySelectorAll('.thumbnail');
-            mainImg.src = product.images[0];
-            thumbnails.forEach((thumb, index) => {
-                if (index < product.images.length) {
-                    thumb.querySelector('img').src = product.images[index];
-                    thumb.style.display = 'block';
-                } else {
-                    thumb.style.display = 'none';
-                }
-            });
-            document.querySelector('.thumbnail.active').classList.remove('active');
-            thumbnails[0].classList.add('active');
-            
-            // Resetar quantidade e personalizações
-            currentQuantity = 1;
-            document.getElementById('qty-input').value = 1;
-            shirtCustomizations = [];
-            
-            // Mostrar/ocultar personalização de camisas
-            const shirtCustomization = document.getElementById('shirt-customization');
-            if (product.category === 'Camisas') {
-                shirtCustomization.style.display = 'block';
-            } else {
-                shirtCustomization.style.display = 'none';
-            }
-            
-            // Mostrar página de detalhe
-            homeSection.style.display = 'none';
-            produtosSection.style.display = 'none';
-            productDetail.classList.add('active');
-            
-            // Scroll suave para o topo
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Voltar para produtos
-        backToHome.addEventListener('click', () => {
-            productDetail.classList.remove('active');
-            homeSection.style.display = 'block';
-            produtosSection.style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Galeria de imagens
-        document.querySelectorAll('.thumbnail').forEach(thumb => {
-            thumb.addEventListener('click', () => {
-                document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
-                thumb.classList.add('active');
-                document.getElementById('main-img').src = thumb.querySelector('img').src;
-            });
-        });
-
-        // Seleção de tamanho
-        document.querySelectorAll('.size-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentSize = btn.textContent;
-            });
-        });
-
-        // Seleção de cor
-        document.querySelectorAll('.color-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentColor = btn.style.backgroundColor;
-            });
-        });
-
-        // Quantidade
-        document.getElementById('qty-decrease').addEventListener('click', () => {
-            if (currentQuantity > 1) {
-                currentQuantity--;
-                document.getElementById('qty-input').value = currentQuantity;
-            }
-        });
-
-        document.getElementById('qty-increase').addEventListener('click', () => {
-            currentQuantity++;
-            document.getElementById('qty-input').value = currentQuantity;
-        });
-
-        // Wishlist detalhe
-        document.getElementById('wishlist-detail').addEventListener('click', () => {
-            const btn = document.getElementById('wishlist-detail');
-            btn.classList.toggle('active');
-            btn.innerHTML = btn.classList.contains('active') 
-                ? '<i class="fas fa-heart"></i>' 
-                : '<i class="far fa-heart"></i>';
-        });
-
-        // Adicionar mais camisas personalizadas
-        addMoreShirtsBtn.addEventListener('click', () => {
-            if (currentProduct && currentProduct.category === 'Camisas') {
-                // Adiciona a personalização atual à lista
-                shirtCustomizations.push({
-                    size: currentSize,
-                    color: currentColor,
-                    quantity: currentQuantity
-                });
-                
-                // Reset para nova personalização
-                currentQuantity = 1;
-                document.getElementById('qty-input').value = 1;
-                
-                showNotification('Personalização adicionada! Configure a próxima camisa.');
-            }
-        });
-
-        // Adicionar ao carrinho (detalhe)
-        document.getElementById('add-to-cart-detail').addEventListener('click', () => {
-            if (!currentProduct) return;
-            
-            // Adiciona animação ao botão
-            const btn = document.getElementById('add-to-cart-detail');
-            btn.classList.add('add-to-cart-animation');
-            setTimeout(() => {
-                btn.classList.remove('add-to-cart-animation');
-            }, 500);
-            
-            // Se for uma camisa e houver personalizações adicionais
-            if (currentProduct.category === 'Camisas' && shirtCustomizations.length > 0) {
-                // Adiciona a personalização atual à lista
-                shirtCustomizations.push({
-                    size: currentSize,
-                    color: currentColor,
-                    quantity: currentQuantity
-                });
-                
-                // Adiciona cada personalização ao carrinho
-                shirtCustomizations.forEach(custom => {
+                    // Obter tamanho e cor selecionados
+                    const card = button.closest('.product-card');
+                    const selectedSize = card.querySelector('.size-btn.active').dataset.size;
+                    const selectedColor = card.querySelector('.color-btn.active').dataset.color;
+                    
+                    // Verificar se o produto já está no carrinho com mesma personalização
                     const existingItem = cart.find(item => 
-                        item.id === currentProduct.id && 
-                        item.size === custom.size && 
-                        item.color === custom.color
+                        item.id === id && 
+                        item.size === selectedSize && 
+                        item.color === selectedColor
                     );
                     
                     if (existingItem) {
-                        existingItem.quantity += custom.quantity;
+                        existingItem.quantity += 1;
                     } else {
-                        cart.push({
-                            id: currentProduct.id,
-                            name: currentProduct.name,
-                            price: currentProduct.price,
-                            quantity: custom.quantity,
-                            size: custom.size,
-                            color: custom.color
+                        cart.push({ 
+                            id, 
+                            name: product.name, 
+                            price: product.price, 
+                            quantity: 1,
+                            size: selectedSize,
+                            color: selectedColor
                         });
                     }
-                });
-                
-                showNotification(`Adicionado: ${currentProduct.name} (${shirtCustomizations.length} personalizações)`);
-                shirtCustomizations = [];
-            } else {
-                // Produto normal ou camisa sem personalizações adicionais
-                const existingItem = cart.find(item => 
-                    item.id === currentProduct.id && 
-                    (!item.size || item.size === currentSize) && 
-                    (!item.color || item.color === currentColor)
-                );
-                
-                if (existingItem) {
-                    existingItem.quantity += currentQuantity;
-                } else {
-                    const itemToAdd = {
-                        id: currentProduct.id,
-                        name: currentProduct.name,
-                        price: currentProduct.price,
-                        quantity: currentQuantity
-                    };
-                    
-                    // Adiciona tamanho e cor se for uma camisa
-                    if (currentProduct.category === 'Camisas') {
-                        itemToAdd.size = currentSize;
-                        itemToAdd.color = currentColor;
-                    }
-                    
-                    cart.push(itemToAdd);
+                    updateCartCount();
+                    showNotification('Produto adicionado ao carrinho!');
                 }
-                
-                showNotification(`Adicionado: ${currentProduct.name} (x${currentQuantity})`);
-            }
-            
-            updateCartCount();
-            currentQuantity = 1;
-            document.getElementById('qty-input').value = 1;
-        });
-
-        // Tabs
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                btn.classList.add('active');
-                document.getElementById(`tab-${btn.dataset.tab}`).classList.add('active');
             });
         });
 
@@ -1953,47 +1296,8 @@
             cartModal.style.display = 'none';
         });
 
-        // Adicionar ao carrinho (grid)
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.stopPropagation(); // Evita abrir detalhe
-                
-                // Adiciona animação ao botão
-                button.classList.add('add-to-cart-animation');
-                setTimeout(() => {
-                    button.classList.remove('add-to-cart-animation');
-                }, 500);
-                
-                const id = parseInt(button.dataset.id);
-                const product = products.find(p => p.id === id);
-                if (product) {
-                    const existingItem = cart.find(item => item.id === id);
-                    if (existingItem) {
-                        existingItem.quantity += 1;
-                    } else {
-                        cart.push({ id, name: product.name, price: product.price, quantity: 1 });
-                    }
-                    updateCartCount();
-                    showNotification('Produto adicionado ao carrinho!');
-                }
-            });
-        });
-
-        // Finalizar compra
+        // Finalizar compra - ENVIA PARA O WHATSAPP
         checkoutBtn.addEventListener('click', () => {
-            if (cart.length === 0) {
-                showNotification('Seu carrinho está vazio!');
-                return;
-            }
-            
-            // Aqui você pode implementar a lógica de checkout
-            // Por enquanto, apenas fechamos o modal
-            cartModal.style.display = 'none';
-            showNotification('Redirecionando para o checkout...');
-        });
-
-        // Enviar pedido por WhatsApp
-        whatsappBtn.addEventListener('click', () => {
             if (cart.length === 0) {
                 showNotification('Seu carrinho está vazio!');
                 return;
@@ -2009,7 +1313,7 @@
                 
                 message += `• ${item.name}`;
                 
-                // Adiciona detalhes de personalização se existirem
+                // Adiciona detalhes de personalização
                 if (item.size) {
                     message += ` (Tamanho: ${item.size})`;
                 }
@@ -2019,7 +1323,10 @@
                         '#2c3e50': 'Azul Marinho',
                         '#3498db': 'Azul',
                         '#e74c3c': 'Vermelho',
-                        '#f39c12': 'Laranja'
+                        '#f39c12': 'Laranja',
+                        '#7f8c8d': 'Cinza',
+                        '#c0392b': 'Vermelho Escuro',
+                        '#34495e': 'Azul Escuro'
                     };
                     message += ` (Cor: ${colorNames[item.color] || item.color})`;
                 }
@@ -2033,8 +1340,8 @@
             // Codificar mensagem para URL
             const encodedMessage = encodeURIComponent(message);
             
-            // Número de WhatsApp (substitua pelo número da sua empresa)
-            const phoneNumber = "5511999999999"; // Exemplo: (11) 99999-9999
+            // Número de WhatsApp fixo
+            const phoneNumber = "51992520046";
             
             // Criar link do WhatsApp
             const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
@@ -2042,17 +1349,14 @@
             // Abrir WhatsApp em nova aba
             window.open(whatsappURL, '_blank');
             
-            // Mostrar confirmação
-            orderConfirmation.style.display = 'flex';
-            
             // Limpar carrinho após envio
             cart = [];
             updateCartCount();
-        });
-
-        // Fechar confirmação de pedido
-        closeConfirmation.addEventListener('click', () => {
-            orderConfirmation.style.display = 'none';
+            
+            // Fechar modal do carrinho
+            cartModal.style.display = 'none';
+            
+            showNotification('Pedido enviado para o WhatsApp!');
         });
 
         function updateCartCount() {
@@ -2070,7 +1374,7 @@
             cartItems.innerHTML = '';
             let total = 0;
             
-            cart.forEach(item => {
+            cart.forEach((item, index) => {
                 const itemTotal = item.price * item.quantity;
                 total += itemTotal;
                 
@@ -2087,7 +1391,10 @@
                             '#2c3e50': 'Azul Marinho',
                             '#3498db': 'Azul',
                             '#e74c3c': 'Vermelho',
-                            '#f39c12': 'Laranja'
+                            '#f39c12': 'Laranja',
+                            '#7f8c8d': 'Cinza',
+                            '#c0392b': 'Vermelho Escuro',
+                            '#34495e': 'Azul Escuro'
                         };
                         detailsHTML += `Cor: ${colorNames[item.color] || item.color}`;
                     }
@@ -2099,29 +1406,63 @@
                     <div class="cart-item-info">
                         <div class="cart-item-title">${item.name}</div>
                         ${detailsHTML}
-                        <div class="cart-item-price">R$ ${item.price.toFixed(2)} x ${item.quantity}</div>
+                        <div class="cart-item-price">R$ ${item.price.toFixed(2)}</div>
+                        <div class="cart-item-controls">
+                            <button class="cart-quantity-btn decrease-btn" data-index="${index}">-</button>
+                            <input type="text" class="cart-quantity-input" value="${item.quantity}" data-index="${index}">
+                            <button class="cart-quantity-btn increase-btn" data-index="${index}">+</button>
+                        </div>
                     </div>
-                    <button class="cart-item-remove" data-id="${item.id}" data-size="${item.size || ''}" data-color="${item.color || ''}">×</button>
+                    <button class="cart-item-remove" data-index="${index}">
+                        <i class="fas fa-trash"></i>
+                    </button>
                 `;
                 cartItems.appendChild(div);
             });
 
             cartTotal.textContent = `R$ ${total.toFixed(2)}`;
 
-            document.querySelectorAll('.cart-item-remove').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const id = parseInt(btn.dataset.id);
-                    const size = btn.dataset.size;
-                    const color = btn.dataset.color;
-                    
-                    cart = cart.filter(item => 
-                        !(item.id === id && 
-                        (item.size || '') === size && 
-                        (item.color || '') === color)
-                    );
-                    
-                    updateCartCount();
+            // Adicionar eventos para os controles de quantidade
+            document.querySelectorAll('.decrease-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = parseInt(e.target.dataset.index);
+                    if (cart[index].quantity > 1) {
+                        cart[index].quantity -= 1;
+                        renderCart();
+                        updateCartCount();
+                    }
+                });
+            });
+
+            document.querySelectorAll('.increase-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = parseInt(e.target.dataset.index);
+                    cart[index].quantity += 1;
                     renderCart();
+                    updateCartCount();
+                });
+            });
+
+            document.querySelectorAll('.cart-quantity-input').forEach(input => {
+                input.addEventListener('change', (e) => {
+                    const index = parseInt(e.target.dataset.index);
+                    const newQuantity = parseInt(e.target.value);
+                    if (newQuantity > 0) {
+                        cart[index].quantity = newQuantity;
+                        renderCart();
+                        updateCartCount();
+                    } else {
+                        e.target.value = cart[index].quantity;
+                    }
+                });
+            });
+
+            document.querySelectorAll('.cart-item-remove').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = parseInt(e.currentTarget.dataset.index);
+                    cart.splice(index, 1);
+                    renderCart();
+                    updateCartCount();
                 });
             });
         }
@@ -2201,20 +1542,6 @@
                 }
             });
         });
-
-        // Animações CSS
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideInRight {
-                from { transform: translateX(100px); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes fadeOut {
-                from { opacity: 1; }
-                to { opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
