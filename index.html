@@ -244,232 +244,6 @@
             margin: 20px auto;
             border-radius: 2px;
         }
-        
-        /* ===== NOVIDADES - CARROSSÉIS ===== */
-        .news-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 100px 0;
-        }
-        
-        .carousel-container {
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 80px;
-        }
-        
-        .carousel-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-        
-        .carousel-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .carousel-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: #d4af37;
-        }
-        
-        .carousel-nav {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .carousel-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #fff;
-            border: 2px solid #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-            color: #333;
-        }
-        
-        .carousel-btn:hover {
-            background: #d4af37;
-            border-color: #d4af37;
-            color: #fff;
-        }
-        
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease;
-            gap: 25px;
-        }
-        
-        .carousel-item {
-            flex: 0 0 calc(33.333% - 17px);
-            background: #fff;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: all 0.4s ease;
-            cursor: pointer;
-        }
-        
-        .carousel-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .carousel-img {
-            height: 250px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .carousel-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .carousel-item:hover .carousel-img img {
-            transform: scale(1.08);
-        }
-        
-        .carousel-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: #d4af37;
-            color: #1a1a1a;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            z-index: 2;
-        }
-        
-        .coming-soon-badge {
-            background: #e74c3c;
-            color: #fff;
-        }
-        
-        .carousel-info {
-            padding: 20px;
-        }
-        
-        .carousel-product-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
-        
-        .carousel-product-price {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 10px;
-        }
-        
-        .carousel-product-price del {
-            color: #999;
-            font-weight: 400;
-            font-size: 1rem;
-            margin-left: 8px;
-        }
-        
-        .carousel-product-description {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 15px;
-            line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            min-height: 2.8em;
-        }
-        
-        .carousel-actions {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .carousel-add-to-cart {
-            flex: 1;
-            background: #1a1a1a;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            -webkit-tap-highlight-color: transparent;
-        }
-        
-        .carousel-add-to-cart:hover {
-            background: #333;
-        }
-        
-        .carousel-add-to-cart:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-        }
-        
-        .carousel-wishlist {
-            width: 40px;
-            height: 40px;
-            background: #f8f9fa;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            -webkit-tap-highlight-color: transparent;
-        }
-        
-        .carousel-wishlist:hover, .carousel-wishlist.active {
-            color: #d4af37;
-            border-color: #d4af37;
-        }
-        
-        .countdown {
-            display: flex;
-            gap: 5px;
-            margin-top: 10px;
-        }
-        
-        .countdown-item {
-            background: #f8f9fa;
-            padding: 5px 8px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-align: center;
-            min-width: 30px;
-        }
-        
-        .countdown-label {
-            font-size: 0.7rem;
-            color: #777;
-            margin-top: 2px;
-        }
-
         /* Produtos em Destaque */
         .products-grid {
             display: grid;
@@ -483,8 +257,14 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: all 0.4s ease;
             position: relative;
+            opacity: 0;
+            transform: translateY(30px);
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
+        }
+        .product-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         .product-card:hover {
             transform: translateY(-15px);
@@ -584,7 +364,6 @@
             color: #d4af37;
             border-color: #d4af37;
         }
-        
         /* === PÁGINA DE PRODUTO DETALHADA === */
         .product-detail {
             padding: 120px 0 80px;
@@ -930,6 +709,14 @@
             border-radius: 16px;
             overflow: hidden;
             cursor: pointer;
+            opacity: 0;
+            transform: scale(0.9);
+            -webkit-tap-highlight-color: transparent;
+        }
+        .category-card.visible {
+            opacity: 1;
+            transform: scale(1);
+            transition: all 0.6s ease;
         }
         .category-card img {
             width: 100%;
@@ -964,7 +751,13 @@
             text-align: center;
         }
         .feature-item {
-            padding: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .feature-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
         }
         .feature-icon {
             font-size: 3rem;
@@ -1218,7 +1011,9 @@
 
         /* ===== OTIMIZAÇÕES RESPONSIVAS ===== */
         
+        /* Melhorias para mobile */
         @media (max-width: 992px) {
+            /* Header mobile otimizado */
             .nav-container { 
                 flex-direction: row; 
                 gap: 20px; 
@@ -1254,18 +1049,22 @@
                 display: flex;
             }
             
+            /* Melhorias no hero mobile */
             .hero {
                 height: 80vh;
                 min-height: 500px;
+                background-position: 65% center;
             }
             .hero h1 { 
                 font-size: 2.8rem; 
+                line-height: 1.2;
+            }
+            .hero p {
+                font-size: 1.1rem;
+                line-height: 1.5;
             }
             
-            .carousel-item {
-                flex: 0 0 calc(50% - 13px);
-            }
-            
+            /* Melhorias na página de produto */
             .product-detail-container { 
                 grid-template-columns: 1fr; 
                 gap: 30px;
@@ -1275,16 +1074,19 @@
             }
             .product-title-detail {
                 font-size: 2.2rem;
+                line-height: 1.2;
             }
             .product-price-detail {
                 font-size: 2rem;
             }
             
+            /* Melhorias no grid de produtos */
             .products-grid {
                 grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
                 gap: 20px;
             }
             
+            /* Melhorias nas categorias */
             .categories-grid {
                 grid-template-columns: 1fr;
                 gap: 15px;
@@ -1293,6 +1095,7 @@
                 height: 300px;
             }
             
+            /* Melhorias nas seções */
             section { 
                 padding: 80px 0; 
             }
@@ -1300,21 +1103,26 @@
                 font-size: 2rem; 
                 margin-bottom: 40px;
             }
+            
+            /* Melhorias no formulário de newsletter */
+            .newsletter-form { 
+                flex-direction: column; 
+                border-radius: 12px;
+            }
+            .newsletter-form button { 
+                border-radius: 0 0 12px 12px; 
+                padding: 15px;
+            }
+            .newsletter-form input {
+                padding: 15px 20px;
+            }
         }
         
         @media (max-width: 768px) {
+            /* Ajustes adicionais para telas menores */
             .hero h1 { 
                 font-size: 2.5rem; 
             }
-            
-            .carousel-item {
-                flex: 0 0 calc(100% - 0px);
-            }
-            
-            .carousel-title {
-                font-size: 1.7rem;
-            }
-            
             .product-title-detail { 
                 font-size: 2rem; 
             }
@@ -1338,12 +1146,24 @@
                 max-width: none;
             }
             
+            /* Melhorias nas tabs */
+            .tab-buttons {
+                gap: 15px;
+                padding-bottom: 10px;
+            }
+            .tab-btn {
+                padding: 12px 0;
+                font-size: 0.95rem;
+            }
+            
+            /* Melhorias nas imagens de produtos */
             .product-img {
                 height: 280px;
             }
         }
         
         @media (max-width: 576px) {
+            /* Otimizações para dispositivos muito pequenos */
             .hero { 
                 height: 70vh;
                 min-height: 450px;
@@ -1402,11 +1222,13 @@
                 font-size: 1.8rem;
             }
             
+            /* Melhorias no menu mobile */
             nav {
                 width: 90%;
                 padding: 90px 25px 25px;
             }
             
+            /* Melhorias no carrinho */
             .cart-content {
                 margin: 10px;
             }
@@ -1419,16 +1241,29 @@
                 height: 150px;
                 object-fit: cover;
             }
-            
-            .carousel-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
+        }
+
+        /* Melhorias de acessibilidade e usabilidade */
+        @media (hover: none) {
+            /* Remover efeitos hover em dispositivos touch */
+            .btn:hover {
+                transform: none;
             }
-            
-            .carousel-nav {
-                align-self: flex-end;
+            .product-card:hover {
+                transform: none;
             }
+            .size-btn:hover, .wishlist:hover {
+                transform: none;
+            }
+        }
+
+        /* Melhorias de performance */
+        .lazy-load {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .lazy-load.loaded {
+            opacity: 1;
         }
 
         /* Animações */
@@ -1443,6 +1278,19 @@
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
+        }
+        @keyframes slideInRight {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -1459,10 +1307,10 @@
             <nav id="main-nav">
                 <ul>
                     <li><a href="#home">Início</a></li>
-                    <li><a href="#novidades">Novidades</a></li>
                     <li><a href="#produtos">Produtos</a></li>
                     <li><a href="#categorias">Categorias</a></li>
                     <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#contato">Contato</a></li>
                 </ul>
             </nav>
             <div class="header-icons">
@@ -1481,74 +1329,31 @@
             <p class="animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
                 Descubra a coleção premium de roupas masculinas com design moderno, tecidos de alta qualidade e caimento perfeito.
             </p>
-            <a href="#novidades" class="btn animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
-                Ver Novidades
+            <a href="#produtos" class="btn animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+                Comprar Agora
             </a>
         </div>
     </section>
 
-    <!-- ===== SEÇÃO DE NOVIDADES ===== -->
-    <section class="news-section" id="novidades">
-        <div class="container">
-            <h2 class="section-title">Novidades</h2>
-            
-            <!-- Carrossel de Promoções -->
-            <div class="carousel-container">
-                <div class="carousel-header">
-                    <h3 class="carousel-title">Promoções Imperdíveis</h3>
-                    <div class="carousel-nav">
-                        <button class="carousel-btn prev-promo" aria-label="Produtos anteriores">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button class="carousel-btn next-promo" aria-label="Próximos produtos">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="carousel-track" id="promo-carousel">
-                    <!-- Produtos em promoção serão inseridos via JavaScript -->
-                </div>
-            </div>
-            
-            <!-- Carrossel de Lançamentos -->
-            <div class="carousel-container">
-                <div class="carousel-header">
-                    <h3 class="carousel-title">Em Breve</h3>
-                    <div class="carousel-nav">
-                        <button class="carousel-btn prev-launch" aria-label="Produtos anteriores">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button class="carousel-btn next-launch" aria-label="Próximos produtos">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="carousel-track" id="launch-carousel">
-                    <!-- Produtos em lançamento serão inseridos via JavaScript -->
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Categorias -->
+     <!-- Categorias -->
     <section class="categories" id="categorias">
         <div class="container">
             <h2 class="section-title" style="color: #fff;">Explore por Categoria</h2>
             <div class="categories-grid">
                 <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Camisas" loading="lazy">
+                    <img src="Camisapuma.png" alt="Camisas" loading="lazy">
                     <div class="category-overlay">
                         <h3 class="category-title">Camisas</h3>
                     </div>
                 </div>
                 <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jaquetas" loading="lazy">
+                    <img src="canguru.png" alt="Jaquetas" loading="lazy">
                     <div class="category-overlay">
                         <h3 class="category-title">Moletons</h3>
                     </div>
                 </div>
                 <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tênis" loading="lazy">
+                    <img src="tenis.png" alt="Tênis" loading="lazy">
                     <div class="category-overlay">
                         <h3 class="category-title">Tênis</h3>
                     </div>
@@ -1576,9 +1381,6 @@
                             <button class="add-to-cart" data-id="1" data-name="Camisa Masculina Umbro Fluminense" data-price="369.99">
                                 Adicionar
                             </button>
-                            <button class="wishlist">
-                                <i class="far fa-heart"></i>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -1596,9 +1398,6 @@
                             <button class="add-to-cart" data-id="2" data-name="Jaqueta de Couro Clássica" data-price="599.90">
                                 Adicionar
                             </button>
-                            <button class="wishlist">
-                                <i class="far fa-heart"></i>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -1614,9 +1413,6 @@
                         <div class="product-actions">
                             <button class="add-to-cart" data-id="3" data-name="Calça Jeans Slim Fit" data-price="189.90">
                                 Adicionar
-                            </button>
-                            <button class="wishlist">
-                                <i class="far fa-heart"></i>
                             </button>
                         </div>
                     </div>
@@ -1635,9 +1431,6 @@
                             <button class="add-to-cart" data-id="4" data-name="Tênis Urban Casual" data-price="349.90">
                                 Adicionar
                             </button>
-                            <button class="wishlist">
-                                <i class="far fa-heart"></i>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -1655,20 +1448,20 @@
                 <!-- Galeria de Imagens -->
                 <div class="product-gallery">
                     <div class="main-image">
-                        <img id="main-img" src="" alt="">
+                        <img id="main-img" src="" alt="" loading="lazy">
                     </div>
                     <div class="thumbnail-gallery">
                         <div class="thumbnail active" data-img="0">
-                            <img src="" alt="">
+                            <img src="" alt="" loading="lazy">
                         </div>
                         <div class="thumbnail" data-img="1">
-                            <img src="" alt="">
+                            <img src="" alt="" loading="lazy">
                         </div>
                         <div class="thumbnail" data-img="2">
-                            <img src="" alt="">
+                            <img src="" alt="" loading="lazy">
                         </div>
                         <div class="thumbnail" data-img="3">
-                            <img src="" alt="">
+                            <img src="" alt="" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -1715,9 +1508,6 @@
                     <div class="product-actions-detail">
                         <button class="btn add-to-cart-detail" id="add-to-cart-detail">
                             <i class="fas fa-shopping-bag"></i> Adicionar ao Carrinho
-                        </button>
-                        <button class="wishlist-detail">
-                            <i class="far fa-heart"></i>
                         </button>
                     </div>
                     <div class="share-buttons">
@@ -1819,10 +1609,10 @@
                     <h3>Links Rápidos</h3>
                     <ul>
                         <li><a href="#home">Início</a></li>
-                        <li><a href="#novidades">Novidades</a></li>
                         <li><a href="#produtos">Produtos</a></li>
                         <li><a href="#categorias">Categorias</a></li>
                         <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#contato">Contato</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1958,103 +1748,10 @@
             }
         ];
 
-        // Dados dos produtos em promoção
-        const promoProducts = [
-            {
-                id: 5,
-                name: "Camiseta Básica Premium",
-                price: 79.90,
-                oldPrice: 119.90,
-                category: "Camisetas",
-                description: "Camiseta básica em algodão penteado premium, com caimento perfeito e durabilidade garantida. Disponível em várias cores.",
-                shortDescription: "Camiseta básica premium em algodão penteado - Caimento perfeito",
-                images: [
-                    "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                ],
-                badge: "-33%"
-            },
-            {
-                id: 6,
-                name: "Calça Cargo Militar",
-                price: 199.90,
-                oldPrice: 279.90,
-                category: "Calças",
-                description: "Calça cargo estilo militar com múltiplos bolsos funcionais. Tecido resistente e confortável para o dia a dia.",
-                shortDescription: "Calça cargo militar com múltiplos bolsos - Estilo urbano",
-                images: [
-                    "https://images.unsplash.com/photo-1582418702059-97ebafb35d09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                ],
-                badge: "-28%"
-            },
-            {
-                id: 7,
-                name: "Blusa de Moletron com Capuz",
-                price: 149.90,
-                oldPrice: 219.90,
-                category: "Moletons",
-                description: "Moletron com capuz em fleece premium. Conforto e estilo para os dias mais frios.",
-                shortDescription: "Moletron com capuz em fleece premium - Conforto garantido",
-                images: [
-                    "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                ],
-                badge: "-32%"
-            },
-            {
-                id: 8,
-                name: "Tênis Esportivo Performance",
-                price: 299.90,
-                oldPrice: 399.90,
-                category: "Tênis",
-                description: "Tênis esportivo com tecnologia de amortecimento avançada. Ideal para atividades físicas e uso casual.",
-                shortDescription: "Tênis esportivo com amortecimento - Performance e estilo",
-                images: [
-                    "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                ],
-                badge: "-25%"
-            }
-        ];
-
-        // Dados dos produtos em lançamento
-        const launchProducts = [
-            {
-                id: 9,
-                name: "Coleção Verão 2025",
-                price: null,
-                oldPrice: null,
-                category: "Coleção",
-                description: "Nova coleção verão 2025 com estampas exclusivas e tecidos tecnológicos. Lançamento em breve!",
-                shortDescription: "Coleção verão 2025 - Estampas exclusivas e tecidos tecnológicos",
-                images: [
-                    "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                ],
-                badge: "Em Breve",
-                launchDate: "2025-01-15"
-            },
-            {
-                id: 10,
-                name: "Tênis Limited Edition",
-                price: null,
-                oldPrice: null,
-                category: "Tênis",
-                description: "Edição limitada em parceria com artista urbano. Design exclusivo e numerado.",
-                shortDescription: "Tênis limited edition - Design exclusivo e numerado",
-                images: [
-                    "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                ],
-                badge: "Edição Limitada",
-                launchDate: "2025-02-01"
-            }
-        ];
-
-        // Variáveis globais
         let cart = [];
         let currentProduct = null;
         let currentQuantity = 1;
         let currentSize = "P";
-        
-        // Variáveis dos carrosséis
-        let currentPromoIndex = 0;
-        let currentLaunchIndex = 0;
 
         // Elementos DOM
         const cartCount = document.getElementById('cart-count');
@@ -2067,380 +1764,132 @@
         const continueShoppingBtn = document.getElementById('continue-shopping');
         const menuToggle = document.getElementById('menu-toggle');
         const mainNav = document.getElementById('main-nav');
-        
-        // Elementos dos carrosséis
-        const promoCarousel = document.getElementById('promo-carousel');
-        const launchCarousel = document.getElementById('launch-carousel');
-        const prevPromoBtn = document.querySelector('.prev-promo');
-        const nextPromoBtn = document.querySelector('.next-promo');
-        const prevLaunchBtn = document.querySelector('.prev-launch');
-        const nextLaunchBtn = document.querySelector('.next-launch');
 
-        // Inicialização
-        document.addEventListener('DOMContentLoaded', function() {
-            initCarousels();
-            setupEventListeners();
+        // Menu Hamburguer
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mainNav.classList.toggle('active');
+            document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('#main-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mainNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // === Atualizar tamanho selecionado ===
+        document.querySelectorAll('.size-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentSize = btn.textContent;
+            });
+        });
+
+        // === Quantidade ===
+        document.getElementById('qty-decrease').addEventListener('click', () => {
+            if (currentQuantity > 1) {
+                currentQuantity--;
+                document.getElementById('qty-input').value = currentQuantity;
+            }
+        });
+        document.getElementById('qty-increase').addEventListener('click', () => {
+            currentQuantity++;
+            document.getElementById('qty-input').value = currentQuantity;
+        });
+
+        // === Adicionar ao carrinho (sem cor) ===
+        document.getElementById('add-to-cart-detail').addEventListener('click', () => {
+            if (!currentProduct) return;
+
+            const variantKey = `${currentProduct.id}-${currentSize}`;
+            const existingItem = cart.find(item => item.variantKey === variantKey);
+
+            if (existingItem) {
+                existingItem.quantity += currentQuantity;
+            } else {
+                cart.push({
+                    id: currentProduct.id,
+                    name: currentProduct.name,
+                    price: currentProduct.price,
+                    size: currentSize,
+                    quantity: currentQuantity,
+                    variantKey: variantKey
+                });
+            }
+
             updateCartCount();
-            
-            // Header scroll effect
-            window.addEventListener('scroll', function() {
-                const header = document.querySelector('header');
-                if (window.scrollY > 100) {
-                    header.classList.add('header-scrolled');
-                } else {
-                    header.classList.remove('header-scrolled');
+            showAddAnimation(currentProduct.name, currentSize, currentQuantity);
+            resetDetailForm();
+        });
+
+        // === Adicionar do grid ===
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const id = parseInt(button.dataset.id);
+                const product = products.find(p => p.id === id);
+                if (product) {
+                    const variantKey = `${id}-M`; // padrão tamanho M
+                    const existingItem = cart.find(item => item.variantKey === variantKey);
+                    if (existingItem) {
+                        existingItem.quantity += 1;
+                    } else {
+                        cart.push({
+                            id, 
+                            name: product.name, 
+                            price: product.price,
+                            size: "M", 
+                            quantity: 1, 
+                            variantKey
+                        });
+                    }
+                    updateCartCount();
+                    showAddAnimation(product.name, "M", 1);
                 }
             });
         });
 
-        // ===== FUNÇÕES DOS CARROSSÉIS =====
-        
-        function getItemsPerView() {
-            if (window.innerWidth < 768) return 1;
-            if (window.innerWidth < 992) return 2;
-            return 3;
-        }
-        
-        function initCarousels() {
-            renderPromoCarousel();
-            renderLaunchCarousel();
-            updateCarouselPosition();
-            
-            // Observador para redimensionamento da tela
-            window.addEventListener('resize', function() {
-                updateCarouselPosition();
-            });
-        }
-        
-        function renderPromoCarousel() {
-            promoCarousel.innerHTML = '';
-            
-            promoProducts.forEach((product, index) => {
-                const item = document.createElement('div');
-                item.className = 'carousel-item';
-                item.innerHTML = `
-                    <div class="carousel-img">
-                        <img src="${product.images[0]}" alt="${product.name}" loading="lazy">
-                        <div class="carousel-badge">${product.badge}</div>
-                    </div>
-                    <div class="carousel-info">
-                        <h3 class="carousel-product-title">${product.name}</h3>
-                        <p class="carousel-product-description">${product.shortDescription}</p>
-                        <div class="carousel-product-price">
-                            R$ ${product.price.toFixed(2)} 
-                            <del>R$ ${product.oldPrice.toFixed(2)}</del>
-                        </div>
-                        <div class="carousel-actions">
-                            <button class="carousel-add-to-cart" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}">
-                                Adicionar
-                            </button>
-                            <button class="carousel-wishlist">
-                                <i class="far fa-heart"></i>
-                            </button>
-                        </div>
-                    </div>
-                `;
-                promoCarousel.appendChild(item);
-            });
-        }
-        
-        function renderLaunchCarousel() {
-            launchCarousel.innerHTML = '';
-            
-            launchProducts.forEach((product, index) => {
-                const daysUntilLaunch = getDaysUntilLaunch(product.launchDate);
-                
-                const item = document.createElement('div');
-                item.className = 'carousel-item';
-                item.innerHTML = `
-                    <div class="carousel-img">
-                        <img src="${product.images[0]}" alt="${product.name}" loading="lazy">
-                        <div class="carousel-badge coming-soon-badge">${product.badge}</div>
-                    </div>
-                    <div class="carousel-info">
-                        <h3 class="carousel-product-title">${product.name}</h3>
-                        <p class="carousel-product-description">${product.shortDescription}</p>
-                        <div class="countdown">
-                            <div class="countdown-item">
-                                <div>${daysUntilLaunch}</div>
-                                <div class="countdown-label">dias</div>
-                            </div>
-                        </div>
-                        <div class="carousel-actions">
-                            <button class="carousel-add-to-cart" disabled>
-                                Em Breve
-                            </button>
-                            <button class="carousel-wishlist">
-                                <i class="far fa-bell"></i>
-                            </button>
-                        </div>
-                    </div>
-                `;
-                launchCarousel.appendChild(item);
-            });
-        }
-        
-        function getDaysUntilLaunch(dateString) {
-            const launchDate = new Date(dateString);
-            const today = new Date();
-            const diffTime = launchDate - today;
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            return diffDays > 0 ? diffDays : 0;
-        }
-        
-        function updateCarouselPosition() {
-            const itemsPerView = getItemsPerView();
-            const promoItemWidth = 100 / itemsPerView;
-            const launchItemWidth = 100 / itemsPerView;
-            
-            promoCarousel.style.transform = `translateX(-${currentPromoIndex * 100}%)`;
-            launchCarousel.style.transform = `translateX(-${currentLaunchIndex * 100}%)`;
-        }
-        
-        function nextPromo() {
-            const itemsPerView = getItemsPerView();
-            const maxIndex = Math.ceil(promoProducts.length / itemsPerView) - 1;
-            if (currentPromoIndex < maxIndex) {
-                currentPromoIndex++;
-                updateCarouselPosition();
-            }
-        }
-        
-        function prevPromo() {
-            if (currentPromoIndex > 0) {
-                currentPromoIndex--;
-                updateCarouselPosition();
-            }
-        }
-        
-        function nextLaunch() {
-            const itemsPerView = getItemsPerView();
-            const maxIndex = Math.ceil(launchProducts.length / itemsPerView) - 1;
-            if (currentLaunchIndex < maxIndex) {
-                currentLaunchIndex++;
-                updateCarouselPosition();
-            }
-        }
-        
-        function prevLaunch() {
-            if (currentLaunchIndex > 0) {
-                currentLaunchIndex--;
-                updateCarouselPosition();
-            }
-        }
-        
-        // ===== CONFIGURAÇÃO DOS EVENT LISTENERS =====
-        
-        function setupEventListeners() {
-            // Menu Hamburguer
-            menuToggle.addEventListener('click', () => {
-                menuToggle.classList.toggle('active');
-                mainNav.classList.toggle('active');
-                document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
-            });
+        // === Animação flutuante ao adicionar ===
+        function showAddAnimation(name, size, qty) {
+            const anim = document.createElement('div');
+            anim.className = 'add-animation';
+            anim.innerHTML = `
+                <div class="anim-icon"><i class="fas fa-check"></i></div>
+                <div class="anim-info">
+                    <strong>${name}</strong><br>
+                    Tamanho: <strong>${size}</strong> | Qtd: ${qty}
+                </div>
+            `;
+            document.body.appendChild(anim);
 
-            // Fechar menu ao clicar em um link
-            document.querySelectorAll('#main-nav a').forEach(link => {
-                link.addEventListener('click', () => {
-                    menuToggle.classList.remove('active');
-                    mainNav.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            });
-
-            // Navegação dos carrosséis
-            nextPromoBtn.addEventListener('click', nextPromo);
-            prevPromoBtn.addEventListener('click', prevPromo);
-            nextLaunchBtn.addEventListener('click', nextLaunch);
-            prevLaunchBtn.addEventListener('click', prevLaunch);
-            
-            // Adicionar ao carrinho dos produtos em promoção
-            document.addEventListener('click', function(e) {
-                if (e.target.classList.contains('carousel-add-to-cart') && !e.target.disabled) {
-                    const id = parseInt(e.target.dataset.id);
-                    const product = promoProducts.find(p => p.id === id);
-                    if (product) {
-                        const variantKey = `${id}-M`;
-                        const existingItem = cart.find(item => item.variantKey === variantKey);
-                        
-                        if (existingItem) {
-                            existingItem.quantity += 1;
-                        } else {
-                            cart.push({
-                                id, 
-                                name: product.name, 
-                                price: product.price,
-                                size: "M", 
-                                quantity: 1, 
-                                variantKey
-                            });
-                        }
-                        updateCartCount();
-                        showAddAnimation(product.name, "M", 1);
-                    }
-                }
-                
-                // Adicionar ao carrinho dos produtos principais
-                if (e.target.classList.contains('add-to-cart')) {
-                    const id = parseInt(e.target.dataset.id);
-                    const product = products.find(p => p.id === id);
-                    if (product) {
-                        const variantKey = `${id}-M`;
-                        const existingItem = cart.find(item => item.variantKey === variantKey);
-                        
-                        if (existingItem) {
-                            existingItem.quantity += 1;
-                        } else {
-                            cart.push({
-                                id, 
-                                name: product.name, 
-                                price: product.price,
-                                size: "M", 
-                                quantity: 1, 
-                                variantKey
-                            });
-                        }
-                        updateCartCount();
-                        showAddAnimation(product.name, "M", 1);
-                    }
-                }
-            });
-
-            // Carrinho
-            cartToggle.addEventListener('click', (e) => {
-                e.preventDefault();
-                cartModal.style.display = 'flex';
-                renderCart();
-            });
-
-            cartClose.addEventListener('click', () => {
-                cartModal.style.display = 'none';
-            });
-
-            continueShoppingBtn.addEventListener('click', () => {
-                cartModal.style.display = 'none';
-            });
-
-            cartModal.addEventListener('click', (e) => {
-                if (e.target === cartModal) cartModal.style.display = 'none';
-            });
-
-            // Finalizar compra
-            finalizeBtn.addEventListener('click', () => {
-                if (cart.length === 0) {
-                    alert("Seu carrinho está vazio!");
-                    return;
-                }
-
-                let message = "*PEDIDO - DC STORE*%0A%0A";
-                let total = 0;
-
-                cart.forEach(item => {
-                    const itemTotal = item.price * item.quantity;
-                    total += itemTotal;
-                    message += `• *${item.name}*%0A`;
-                    message += `  Tamanho: *${item.size}* | Qtd: *${item.quantity}*%0A`;
-                    message += `  R$ ${item.price.toFixed(2)} x ${item.quantity} = R$ ${itemTotal.toFixed(2)}%0A%0A`;
-                });
-
-                message += `*Total: R$ ${total.toFixed(2)}*%0A%0A`;
-                message += "Gostaria de finalizar este pedido?";
-
-                const phone = "5551992520046";
-                const whatsappURL = `https://wa.me/${phone}?text=${message}`;
-                window.open(whatsappURL, '_blank');
-            });
-
-            // === Abrir produto detalhado ===
-            document.querySelectorAll('.product-card').forEach(card => {
-                card.addEventListener('click', () => {
-                    const productId = parseInt(card.dataset.productId);
-                    const product = products.find(p => p.id === productId);
-                    if (product) loadProductDetail(product);
-                });
-            });
-
-            // === Atualizar tamanho selecionado ===
-            document.querySelectorAll('.size-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    currentSize = btn.textContent;
-                });
-            });
-
-            // === Quantidade ===
-            document.getElementById('qty-decrease').addEventListener('click', () => {
-                if (currentQuantity > 1) {
-                    currentQuantity--;
-                    document.getElementById('qty-input').value = currentQuantity;
-                }
-            });
-            document.getElementById('qty-increase').addEventListener('click', () => {
-                currentQuantity++;
-                document.getElementById('qty-input').value = currentQuantity;
-            });
-
-            // === Adicionar ao carrinho (página detalhada) ===
-            document.getElementById('add-to-cart-detail').addEventListener('click', () => {
-                if (!currentProduct) return;
-
-                const variantKey = `${currentProduct.id}-${currentSize}`;
-                const existingItem = cart.find(item => item.variantKey === variantKey);
-
-                if (existingItem) {
-                    existingItem.quantity += currentQuantity;
-                } else {
-                    cart.push({
-                        id: currentProduct.id,
-                        name: currentProduct.name,
-                        price: currentProduct.price,
-                        size: currentSize,
-                        quantity: currentQuantity,
-                        variantKey: variantKey
-                    });
-                }
-
-                updateCartCount();
-                showAddAnimation(currentProduct.name, currentSize, currentQuantity);
-                resetDetailForm();
-            });
-
-            // === Galeria ===
-            document.querySelectorAll('.thumbnail').forEach(thumb => {
-                thumb.addEventListener('click', () => {
-                    document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
-                    thumb.classList.add('active');
-                    document.getElementById('main-img').src = thumb.querySelector('img').src;
-                });
-            });
-
-            // === Tabs ===
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                    btn.classList.add('active');
-                    document.getElementById(`tab-${btn.dataset.tab}`).classList.add('active');
-                });
-            });
-
-            // Back to home
-            document.getElementById('back-to-home').addEventListener('click', () => {
-                document.getElementById('product-detail').classList.remove('active');
-                document.getElementById('home').style.display = 'block';
-                document.getElementById('produtos').style.display = 'block';
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
+            setTimeout(() => anim.classList.add('show'), 100);
+            setTimeout(() => {
+                anim.classList.remove('show');
+                setTimeout(() => anim.remove(), 500);
+            }, 2500);
         }
 
-        // ===== FUNÇÕES DO CARRINHO =====
-        
+        // === Resetar formulário após adicionar ===
+        function resetDetailForm() {
+            currentQuantity = 1;
+            document.getElementById('qty-input').value = 1;
+            document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector('.size-btn').classList.add('active');
+            currentSize = "P";
+        }
+
+        // === Atualizar contador do carrinho ===
         function updateCartCount() {
             const total = cart.reduce((sum, item) => sum + item.quantity, 0);
             cartCount.textContent = total;
         }
 
+        // === Renderizar carrinho ===
         function renderCart() {
             if (cart.length === 0) {
                 cartItems.innerHTML = '<p class="empty-cart">Seu carrinho está vazio.</p>';
@@ -2458,7 +1907,7 @@
                 const div = document.createElement('div');
                 div.className = 'cart-item';
                 div.innerHTML = `
-                    <img src="${getProductImage(item.id)}" alt="${item.name}">
+                    <img src="${products.find(p => p.id === item.id)?.images[0] || 'https://via.placeholder.com/80'}" alt="${item.name}">
                     <div class="cart-item-info">
                         <div class="cart-item-title">${item.name}</div>
                         <div style="font-size:0.85rem; color:#555;">
@@ -2484,38 +1933,60 @@
             });
         }
 
-        function getProductImage(productId) {
-            // Procura nas promoções primeiro
-            let product = promoProducts.find(p => p.id === productId);
-            if (product) return product.images[0];
-            
-            // Depois nos produtos principais
-            product = products.find(p => p.id === productId);
-            if (product) return product.images[0];
-            
-            return 'https://via.placeholder.com/80';
-        }
+        // === Finalizar Compra → WhatsApp ===
+        finalizeBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert("Seu carrinho está vazio!");
+                return;
+            }
 
-        function showAddAnimation(name, size, qty) {
-            const anim = document.createElement('div');
-            anim.className = 'add-animation';
-            anim.innerHTML = `
-                <div class="anim-icon"><i class="fas fa-check"></i></div>
-                <div class="anim-info">
-                    <strong>${name}</strong><br>
-                    Tamanho: <strong>${size}</strong> | Qtd: ${qty}
-                </div>
-            `;
-            document.body.appendChild(anim);
+            let message = "*PEDIDO - DC STORE*%0A%0A";
+            let total = 0;
 
-            setTimeout(() => anim.classList.add('show'), 100);
-            setTimeout(() => {
-                anim.classList.remove('show');
-                setTimeout(() => anim.remove(), 500);
-            }, 2500);
-        }
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                message += `• *${item.name}*%0A`;
+                message += `  Tamanho: *${item.size}* | Qtd: *${item.quantity}*%0A`;
+                message += `  R$ ${item.price.toFixed(2)} x ${item.quantity} = R$ ${itemTotal.toFixed(2)}%0A%0A`;
+            });
 
-        // === FUNÇÕES DA PÁGINA DE DETALHES DO PRODUTO ===
+            message += `*Total: R$ ${total.toFixed(2)}*%0A%0A`;
+            message += "Gostaria de finalizar este pedido?";
+
+            const phone = "5551992520046"; // MUDE PARA SEU NÚMERO
+            const whatsappURL = `https://wa.me/${phone}?text=${message}`;
+            window.open(whatsappURL, '_blank');
+        });
+
+        // === Abrir/Fechar Carrinho ===
+        cartToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            cartModal.style.display = 'flex';
+            renderCart();
+        });
+
+        cartClose.addEventListener('click', () => {
+            cartModal.style.display = 'none';
+        });
+
+        // === Continuar Comprando ===
+        continueShoppingBtn.addEventListener('click', () => {
+            cartModal.style.display = 'none';
+        });
+
+        cartModal.addEventListener('click', (e) => {
+            if (e.target === cartModal) cartModal.style.display = 'none';
+        });
+
+        // === Abrir produto detalhado ===
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const productId = parseInt(card.dataset.productId);
+                const product = products.find(p => p.id === productId);
+                if (product) loadProductDetail(product);
+            });
+        });
 
         function loadProductDetail(product) {
             currentProduct = product;
@@ -2570,13 +2041,51 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function resetDetailForm() {
-            currentQuantity = 1;
-            document.getElementById('qty-input').value = 1;
-            document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
-            document.querySelector('.size-btn').classList.add('active');
-            currentSize = "P";
-        }
+        document.getElementById('back-to-home').addEventListener('click', () => {
+            document.getElementById('product-detail').classList.remove('active');
+            document.getElementById('home').style.display = 'block';
+            document.getElementById('produtos').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // === Galeria ===
+        document.querySelectorAll('.thumbnail').forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+                document.getElementById('main-img').src = thumb.querySelector('img').src;
+            });
+        });
+
+        // === Tabs ===
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(`tab-${btn.dataset.tab}`).classList.add('active');
+            });
+        });
+
+        // === Animações e scroll ===
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    if (entry.target.classList.contains('animate-on-scroll')) {
+                        entry.target.classList.add('animated');
+                    }
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+
+        document.querySelectorAll('.product-card, .category-card, .feature-item, .animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        window.addEventListener('scroll', () => {
+            document.querySelector('header').classList.toggle('header-scrolled', window.scrollY > 100);
+        });
     </script>
 </body>
 </html>
