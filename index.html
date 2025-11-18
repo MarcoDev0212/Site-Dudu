@@ -708,7 +708,7 @@
         }
         .category-card {
             position: relative;
-            height: 300px;
+            height: 430px;
             border-radius: 16px;
             overflow: hidden;
             cursor: pointer;
@@ -1228,12 +1228,10 @@
                 </ul>
             </nav>
             <div class="header-icons">
-                <a href="#"><i class="fas fa-search"></i></a>
                 <a href="#" class="cart-icon" id="cart-toggle">
                     <i class="fas fa-shopping-bag"></i>
                     <span class="cart-count" id="cart-count">0</span>
                 </a>
-                <a href="#"><i class="fas fa-user"></i></a>
             </div>
         </div>
     </header>
@@ -1251,6 +1249,33 @@
         </div>
     </section>
 
+     <!-- Categorias -->
+    <section class="categories" id="categorias">
+        <div class="container">
+            <h2 class="section-title" style="color: #fff;">Explore por Categoria</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <img src="Camisapuma.png" alt="Camisas">
+                    <div class="category-overlay">
+                        <h3 class="category-title">Camisas</h3>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="canguru.png" alt="Jaquetas">
+                    <div class="category-overlay">
+                        <h3 class="category-title">Moletons</h3>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="tenis.png" alt="Tênis">
+                    <div class="category-overlay">
+                        <h3 class="category-title">Tênis</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Produtos em Destaque -->
     <section id="produtos">
         <div class="container">
@@ -1259,17 +1284,17 @@
                 <!-- Produto 1 -->
                 <div class="product-card" data-product-id="1">
                     <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1622446273984-7b1f9d8e8a7c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Camisa Social Premium">
+                        <img src="flu01.png" alt="Camisa Social Premium">
                         <div class="product-badge">Novo</div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Camisa Oxford Premium</h3>
-                        <p class="product-price">R$ 249,90 <del>R$ 329,90</del></p>
+                        <h3 class="product-title">Camisa Masculina Umbro Fluminense</h3>
+                        <p class="product-price">R$ 369,99 <del>R$ 400,00</del></p>
                         <div class="product-actions">
                             <button class="add-to-cart" data-id="1" data-name="Camisa Oxford Premium" data-price="249.90">
                                 Adicionar
                             </button>
-                            <button class="wishlist"><i class="far fa-heart"></i></button>
+                            
                         </div>
                     </div>
                 </div>
@@ -1286,7 +1311,7 @@
                             <button class="add-to-cart" data-id="2" data-name="Jaqueta de Couro Clássica" data-price="599.90">
                                 Adicionar
                             </button>
-                            <button class="wishlist"><i class="far fa-heart"></i></button>
+                            
                         </div>
                     </div>
                 </div>
@@ -1302,7 +1327,6 @@
                             <button class="add-to-cart" data-id="3" data-name="Calça Jeans Slim Fit" data-price="189.90">
                                 Adicionar
                             </button>
-                            <button class="wishlist"><i class="far fa-heart"></i></button>
                         </div>
                     </div>
                 </div>
@@ -1319,7 +1343,6 @@
                             <button class="add-to-cart" data-id="4" data-name="Tênis Urban Casual" data-price="349.90">
                                 Adicionar
                             </button>
-                            <button class="wishlist"><i class="far fa-heart"></i></button>
                         </div>
                     </div>
                 </div>
@@ -1414,16 +1437,10 @@
                         <button class="btn add-to-cart-detail" id="add-to-cart-detail">
                             <i class="fas fa-shopping-bag"></i> Adicionar ao Carrinho
                         </button>
-                        <button class="wishlist-detail" id="wishlist-detail">
-                            <i class="far fa-heart"></i>
-                        </button>
                     </div>
                     <div class="share-buttons">
                         <span style="margin-right: 10px; color: #777;">Compartilhar:</span>
-                        <a href="#" class="share-btn"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="share-btn"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="share-btn"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="share-btn"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
@@ -1465,6 +1482,7 @@
                         </tr>
                     </table>
                 </div>
+        
                 <div class="tab-content" id="tab-reviews">
                     <div class="reviews-list">
                         <div class="review-item">
@@ -1493,39 +1511,6 @@
         </div>
     </section>
 
-    <!-- Categorias -->
-    <section class="categories" id="categorias">
-        <div class="container">
-            <h2 class="section-title" style="color: #fff;">Explore por Categoria</h2>
-            <div class="categories-grid">
-                <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1603251569198-2164f4d66a20?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Camisas">
-                    <div class="category-overlay">
-                        <h3 class="category-title">Camisas</h3>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Calças">
-                    <div class="category-overlay">
-                        <h3 class="category-title">Calças</h3>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1602293589930-4d1ff952d4f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jaquetas">
-                    <div class="category-overlay">
-                        <h3 class="category-title">Jaquetas</h3>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d9702?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tênis">
-                    <div class="category-overlay">
-                        <h3 class="category-title">Tênis</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Por que Escolher -->
     <section class="features" id="sobre">
         <div class="container">
@@ -1541,29 +1526,7 @@
                     <h3 class="feature-title">Entrega Rápida</h3>
                     <p>Enviamos para todo o Brasil com frete grátis acima de R$ 400.</p>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon"><i class="fas fa-sync-alt"></i></div>
-                    <h3 class="feature-title">Troca Fácil</h3>
-                    <p>30 dias para troca ou devolução sem complicação.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon"><i class="fas fa-headset"></i></div>
-                    <h3 class="feature-title">Suporte 24/7</h3>
-                    <p>Atendimento humanizado sempre que você precisar.</p>
-                </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section class="newsletter" id="contato">
-        <div class="container">
-            <h2>Fique por Dentro das Novidades</h2>
-            <p>Receba promoções exclusivas e lançamentos em primeira mão.</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Seu e-mail" required />
-                <button type="submit">Inscrever</button>
-            </form>
         </div>
     </section>
 
@@ -1576,9 +1539,6 @@
                     <p>Moda masculina premium com estilo, conforto e qualidade incomparáveis.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
@@ -1589,16 +1549,6 @@
                         <li><a href="#categorias">Categorias</a></li>
                         <li><a href="#sobre">Sobre</a></li>
                         <li><a href="#contato">Contato</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Atendimento</h3>
-                    <ul>
-                        <li><a href="#">Central de Ajuda</a></li>
-                        <li><a href="#">Trocas e Devoluções</a></li>
-                        <li><a href="#">Entregas</a></li>
-                        <li><a href="#">Fale Conosco</a></li>
-                        <li><a href="#">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1642,16 +1592,15 @@
         const products = [
             {
                 id: 1,
-                name: "Camisa Oxford Premium",
-                price: 249.90,
-                oldPrice: 329.90,
+                name: "Camisa Masculina Umbro Fluminense",
+                price: 369.99,
+                oldPrice: 400.00,
                 category: "Camisas",
-                description: "Camisa Oxford de algodão premium com corte slim fit. Ideal para ocasiões formais e casuais. Tecido respirável, botões de madrepérola e costura reforçada.",
+                description: "Mostre seu amor pelo Fluzão com a nova Camisa Oficial 1 2025 da Umbro! Inspirada na tradição tricolor, a peça traz as listras verticais em verde, branco e grená, celebrando a identidade do clube e sua presença no Mundial de Clubes 2025.",
                 images: [
-                    "https://images.unsplash.com/photo-1622446273984-7b1f9d8e8a7c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                    "https://images.unsplash.com/photo-1603833797131-3c8032c704b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                    "https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                    "https://images.unsplash.com/photo-1622446273984-7b1f9d8e8a7c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    "flu01.png",
+                    "flu02.png",
+                    "flu03.png"
                 ],
                 sizes: ["P", "M", "G", "GG", "XG"],
                 colors: [
@@ -2030,16 +1979,6 @@
 
         window.addEventListener('scroll', () => {
             document.querySelector('header').classList.toggle('header-scrolled', window.scrollY > 100);
-        });
-
-        document.querySelectorAll('.wishlist, .wishlist-detail').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                btn.classList.toggle('active');
-                btn.innerHTML = btn.classList.contains('active')
-                    ? '<i class="fas fa-heart"></i>'
-                    : '<i class="far fa-heart"></i>';
-            });
         });
     </script>
 </body>
