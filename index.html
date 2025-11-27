@@ -196,7 +196,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%), url('dc.jpeg');
+            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%), url('https://images.unsplash.com/photo-1558769132-cb25e5b8b7b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -497,6 +497,92 @@
             color: white;
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Seção Novidades - Estilo Especial */
+        #novidades {
+            background: linear-gradient(135deg, rgba(248,248,248,0.95) 0%, rgba(255,255,255,0.9) 100%), url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .novidades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .novidade-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            position: relative;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .novidade-card:nth-child(1) { animation-delay: 0.1s; }
+        .novidade-card:nth-child(2) { animation-delay: 0.2s; }
+        .novidade-card:nth-child(3) { animation-delay: 0.3s; }
+        .novidade-card:nth-child(4) { animation-delay: 0.4s; }
+        
+        .novidade-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+        
+        .novidade-image-container {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .novidade-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .novidade-card:hover .novidade-image {
+            transform: scale(1.05);
+        }
+        
+        .novidade-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .novidade-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .novidade-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .novidade-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--secondary);
         }
         
         /* Modal do Produto */
@@ -1250,7 +1336,7 @@
                 <h2 class="section-title">Novidades</h2>
                 <p class="section-subtitle">As últimas adições à nossa coleção, cuidadosamente selecionadas para oferecer o que há de mais moderno em moda masculina.</p>
             </div>
-            <div class="products-grid" id="novidadesGrid">
+            <div class="novidades-grid" id="novidadesGrid">
                 <!-- Produtos em destaque serão inseridos via JavaScript -->
             </div>
         </div>
@@ -1461,6 +1547,38 @@
             }
         ];
 
+        // Dados das novidades (produtos especiais apenas para a seção de novidades)
+        const novidades = [
+            {
+                id: 101,
+                name: "Camisa Limited Edition Gold",
+                price: 459.99,
+                image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                tag: "Edição Limitada"
+            },
+            {
+                id: 102,
+                name: "Camisa Artesanal Bordada",
+                price: 499.99,
+                image: "https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                tag: "Artesanal"
+            },
+            {
+                id: 103,
+                name: "Camisa Tech Performance",
+                price: 399.99,
+                image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                tag: "Tecnologia"
+            },
+            {
+                id: 104,
+                name: "Camisa Noite Estrelada",
+                price: 429.99,
+                image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                tag: "Exclusivo"
+            }
+        ];
+
         // Elementos DOM
         const productsGrid = document.getElementById('productsGrid');
         const novidadesGrid = document.getElementById('novidadesGrid');
@@ -1525,7 +1643,7 @@
             }, observerOptions);
             
             // Observar elementos para animação
-            document.querySelectorAll('.product-card, .contact-item, .section-header').forEach(el => {
+            document.querySelectorAll('.product-card, .novidade-card, .contact-item, .section-header').forEach(el => {
                 observer.observe(el);
             });
         }
@@ -1542,10 +1660,9 @@
         // Renderizar produtos em destaque na seção de novidades
         function renderNovidades() {
             novidadesGrid.innerHTML = '';
-            const featuredProducts = products.filter(product => product.featured);
-            featuredProducts.forEach(product => {
-                const productCard = createProductCard(product);
-                novidadesGrid.appendChild(productCard);
+            novidades.forEach(novidade => {
+                const novidadeCard = createNovidadeCard(novidade);
+                novidadesGrid.appendChild(novidadeCard);
             });
         }
 
@@ -1588,6 +1705,24 @@
                         <button class="quick-view" data-id="${product.id}">Ver Detalhes</button>
                         <button class="add-to-cart" data-id="${product.id}">Comprar</button>
                     </div>
+                </div>
+            `;
+            return card;
+        }
+
+        // Criar card de novidade
+        function createNovidadeCard(novidade) {
+            const card = document.createElement('div');
+            card.className = 'novidade-card';
+            
+            card.innerHTML = `
+                <div class="novidade-tag">${novidade.tag}</div>
+                <div class="novidade-image-container">
+                    <img src="${novidade.image}" alt="${novidade.name}" class="novidade-image">
+                </div>
+                <div class="novidade-info">
+                    <h3 class="novidade-title">${novidade.name}</h3>
+                    <div class="novidade-price">R$ ${novidade.price.toFixed(2)}</div>
                 </div>
             `;
             return card;
