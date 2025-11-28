@@ -194,20 +194,39 @@
             color: var(--secondary);
         }
         
-        /* Hero Section */
+        /* Hero Section com Vídeo */
         .hero {
-            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%), url('https://images.unsplash.com/photo-1558769132-cb25e5b8b7b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            text-align: center;
-            padding: 200px 0 150px;
             position: relative;
             overflow: hidden;
             min-height: 100vh;
             display: flex;
             align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0;
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            z-index: -1;
+            object-fit: cover;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%);
+            z-index: 0;
         }
         
         .hero::before {
@@ -219,6 +238,7 @@
             height: 100%;
             background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.2) 0%, transparent 50%);
             animation: glow 8s infinite alternate;
+            z-index: 1;
         }
         
         .hero-content {
@@ -227,6 +247,7 @@
             position: relative;
             z-index: 2;
             animation: fadeInUp 1.2s ease-out;
+            padding: 120px 20px;
         }
         
         .hero h1 {
@@ -346,16 +367,16 @@
             line-height: 1.7;
         }
         
-        /* Produtos */
+        /* Produtos - Layout Melhorado */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 40px;
+            gap: 30px;
         }
         
         .product-card {
             background-color: white;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             transition: var(--transition);
@@ -363,6 +384,9 @@
             opacity: 0;
             transform: translateY(40px);
             animation: fadeInUp 0.8s ease-out forwards;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
         
         .product-card:nth-child(1) { animation-delay: 0.1s; }
@@ -375,27 +399,28 @@
         .product-card:nth-child(8) { animation-delay: 0.8s; }
         
         .product-card:hover {
-            transform: translateY(-15px);
+            transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
         
         .product-badge {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 15px;
+            right: 15px;
             background: linear-gradient(135deg, var(--secondary), var(--accent));
             color: var(--primary);
-            padding: 8px 16px;
+            padding: 6px 12px;
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             z-index: 2;
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
         }
         
+        /* CONTAINER DE IMAGEM OTIMIZADO */
         .product-image-container {
             width: 100%;
-            height: 350px;
+            height: 280px; /* Reduzido de 350px para melhor proporção */
             overflow: hidden;
             position: relative;
         }
@@ -408,61 +433,233 @@
         }
         
         .product-card:hover .product-image {
-            transform: scale(1.1);
+            transform: scale(1.08); /* Efeito de zoom mais sutil */
+        }
+        
+        /* Galeria de Imagens */
+        .product-gallery {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .gallery-main {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gallery-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease;
+        }
+        
+        .gallery-thumbnails {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            padding: 0 10px;
+            z-index: 3;
+        }
+        
+        .gallery-thumb {
+            width: 40px; /* Reduzido de 50px */
+            height: 40px; /* Reduzido de 50px */
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            opacity: 0.7;
+        }
+        
+        .gallery-thumb:hover, .gallery-thumb.active {
+            opacity: 1;
+            border-color: var(--secondary);
+        }
+        
+        .gallery-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 35px; /* Reduzido de 40px */
+            height: 35px; /* Reduzido de 40px */
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 3;
+            opacity: 0;
+            font-size: 14px; /* Reduzido para melhor proporção */
+        }
+        
+        .product-image-container:hover .gallery-nav {
+            opacity: 1;
+        }
+        
+        .gallery-nav.prev {
+            left: 10px;
+        }
+        
+        .gallery-nav.next {
+            right: 10px;
+        }
+        
+        .gallery-nav:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        /* Indicador de múltiplas imagens para mobile */
+        .mobile-gallery-indicator {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            display: none;
+            align-items: center;
+            gap: 5px;
+            z-index: 3;
+        }
+        
+        .mobile-gallery-indicator i {
+            font-size: 14px;
         }
         
         .product-info {
-            padding: 30px;
+            padding: 20px; /* Reduzido de 25px */
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
         
         .product-title {
-            font-size: 20px;
-            margin-bottom: 12px;
+            font-size: 18px; /* Reduzido de 20px */
+            margin-bottom: 10px; /* Reduzido de 12px */
             font-weight: 600;
             color: var(--primary);
+            line-height: 1.3;
+        }
+        
+        .product-description {
+            color: var(--gray);
+            font-size: 13px; /* Reduzido de 14px */
+            margin-bottom: 12px; /* Reduzido de 15px */
+            line-height: 1.5;
+            flex-grow: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* Limita a 2 linhas */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
         
         .product-price {
-            font-size: 24px;
+            font-size: 20px; /* Reduzido de 24px */
             font-weight: 700;
             color: var(--primary);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* Reduzido de 20px */
         }
         
         .product-price span {
             color: var(--secondary);
-            font-size: 28px;
+            font-size: 22px; /* Reduzido de 28px */
         }
         
         .product-rating {
             color: #ffc107;
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* Reduzido de 20px */
+            display: flex;
+            align-items: center;
+            gap: 3px; /* Reduzido de 5px */
+        }
+        
+        .product-rating span {
+            color: var(--gray);
+            font-size: 13px; /* Reduzido de 14px */
+            margin-left: 5px;
+        }
+        
+        /* Seletor de Tamanho no Card */
+        .size-selector-card {
+            margin-bottom: 15px; /* Reduzido de 20px */
+        }
+        
+        .size-selector-card label {
+            display: block;
+            margin-bottom: 8px; /* Reduzido de 10px */
+            font-weight: 600;
+            font-size: 13px; /* Reduzido de 14px */
+            color: var(--dark);
+        }
+        
+        .size-options-card {
+            display: flex;
+            gap: 6px; /* Reduzido de 8px */
+        }
+        
+        .size-option-card {
+            width: 35px; /* Reduzido de 40px */
+            height: 35px; /* Reduzido de 40px */
+            border: 2px solid #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 700;
+            border-radius: 6px; /* Reduzido de 8px */
+            font-size: 12px; /* Reduzido de 14px */
+        }
+        
+        .size-option-card.selected {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: scale(1.05); /* Reduzido de 1.1 */
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1); /* Reduzido de 5px 15px */
+        }
+        
+        .size-option-card:hover:not(.selected) {
+            border-color: var(--secondary);
         }
         
         .product-actions {
             display: flex;
-            gap: 12px;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: var(--transition);
-        }
-        
-        .product-card:hover .product-actions {
-            opacity: 1;
-            transform: translateY(0);
+            gap: 10px; /* Reduzido de 12px */
+            margin-top: auto;
         }
         
         .quick-view {
             background-color: var(--primary);
             color: white;
             border: none;
-            padding: 12px 20px;
+            padding: 10px 15px; /* Reduzido de 12px 20px */
             border-radius: 6px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 12px; /* Reduzido de 14px */
             transition: var(--transition);
             flex: 1;
             font-weight: 600;
@@ -480,64 +677,125 @@
             background: linear-gradient(135deg, var(--secondary), var(--accent));
             color: var(--primary);
             border: none;
-            padding: 12px 20px;
+            padding: 10px 15px; /* Reduzido de 12px 20px */
             border-radius: 6px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 12px; /* Reduzido de 14px */
             font-weight: 700;
             transition: var(--transition);
             flex: 1;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 3px 10px rgba(212, 175, 55, 0.3); /* Reduzido de 5px 15px */
         }
         
         .add-to-cart:hover {
             background: var(--primary);
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Reduzido de 8px 20px */
         }
         
-        /* Seção Novidades - Estilo Especial */
+        .add-to-cart:disabled {
+            background: #e0e0e0;
+            color: #9e9e9e;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* SEÇÃO NOVIDADES - TOTALMENTE REFEITA */
         #novidades {
-            background: linear-gradient(135deg, rgba(248,248,248,0.95) 0%, rgba(255,255,255,0.9) 100%), url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(26,26,26,0.9) 100%), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #novidades::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 30%, rgba(212, 175, 55, 0.15) 0%, transparent 50%);
+            animation: glow 8s infinite alternate;
+        }
+        
+        #novidades .section-header {
+            margin-bottom: 60px;
+        }
+        
+        #novidades .section-title {
+            color: white;
+            font-size: 52px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        #novidades .section-title:after {
+            background: linear-gradient(90deg, var(--secondary), #ffd700);
+        }
+        
+        #novidades .section-subtitle {
+            color: rgba(255,255,255,0.8);
+            font-size: 20px;
+            max-width: 800px;
         }
         
         .novidades-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
+            position: relative;
+            z-index: 2;
         }
         
         .novidade-card {
-            background-color: white;
-            border-radius: 12px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: var(--transition);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
             opacity: 0;
-            transform: translateY(40px);
+            transform: translateY(50px) scale(0.95);
             animation: fadeInUp 0.8s ease-out forwards;
         }
         
-        .novidade-card:nth-child(1) { animation-delay: 0.1s; }
-        .novidade-card:nth-child(2) { animation-delay: 0.2s; }
-        .novidade-card:nth-child(3) { animation-delay: 0.3s; }
-        .novidade-card:nth-child(4) { animation-delay: 0.4s; }
+        .novidade-card:nth-child(1) { animation-delay: 0.2s; }
+        .novidade-card:nth-child(2) { animation-delay: 0.4s; }
+        .novidade-card:nth-child(3) { animation-delay: 0.6s; }
         
         .novidade-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.2);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        
+        .novidade-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: var(--transition);
+        }
+        
+        .novidade-card:hover::before {
+            left: 100%;
         }
         
         .novidade-image-container {
             width: 100%;
-            height: 300px;
+            height: 280px;
             overflow: hidden;
             position: relative;
         }
@@ -550,39 +808,120 @@
         }
         
         .novidade-card:hover .novidade-image {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
         
         .novidade-tag {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--secondary), #ffd700);
             color: var(--primary);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 800;
             z-index: 2;
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: pulse 2s infinite;
         }
         
         .novidade-info {
-            padding: 20px;
+            padding: 25px;
             text-align: center;
+            position: relative;
         }
         
         .novidade-title {
-            font-size: 18px;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: var(--primary);
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        .novidade-description {
+            color: rgba(255,255,255,0.8);
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.6;
         }
         
         .novidade-price {
-            font-size: 20px;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--secondary);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+        }
+        
+        .novidade-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+            animation: bounce 2s infinite;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .countdown-item {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 12px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 50px;
+        }
+        
+        .countdown-value {
+            font-size: 18px;
             font-weight: 700;
             color: var(--secondary);
+            display: block;
+        }
+        
+        .countdown-label {
+            font-size: 10px;
+            color: rgba(255,255,255,0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .novidade-cta {
+            margin-top: 20px;
+        }
+        
+        .notify-btn {
+            background: linear-gradient(135deg, var(--secondary), #ffd700);
+            color: var(--primary);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            width: 100%;
+        }
+        
+        .notify-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.6);
         }
         
         /* Modal do Produto */
@@ -773,6 +1112,54 @@
             transform: translateY(0);
         }
         
+        /* Galeria de Imagens no Modal para Mobile */
+        .modal-gallery {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .modal-gallery-main {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .modal-gallery-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .modal-gallery-thumbs {
+            display: flex;
+            gap: 10px;
+            padding: 15px;
+            overflow-x: auto;
+            background: #f8f8f8;
+        }
+        
+        .modal-gallery-thumb {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+        
+        .modal-gallery-thumb.active {
+            border-color: var(--secondary);
+        }
+        
+        .modal-gallery-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
         /* Carrinho */
         .cart-modal {
             display: none;
@@ -948,60 +1335,6 @@
         .checkout-btn:hover {
             background: var(--primary);
             color: white;
-        }
-        
-        /* Contato */
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-top: 60px;
-        }
-        
-        .contact-item {
-            flex: 1;
-            min-width: 280px;
-            background-color: white;
-            padding: 50px 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            text-align: center;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .contact-item:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-        }
-        
-        .contact-item:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-        }
-        
-        .contact-item i {
-            font-size: 50px;
-            color: var(--secondary);
-            margin-bottom: 25px;
-        }
-        
-        .contact-item h3 {
-            margin-bottom: 20px;
-            color: var(--primary);
-            font-size: 22px;
-            font-weight: 600;
-        }
-        
-        .contact-item p {
-            color: var(--gray);
-            line-height: 1.7;
         }
         
         /* Botão WhatsApp */
@@ -1200,6 +1533,18 @@
             }
         }
         
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
         /* Responsividade */
         @media (max-width: 1200px) {
             .hero h1 {
@@ -1208,6 +1553,10 @@
             
             .section-title {
                 font-size: 40px;
+            }
+            
+            #novidades .section-title {
+                font-size: 44px;
             }
         }
         
@@ -1233,13 +1582,38 @@
             }
             
             .hero {
-                padding: 180px 0 120px;
+                padding: 0;
+            }
+            
+            .gallery-thumbnails {
+                display: none;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .novidades-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            
+            /* Mostrar indicador de galeria no mobile */
+            .mobile-gallery-indicator {
+                display: flex;
+            }
+            
+            /* Ajustes para galeria no modal no mobile */
+            .modal-gallery-thumbs {
+                display: flex;
+            }
+            
+            #novidades .section-title {
+                font-size: 38px;
             }
         }
         
         @media (max-width: 768px) {
             .hero {
-                padding: 150px 0 100px;
                 min-height: 80vh;
             }
             
@@ -1259,6 +1633,10 @@
                 font-size: 32px;
             }
             
+            #novidades .section-title {
+                font-size: 32px;
+            }
+            
             .cart-modal {
                 max-width: 100%;
             }
@@ -1271,6 +1649,22 @@
             .product-detail-info {
                 padding: 30px;
             }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .novidade-image-container {
+                height: 240px;
+            }
+            
+            .novidade-info {
+                padding: 20px;
+            }
+            
+            .novidade-title {
+                font-size: 20px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -1282,12 +1676,26 @@
                 font-size: 28px;
             }
             
+            #novidades .section-title {
+                font-size: 28px;
+            }
+            
             .product-card {
                 min-width: 100%;
             }
             
-            .contact-item {
-                padding: 30px 20px;
+            .novidade-card {
+                min-width: 100%;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .novidades-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
             }
         }
     </style>
@@ -1317,8 +1725,19 @@
         </div>
     </header>
 
-    <!-- Home -->
+    <!-- Home com Vídeo -->
     <section id="home" class="hero">
+        <!-- Vídeo de fundo -->
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="seu-video.mp4" type="video/mp4">
+            <!-- Adicione fallbacks para diferentes formatos se necessário -->
+            <!-- <source src="seu-video.webm" type="video/webm"> -->
+            Seu navegador não suporta o elemento de vídeo.
+        </video>
+        
+        <!-- Overlay para melhor legibilidade do texto -->
+        <div class="hero-overlay"></div>
+        
         <div class="container hero-content">
             <h1>Elegância Reimaginada</h1>
             <p>Descubra a nova coleção de camisas masculinas que combinam artesanato tradicional com design contemporâneo. Cada peça é uma declaração de estilo e sofisticação.</p>
@@ -1329,12 +1748,12 @@
         </div>
     </section>
 
-    <!-- Novidades -->
+    <!-- Novidades - TOTALMENTE REFEITA -->
     <section id="novidades">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Novidades</h2>
-                <p class="section-subtitle">As últimas adições à nossa coleção, cuidadosamente selecionadas para oferecer o que há de mais moderno em moda masculina.</p>
+                <h2 class="section-title">Lançamentos Exclusivos</h2>
+                <p class="section-subtitle">Fique por dentro das próximas tendências! Nossas novas coleções estão chegando com designs únicos e materiais premium.</p>
             </div>
             <div class="novidades-grid" id="novidadesGrid">
                 <!-- Produtos em destaque serão inseridos via JavaScript -->
@@ -1361,7 +1780,14 @@
             <span class="close-modal" id="closeModal">&times;</span>
             <div class="product-detail">
                 <div class="product-detail-image">
-                    <img id="modalImage" src="" alt="Produto">
+                    <div class="modal-gallery">
+                        <div class="modal-gallery-main">
+                            <img id="modalImage" src="" alt="Produto">
+                        </div>
+                        <div class="modal-gallery-thumbs" id="modalGalleryThumbs">
+                            <!-- Miniaturas serão inseridas via JavaScript -->
+                        </div>
+                    </div>
                 </div>
                 <div class="product-detail-info">
                     <h2 class="product-detail-title" id="modalTitle"></h2>
@@ -1437,7 +1863,6 @@
                         <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
                         <li><a href="#novidades"><i class="fas fa-chevron-right"></i> Novidades</a></li>
                         <li><a href="#produtos"><i class="fas fa-chevron-right"></i> Produtos</a></li>
-                        <li><a href="#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -1456,13 +1881,15 @@
     </footer>
 
     <script>
-        // Dados dos produtos
+        // Dados dos produtos com múltiplas imagens
         const products = [
             {
                 id: 1,
                 name: "Camiseta Boss Black",
                 price: 89.90,
-                image: "BossPreta.png",
+                images: [
+                    "BossPreta.png"                                     
+                ],
                 description: "Uma peça desenvolvida para quem não abre mão de qualidade e estilo, a Camiseta Estampada Boss Life é um item indispensável no seu guarda-roupa.",
                 featured: true,
                 badge: "Novo",
@@ -1472,17 +1899,20 @@
                 id: 2,
                 name: "Camiseta Boss Blue",
                 price: 89.90,
-                image: "boss_azul.jpeg",
+                images: [
+                    "boss_azul.jpeg"                    
+                ],
                 description: "Uma peça desenvolvida para quem não abre mão de qualidade e estilo, a Camiseta Estampada Boss Life é um item indispensável no seu guarda-roupa.",
                 featured: true,
-                badge: "Mais Vendido",
                 rating: 5.0
             },
             {
                 id: 3,
                 name: "Camisa Boss White",
                 price: 89.90,
-                image: "boss_branca (1).jpeg",
+                images: [
+                    "boss_branca(1).jpeg"
+                ],
                 description: "Uma peça desenvolvida para quem não abre mão de qualidade e estilo, a Camiseta Estampada Boss Life é um item indispensável no seu guarda-roupa.",
                 featured: false,
                 rating: 5.0
@@ -1491,81 +1921,50 @@
                 id: 4,
                 name: "Camisa Armani Exchange White",
                 price: 89.90,
-                image: "armani (1).jpeg",
+                images: [
+                    "armani(1).jpeg"                                       
+                ],
                 description: "Uma peça desenvolvida para quem não abre mão de qualidade e estilo, a Camiseta Estampada Boss Life é um item indispensável no seu guarda-roupa.",
                 featured: true,
-                badge: "Exclusivo",
                 rating: 5.0
-            },
-            {
-                id: 5,
-                name: "Camisa Social Clássica",
-                price: 349.99,
-                image: "https://images.unsplash.com/photo-1621072156002-e2fccdc0b176?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                description: "Camisa social clássica em corte regular. Feita com algodão egípcio 200 fios para máximo conforto e durabilidade. Detalhes em madre pérola.",
-                featured: false,
-                rating: 4.8
-            },
-            {
-                id: 6,
-                name: "Camisa Jeans Masculina Premium",
-                price: 339.99,
-                image: "https://images.unsplash.com/photo-1589310243389-96a5483213a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                description: "Camisa em tecido jeans premium com acabamento superior. Estilo casual com toque urbano e sofisticado. Versátil para diversas ocasiões.",
-                featured: false,
-                rating: 4.6
-            },
-            {
-                id: 7,
-                name: "Camisa Social Linho",
-                price: 379.99,
-                image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                description: "Camisa social em linho puro, ideal para climas quentes. Tecido respirável e de alta qualidade. Design elegante e confortável.",
-                featured: true,
-                badge: "Verão",
-                rating: 4.9
-            },
-            {
-                id: 8,
-                name: "Camisa Casual Botões Ocultos",
-                price: 329.99,
-                image: "https://images.unsplash.com/photo-1601924582970-9238bcb495d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                description: "Camisa casual com botões ocultos e design minimalista. Tecido de algodão com elastano para melhor caimento e conforto.",
-                featured: false,
-                rating: 4.7
             }
         ];
 
-        // Dados das novidades (produtos especiais apenas para a seção de novidades)
+        // Dados das novidades - TOTALMENTE REFEITO
         const novidades = [
             {
                 id: 101,
-                name: "Camiseta Boss Black",
-                price: 89.90,
-                image: "BossPreta.png",
-                tag: "Edição Limitada"
+                name: "Coleção Surf Premium",
+                price: 0.00,
+                image: "Camisapuma.png",
+                tag: "EM BREVE",
+                description: "Linha especial inspirada no lifestyle surf, com tecidos tecnológicos e designs modernos.",
+                badge: "Nova Coleção",
+                // Data de lançamento: 15 dias a partir de hoje
+                launchDate: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000)
             },
             {
                 id: 102,
-                name: "Camiseta Boss Blue",
-                price: 89.90,
-                image: "boss_azul.jpeg",
-                tag: "Artesanal"
+                name: "Moletones Premium",
+                price: 0.00,
+                image: "canguru.png",
+                tag: "EM BREVE", 
+                description: "Conforto e estilo em moletons de alta qualidade para o inverno 2025.",
+                badge: "Edição Limitada",
+                // Data de lançamento: 8 dias a partir de hoje
+                launchDate: new Date(Date.now() + 8 * 24 * 60 * 60 * 1000)
             },
             {
                 id: 103,
-                name: "Camisa Boss White",
-                price: 89.90,
-                image: "boss_branca (1).jpeg",
-                tag: "Tecnologia"
-            },
-            {
-                id: 104,
-                name: "Camisa Noite Estrelada",
-                price: 429.99,
-                image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                tag: "Exclusivo"
-            }
+                name: "Bermudas Signature",
+                price: 0.00,
+                image: "bermu.png",
+                tag: "EM BREVE",
+                description: "Bermudas masculinas com cortes modernos e tecidos de última geração.",
+                badge: "Pré-venda",
+                // Data de lançamento: 22 dias a partir de hoje
+                launchDate: new Date(Date.now() + 22 * 24 * 60 * 60 * 1000)
+            }    
         ];
 
         // Elementos DOM
@@ -1576,6 +1975,7 @@
         const modalTitle = document.getElementById('modalTitle');
         const modalPrice = document.getElementById('modalPrice');
         const modalDescription = document.getElementById('modalDescription');
+        const modalGalleryThumbs = document.getElementById('modalGalleryThumbs');
         const sizeOptions = document.querySelectorAll('.size-option');
         const addToCartBtn = document.getElementById('addToCartBtn');
         const closeModal = document.getElementById('closeModal');
@@ -1594,6 +1994,8 @@
         let cart = [];
         let selectedProduct = null;
         let selectedSize = null;
+        let currentModalImageIndex = 0;
+        let countdownIntervals = [];
 
         // Inicialização
         document.addEventListener('DOMContentLoaded', () => {
@@ -1613,6 +2015,29 @@
             
             // Animação de entrada para elementos ao rolar
             setupScrollAnimations();
+            
+            // Controle do vídeo para melhor performance
+            const heroVideo = document.querySelector('.hero-video');
+            
+            // Tenta reproduzir o vídeo (útil para alguns navegadores móveis)
+            if (heroVideo) {
+                heroVideo.play().catch(function(error) {
+                    console.log('Reprodução automática do vídeo não permitida:', error);
+                });
+            }
+            
+            // Pausa o vídeo quando a página não está visível (para economizar recursos)
+            document.addEventListener('visibilitychange', function() {
+                if (heroVideo) {
+                    if (document.hidden) {
+                        heroVideo.pause();
+                    } else {
+                        heroVideo.play().catch(function(error) {
+                            console.log('Erro ao retomar o vídeo:', error);
+                        });
+                    }
+                }
+            });
         });
 
         // Configurar animações de scroll
@@ -1646,16 +2071,19 @@
             });
         }
 
-        // Renderizar produtos em destaque na seção de novidades
+        // Renderizar produtos em destaque na seção de novidades - TOTALMENTE REFEITO
         function renderNovidades() {
             novidadesGrid.innerHTML = '';
-            novidades.forEach(novidade => {
-                const novidadeCard = createNovidadeCard(novidade);
+            novidades.forEach((novidade, index) => {
+                const novidadeCard = createNovidadeCard(novidade, index);
                 novidadesGrid.appendChild(novidadeCard);
             });
+            
+            // Iniciar contadores
+            startCountdowns();
         }
 
-        // Criar card de produto
+        // Criar card de produto com galeria de imagens
         function createProductCard(product) {
             const card = document.createElement('div');
             card.className = 'product-card';
@@ -1677,32 +2105,165 @@
                 }
             }
             
+            // Criar galeria de imagens
+            let galleryHTML = '';
+            if (product.images && product.images.length > 1) {
+                let thumbnailsHTML = '';
+                product.images.forEach((img, index) => {
+                    const activeClass = index === 0 ? 'active' : '';
+                    thumbnailsHTML += `
+                        <div class="gallery-thumb ${activeClass}" data-index="${index}">
+                            <img src="${img}" alt="${product.name}">
+                        </div>
+                    `;
+                });
+                
+                galleryHTML = `
+                    <div class="product-gallery">
+                        <div class="gallery-main">
+                            <img src="${product.images[0]}" alt="${product.name}" class="product-image" data-id="${product.id}">
+                            <div class="gallery-nav prev"><i class="fas fa-chevron-left"></i></div>
+                            <div class="gallery-nav next"><i class="fas fa-chevron-right"></i></div>
+                            <div class="mobile-gallery-indicator">
+                                <i class="fas fa-images"></i>
+                                <span>${product.images.length} imagens</span>
+                            </div>
+                        </div>
+                        <div class="gallery-thumbnails">
+                            ${thumbnailsHTML}
+                        </div>
+                    </div>
+                `;
+            } else {
+                galleryHTML = `
+                    <div class="product-image-container">
+                        <img src="${product.images ? product.images[0] : product.image}" alt="${product.name}" class="product-image" data-id="${product.id}">
+                    </div>
+                `;
+            }
+            
             card.innerHTML = `
                 ${badgeHTML}
-                <div class="product-image-container">
-                    <img src="${product.image}" alt="${product.name}" class="product-image" data-id="${product.id}">
-                </div>
+                ${galleryHTML}
                 <div class="product-info">
                     <h3 class="product-title">${product.name}</h3>
+                    <p class="product-description">${product.description}</p>
                     <div class="product-rating">
-                        ${starsHTML} <span style="color: #6c757d; margin-left: 5px;">${product.rating}</span>
+                        ${starsHTML} <span>${product.rating}</span>
                     </div>
                     <div class="product-price">
                         R$ ${product.price.toFixed(2)}
                     </div>
+                    <div class="size-selector-card">
+                        <label>Tamanho:</label>
+                        <div class="size-options-card" data-product-id="${product.id}">
+                            <div class="size-option-card" data-size="P">P</div>
+                            <div class="size-option-card" data-size="M">M</div>
+                            <div class="size-option-card" data-size="G">G</div>
+                            <div class="size-option-card" data-size="GG">GG</div>
+                        </div>
+                    </div>
                     <div class="product-actions">
                         <button class="quick-view" data-id="${product.id}">Ver Detalhes</button>
-                        <button class="add-to-cart" data-id="${product.id}">Comprar</button>
+                        <button class="add-to-cart" data-id="${product.id}" disabled>Comprar</button>
                     </div>
                 </div>
             `;
+            
+            // Configurar galeria de imagens se houver múltiplas imagens
+            if (product.images && product.images.length > 1) {
+                setupProductGallery(card, product);
+            }
+            
+            // Configurar seleção de tamanho
+            setupSizeSelector(card, product.id);
+            
             return card;
         }
 
-        // Criar card de novidade
-        function createNovidadeCard(novidade) {
+        // Configurar galeria de imagens para um produto
+        function setupProductGallery(card, product) {
+            const galleryMain = card.querySelector('.gallery-main');
+            const mainImage = galleryMain.querySelector('img');
+            const thumbs = card.querySelectorAll('.gallery-thumb');
+            const prevBtn = card.querySelector('.gallery-nav.prev');
+            const nextBtn = card.querySelector('.gallery-nav.next');
+            
+            let currentImageIndex = 0;
+            
+            // Navegação por miniaturas
+            thumbs.forEach((thumb, index) => {
+                thumb.addEventListener('click', () => {
+                    currentImageIndex = index;
+                    updateGallery();
+                });
+            });
+            
+            // Navegação por botões
+            prevBtn.addEventListener('click', () => {
+                currentImageIndex = (currentImageIndex - 1 + product.images.length) % product.images.length;
+                updateGallery();
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                currentImageIndex = (currentImageIndex + 1) % product.images.length;
+                updateGallery();
+            });
+            
+            // Atualizar galeria
+            function updateGallery() {
+                mainImage.src = product.images[currentImageIndex];
+                
+                // Atualizar miniaturas ativas
+                thumbs.forEach((thumb, index) => {
+                    if (index === currentImageIndex) {
+                        thumb.classList.add('active');
+                    } else {
+                        thumb.classList.remove('active');
+                    }
+                });
+            }
+        }
+
+        // Configurar seletor de tamanho para um produto
+        function setupSizeSelector(card, productId) {
+            const sizeOptions = card.querySelectorAll('.size-option-card');
+            const addToCartBtn = card.querySelector('.add-to-cart');
+            
+            sizeOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    // Remover seleção de todos os tamanhos
+                    sizeOptions.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Selecionar o tamanho clicado
+                    option.classList.add('selected');
+                    
+                    // Habilitar botão de adicionar ao carrinho
+                    addToCartBtn.disabled = false;
+                    
+                    // Armazenar o tamanho selecionado
+                    option.dataset.selected = 'true';
+                });
+            });
+        }
+
+        // Criar card de novidade - TOTALMENTE REFEITO
+        function createNovidadeCard(novidade, index) {
             const card = document.createElement('div');
             card.className = 'novidade-card';
+            
+            // Calcular tempo restante
+            const now = new Date();
+            const timeRemaining = novidade.launchDate - now;
+            
+            let days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            
+            // Garantir que os valores não sejam negativos
+            days = Math.max(0, days);
+            hours = Math.max(0, hours);
+            minutes = Math.max(0, minutes);
             
             card.innerHTML = `
                 <div class="novidade-tag">${novidade.tag}</div>
@@ -1711,25 +2272,90 @@
                 </div>
                 <div class="novidade-info">
                     <h3 class="novidade-title">${novidade.name}</h3>
-                    <div class="novidade-price">R$ ${novidade.price.toFixed(2)}</div>
+                    <p class="novidade-description">${novidade.description}</p>
+                    <div class="novidade-badge">${novidade.badge}</div>
+                    <div class="novidade-price">EM BREVE</div>
+                    <div class="countdown-timer" id="countdown-${index}">
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="days-${index}">${days}</span>
+                            <span class="countdown-label">dias</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="hours-${index}">${hours}</span>
+                            <span class="countdown-label">horas</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="minutes-${index}">${minutes}</span>
+                            <span class="countdown-label">min</span>
+                        </div>
+                    </div>
+                    <div class="novidade-cta">
+                        <button class="notify-btn" onclick="notifyMe('${novidade.name}')">
+                            <i class="fas fa-bell"></i> Avise-me
+                        </button>
+                    </div>
                 </div>
             `;
             return card;
+        }
+
+        // Iniciar contadores para todos os produtos em novidades
+        function startCountdowns() {
+            // Limpar intervalos anteriores
+            countdownIntervals.forEach(interval => clearInterval(interval));
+            countdownIntervals = [];
+            
+            novidades.forEach((novidade, index) => {
+                const interval = setInterval(() => {
+                    updateCountdown(novidade, index);
+                }, 1000);
+                
+                countdownIntervals.push(interval);
+            });
+        }
+
+        // Atualizar contador individual
+        function updateCountdown(novidade, index) {
+            const now = new Date();
+            const timeRemaining = novidade.launchDate - now;
+            
+            if (timeRemaining <= 0) {
+                // Lançamento ocorreu
+                document.getElementById(`days-${index}`).textContent = '0';
+                document.getElementById(`hours-${index}`).textContent = '0';
+                document.getElementById(`minutes-${index}`).textContent = '0';
+                return;
+            }
+            
+            let days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            
+            // Atualizar elementos DOM
+            document.getElementById(`days-${index}`).textContent = days;
+            document.getElementById(`hours-${index}`).textContent = hours;
+            document.getElementById(`minutes-${index}`).textContent = minutes;
         }
 
         // Configurar event listeners
         function setupEventListeners() {
             // Abrir modal do produto ao clicar na imagem ou no botão
             document.addEventListener('click', (e) => {
-                if (e.target.classList.contains('product-image') || e.target.classList.contains('quick-view')) {
-                    const productId = parseInt(e.target.getAttribute('data-id'));
+                if (e.target.classList.contains('product-image') || e.target.classList.contains('quick-view') || e.target.classList.contains('mobile-gallery-indicator')) {
+                    const productId = parseInt(e.target.getAttribute('data-id') || e.target.closest('[data-id]').getAttribute('data-id'));
                     openProductModal(productId);
                 }
                 
                 // Adicionar ao carrinho diretamente do card
                 if (e.target.classList.contains('add-to-cart') && !e.target.classList.contains('add-to-cart-btn')) {
                     const productId = parseInt(e.target.getAttribute('data-id'));
-                    addToCartDirectly(productId);
+                    const card = e.target.closest('.product-card');
+                    const selectedSizeOption = card.querySelector('.size-option-card.selected');
+                    
+                    if (selectedSizeOption) {
+                        const size = selectedSizeOption.getAttribute('data-size');
+                        addToCartDirectly(productId, size);
+                    }
                 }
             });
 
@@ -1745,7 +2371,7 @@
                 }
             });
 
-            // Selecionar tamanho
+            // Selecionar tamanho no modal
             sizeOptions.forEach(option => {
                 option.addEventListener('click', () => {
                     sizeOptions.forEach(opt => opt.classList.remove('selected'));
@@ -1806,11 +2432,18 @@
             });
         }
 
+        // Função para notificar sobre lançamento
+        function notifyMe(productName) {
+            const message = `Olá! Gostaria de ser avisado quando o produto "${productName}" estiver disponível.`;
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/5551992520046?text=${encodedMessage}`, '_blank');
+        }
+
         // Abrir modal do produto
         function openProductModal(productId) {
             selectedProduct = products.find(product => product.id === productId);
             if (selectedProduct) {
-                modalImage.src = selectedProduct.image;
+                modalImage.src = selectedProduct.images ? selectedProduct.images[0] : selectedProduct.image;
                 modalTitle.textContent = selectedProduct.name;
                 modalPrice.textContent = `R$ ${selectedProduct.price.toFixed(2)}`;
                 modalDescription.textContent = selectedProduct.description;
@@ -1818,6 +2451,9 @@
                 // Resetar seleção de tamanho
                 sizeOptions.forEach(opt => opt.classList.remove('selected'));
                 selectedSize = null;
+                
+                // Configurar galeria no modal
+                setupModalGallery(selectedProduct);
                 
                 productModal.style.display = 'block';
                 
@@ -1832,11 +2468,36 @@
             }
         }
 
-        // Adicionar produto ao carrinho diretamente do card (tamanho M padrão)
-        function addToCartDirectly(productId) {
+        // Configurar galeria no modal
+        function setupModalGallery(product) {
+            modalGalleryThumbs.innerHTML = '';
+            
+            if (product.images && product.images.length > 1) {
+                product.images.forEach((img, index) => {
+                    const thumb = document.createElement('div');
+                    thumb.className = `modal-gallery-thumb ${index === 0 ? 'active' : ''}`;
+                    thumb.innerHTML = `<img src="${img}" alt="${product.name}">`;
+                    
+                    thumb.addEventListener('click', () => {
+                        // Atualizar imagem principal
+                        modalImage.src = img;
+                        currentModalImageIndex = index;
+                        
+                        // Atualizar miniaturas ativas
+                        document.querySelectorAll('.modal-gallery-thumb').forEach(t => t.classList.remove('active'));
+                        thumb.classList.add('active');
+                    });
+                    
+                    modalGalleryThumbs.appendChild(thumb);
+                });
+            }
+        }
+
+        // Adicionar produto ao carrinho diretamente do card
+        function addToCartDirectly(productId, size) {
             selectedProduct = products.find(product => product.id === productId);
             if (selectedProduct) {
-                selectedSize = 'M'; // Tamanho padrão
+                selectedSize = size;
                 
                 const existingItem = cart.find(item => 
                     item.id === selectedProduct.id && item.size === selectedSize
@@ -1849,7 +2510,7 @@
                         id: selectedProduct.id,
                         name: selectedProduct.name,
                         price: selectedProduct.price,
-                        image: selectedProduct.image,
+                        image: selectedProduct.images ? selectedProduct.images[0] : selectedProduct.image,
                         size: selectedSize,
                         quantity: 1
                     });
@@ -1897,7 +2558,7 @@
                     id: selectedProduct.id,
                     name: selectedProduct.name,
                     price: selectedProduct.price,
-                    image: selectedProduct.image,
+                    image: selectedProduct.images ? selectedProduct.images[0] : selectedProduct.image,
                     size: selectedSize,
                     quantity: 1
                 });
