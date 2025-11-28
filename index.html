@@ -1594,7 +1594,7 @@
             }
             
             .novidades-grid {
-                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             }
             
             /* Mostrar indicador de galeria no mobile */
@@ -1940,7 +1940,6 @@
                 name: "Coleção Surf Premium",
                 price: 0.00,
                 image: "Camisapuma.png",
-                tag: "EM BREVE",
                 description: "Linha especial inspirada no lifestyle surf, com tecidos tecnológicos e designs modernos.",
                 badge: "Nova Coleção",
                 // Data de lançamento: 15 dias a partir de hoje
@@ -2277,21 +2276,7 @@
                     <h3 class="novidade-title">${novidade.name}</h3>
                     <p class="novidade-description">${novidade.description}</p>
                     <div class="novidade-badge">${novidade.badge}</div>
-                    <div class="novidade-price">EM BREVE</div>
                     <div class="countdown-timer" id="countdown-${index}">
-                        <div class="countdown-item">
-                            <span class="countdown-value" id="days-${index}">${days}</span>
-                            <span class="countdown-label">dias</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-value" id="hours-${index}">${hours}</span>
-                            <span class="countdown-label">horas</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-value" id="minutes-${index}">${minutes}</span>
-                            <span class="countdown-label">min</span>
-                        </div>
-                    </div>
                     <div class="novidade-cta">
                         <button class="notify-btn" onclick="notifyMe('${novidade.name}')">
                             <i class="fas fa-bell"></i> Avise-me
