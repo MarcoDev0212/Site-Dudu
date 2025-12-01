@@ -381,11 +381,11 @@
             transform: translateY(20px);
             animation: fadeInUp 0.8s ease-out 0.3s forwards;
         }
-        
+        /*Esse menu é responsavel pela cor da categoria dos produtos*/
         .filter-btn {
             padding: 12px 28px;
             background: white;
-            border: 2px solid #e0e0e0;
+            border: 2px solid #000000;
             border-radius: 30px;
             font-weight: 600;
             cursor: pointer;
@@ -434,9 +434,9 @@
             gap: 35px;
             position: relative;
         }
-        
+        /*Borda dos Produtos */
         .product-card {
-            background-color: white;
+            background-color: rgb(10, 9, 9);
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0,0,0,0.08);
@@ -505,7 +505,7 @@
             height: 380px;
             overflow: hidden;
             position: relative;
-            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+            background: linear-gradient(135deg, #f3f3f3, #e0e0e0);
         }
         
         .product-image {
@@ -956,7 +956,7 @@
         }
         
         #novidades .section-title {
-            color: white;
+            color: rgb(250, 248, 248);
             font-size: 52px;
             text-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
@@ -1165,7 +1165,7 @@
         }
         
         .modal-content {
-            background-color: white;
+            background-color: rgb(236, 236, 236);
             margin: 50px auto;
             max-width: 1100px;
             border-radius: 20px;
@@ -1197,7 +1197,7 @@
         
         .close-modal:hover {
             background-color: var(--primary);
-            color: white;
+            color: rgb(247, 247, 247);
             transform: rotate(90deg) scale(1.1);
         }
         
@@ -1566,11 +1566,11 @@
         
         .cart-footer {
             padding: 30px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid #f8f8f8;
             position: sticky;
             bottom: 0;
-            background-color: white;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+            background-color: rgb(226, 225, 225);
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
         }
         
         .cart-total {
@@ -1635,7 +1635,7 @@
         
         /* Footer */
         footer {
-            background: linear-gradient(135deg, var(--primary), #1a1a1a);
+            background: linear-gradient(135deg, var(--primary), #020202);
             color: white;
             padding: 80px 0 30px;
             position: relative;
@@ -2241,7 +2241,6 @@
                 ],
                 description: "Uma peça desenvolvida para quem não abre mão de qualidade e estilo, a Camiseta Estampada Boss Life é um item indispensável no seu guarda-roupa.",
                 featured: true,
-                badge: "Novo",
                 rating: 5.0,
                 category: "boss",
                 tags: ["boss"]
