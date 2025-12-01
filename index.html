@@ -2079,8 +2079,8 @@
         <div class="hero-overlay"></div>
         
         <div class="container hero-content">
-            <h1>Elegância Reimaginada</h1>
-            <p>Descubra a nova coleção de camisas masculinas que combinam artesanato tradicional com design contemporâneo. Cada peça é uma declaração de estilo e sofisticação.</p>
+            <h1>O VISUAL QUE CONQUISTA RESPEITO</h1>
+            <p>Cortes precisos, tecidos superiores e design pensado para elevar sua postura e sua autoconfiança.</p>
             <div class="hero-buttons">
                 <a href="#produtos" class="btn">Explorar Coleção</a>
                 <a href="#novidades" class="btn btn-outline">Ver Novidades</a>
@@ -2112,10 +2112,8 @@
             <!-- Menu de Filtros - NOVO -->
             <div class="products-filter" id="productsFilter">
                 <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="featured">Em Destaque</button>
                 <button class="filter-btn" data-filter="boss">Boss</button>
                 <button class="filter-btn" data-filter="armani">Armani</button>
-                <button class="filter-btn" data-filter="novo">Novidades</button>
             </div>
             
             <div class="products-grid" id="productsGrid">
@@ -2201,7 +2199,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>DC-Store</h3>
+                    <h3>DC Store</h3>
                     <p>Especialistas em camisas masculinas de alta qualidade. Combinamos tradição e inovação para criar peças que definem elegância contemporânea.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -2216,9 +2214,17 @@
                         <li><a href="#produtos"><i class="fas fa-chevron-right"></i> Produtos</a></li>
                     </ul>
                 </div>
+                <div class="footer-column">
+                    <h3>Contatos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#telefone"><i class="fas fa-chevron-right"></i> 51992520046</a></li>
+                        <li><a href="mailto:contato@seudominio.com"><i class="fas fa-chevron-right"></i> dcstore@gmail.com</a></li>
+                        <li><a href="#cidade"><i class="fas fa-chevron-right"></i> Minas Gerais/MG</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 DC-Store. Todos os direitos reservados</p>
+                <p>&copy; 2025 DC Store. Todos os direitos reservados</p>
             </div>
         </div>
     </footer>
@@ -2238,7 +2244,7 @@
                 badge: "Novo",
                 rating: 5.0,
                 category: "boss",
-                tags: ["boss", "featured", "novo"]
+                tags: ["boss"]
             },
             {
                 id: 2,
@@ -2251,7 +2257,7 @@
                 featured: true,
                 rating: 5.0,
                 category: "boss",
-                tags: ["boss", "featured"]
+                tags: ["boss"]
             },
             {
                 id: 3,
@@ -2268,16 +2274,16 @@
             },
             {
                 id: 4,
-                name: "Camisa Armani Exchange White",
+                name: "Camisa Giorgio Armani Black  ",
                 price: 89.90,
                 images: [
-                    "armani (1).jpeg"                                       
+                    "giorgio_armani.jpeg"                                       
                 ],
-                description: "Uma peça desenvolvida para quem não abre mão de qualidade e estilo, a Camiseta Estampada Boss Life é um item indispensável no seu guarda-roupa.",
+                description: "Camisa com logo preto de algodão, Giorgio Armani. Com decote careca, mangas curtas, barra reta, ajuste folgado e logo estampado.",
                 featured: true,
                 rating: 5.0,
                 category: "armani",
-                tags: ["armani", "featured"]
+                tags: ["armani"]
             },
             {
                 id: 5,
@@ -2290,7 +2296,33 @@
                 featured: true,
                 rating: 5.0,
                 category: "armani",
-                tags: ["armani", "featured"]
+                tags: ["armani"]
+            },
+            {
+                id: 6,
+                name: "Camisa Armani Exchange White",
+                price: 89.90,
+                images: [
+                    "armani.jpeg"                                       
+                ],
+                description: "Uma peça desenvolvida para quem não abre mão de qualidade e estilo, a Camiseta Estampada Boss Life é um item indispensável no seu guarda-roupa.",
+                featured: true,
+                rating: 5.0,
+                category: "armani",
+                tags: ["armani"]
+            },
+            {
+                id: 7,
+                name: "Camisa Armani Exchange Black  ",
+                price: 89.90,
+                images: [
+                    "armani_black.jpeg"                                       
+                ],
+                description: "Camisa com logo preto de algodão, Giorgio Armani. Com decote careca, mangas curtas, barra reta, ajuste folgado e logo estampado.",
+                featured: true,
+                rating: 5.0,
+                category: "armani",
+                tags: ["armani"]
             }
         ];
 
@@ -2723,19 +2755,7 @@
                     <p class="novidade-description">${novidade.description}</p>
                     <div class="novidade-badge">${novidade.badge}</div>
                     <div class="countdown-timer" id="countdown-${index}">
-                        <div class="countdown-item">
-                            <span class="countdown-value" id="days-${index}">${days}</span>
-                            <span class="countdown-label">Dias</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-value" id="hours-${index}">${hours}</span>
-                            <span class="countdown-label">Horas</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-value" id="minutes-${index}">${minutes}</span>
-                            <span class="countdown-label">Min</span>
-                        </div>
-                    </div>
+        
                     <div class="novidade-cta">
                         <button class="notify-btn" onclick="notifyMe('${novidade.name}')">
                             <i class="fas fa-bell"></i> Avise-me
