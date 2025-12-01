@@ -194,63 +194,6 @@
             color: var(--secondary);
         }
         
-        /* Menu Mobile */
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 10, 10, 0.98);
-            z-index: 999;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transform: translateY(-100%);
-            transition: transform 0.5s ease;
-        }
-        
-        .mobile-nav.active {
-            transform: translateY(0);
-        }
-        
-        .mobile-nav ul {
-            list-style: none;
-            text-align: center;
-        }
-        
-        .mobile-nav ul li {
-            margin: 20px 0;
-        }
-        
-        .mobile-nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 24px;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-        
-        .mobile-nav ul li a:hover {
-            color: var(--secondary);
-        }
-        
-        .close-mobile-menu {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            font-size: 30px;
-            color: white;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .close-mobile-menu:hover {
-            color: var(--secondary);
-            transform: rotate(90deg);
-        }
-        
         /* Hero Section com Vídeo */
         .hero {
             position: relative;
@@ -329,13 +272,6 @@
             opacity: 0.9;
         }
         
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
         .btn {
             display: inline-block;
             background-color: var(--secondary);
@@ -352,7 +288,6 @@
             position: relative;
             overflow: hidden;
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            cursor: pointer;
         }
         
         .btn::before {
@@ -381,6 +316,7 @@
             background-color: transparent;
             color: var(--secondary);
             border: 2px solid var(--secondary);
+            margin-left: 15px;
         }
         
         .btn-outline:hover {
@@ -434,171 +370,7 @@
             line-height: 1.7;
         }
         
-        /* SEÇÃO PRODUTOS COM FUNDO ANIMADO */
-        #produtos {
-            position: relative;
-            overflow: hidden;
-            background: #000000;
-            padding: 120px 0;
-        }
-        
-        /* Fundo animado com padrões geométricos */
-        .produtos-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            opacity: 0.9;
-        }
-        
-        .geometric-pattern {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(212, 175, 55, 0.02) 0%, transparent 50%),
-                radial-gradient(circle at 60% 20%, rgba(212, 175, 55, 0.02) 0%, transparent 50%),
-                repeating-linear-gradient(45deg, transparent, transparent 50px, rgba(255,255,255,0.01) 50px, rgba(255,255,255,0.01) 100px),
-                repeating-linear-gradient(-45deg, transparent, transparent 50px, rgba(255,255,255,0.01) 50px, rgba(255,255,255,0.01) 100px);
-        }
-        
-        .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        
-        .shape {
-            position: absolute;
-            background: transparent;
-            border: 1px solid rgba(212, 175, 55, 0.15);
-            animation: floatShape 20s infinite linear;
-            opacity: 0.4;
-        }
-        
-        .shape:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            top: 10%;
-            left: 5%;
-            border-radius: 50%;
-            animation-delay: 0s;
-            animation-duration: 25s;
-        }
-        
-        .shape:nth-child(2) {
-            width: 200px;
-            height: 200px;
-            top: 60%;
-            right: 10%;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            animation-delay: -5s;
-            animation-duration: 30s;
-        }
-        
-        .shape:nth-child(3) {
-            width: 250px;
-            height: 250px;
-            bottom: 15%;
-            left: 15%;
-            border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
-            animation-delay: -10s;
-            animation-duration: 35s;
-        }
-        
-        .shape:nth-child(4) {
-            width: 180px;
-            height: 180px;
-            top: 20%;
-            right: 20%;
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            animation-delay: -15s;
-            animation-duration: 40s;
-        }
-        
-        .shape:nth-child(5) {
-            width: 120px;
-            height: 120px;
-            bottom: 30%;
-            right: 30%;
-            border-radius: 50%;
-            animation-delay: -20s;
-            animation-duration: 45s;
-        }
-        
-        .shape:nth-child(6) {
-            width: 350px;
-            height: 350px;
-            top: 40%;
-            left: 30%;
-            border-radius: 40%;
-            animation-delay: -25s;
-            animation-duration: 50s;
-            opacity: 0.3;
-        }
-        
-        .golden-grid {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(90deg, rgba(212, 175, 55, 0.05) 1px, transparent 1px),
-                linear-gradient(0deg, rgba(212, 175, 55, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: gridMove 40s linear infinite;
-        }
-        
-        .pulse-dots {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .pulse-dot {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background: rgba(212, 175, 55, 0.6);
-            border-radius: 50%;
-            animation: pulseDot 3s infinite ease-in-out;
-        }
-        
-        .pulse-dot:nth-child(1) { top: 25%; left: 15%; animation-delay: 0s; }
-        .pulse-dot:nth-child(2) { top: 75%; left: 85%; animation-delay: 0.5s; }
-        .pulse-dot:nth-child(3) { top: 45%; left: 90%; animation-delay: 1s; }
-        .pulse-dot:nth-child(4) { top: 85%; left: 25%; animation-delay: 1.5s; }
-        .pulse-dot:nth-child(5) { top: 15%; left: 75%; animation-delay: 2s; }
-        .pulse-dot:nth-child(6) { top: 65%; left: 10%; animation-delay: 2.5s; }
-        .pulse-dot:nth-child(7) { top: 35%; left: 50%; animation-delay: 3s; }
-        .pulse-dot:nth-child(8) { top: 95%; left: 60%; animation-delay: 3.5s; }
-        
-        .produtos-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        #produtos .section-title {
-            color: white;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
-        
-        #produtos .section-title:after {
-            background: linear-gradient(90deg, var(--secondary), #ffd700);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-        }
-        
-        #produtos .section-subtitle {
-            color: rgba(255,255,255,0.85);
-            font-size: 18px;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-        }
-        
-        /* Menu de Filtros com fundo transparente */
+        /* Menu de Filtros - NOVO */
         .products-filter {
             display: flex;
             justify-content: center;
@@ -608,25 +380,21 @@
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s ease-out 0.3s forwards;
-            position: relative;
-            z-index: 2;
         }
         
         .filter-btn {
             padding: 12px 28px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(212, 175, 55, 0.3);
+            background: white;
+            border: 2px solid #e0e0e0;
             border-radius: 30px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            color: white;
         }
         
         .filter-btn::before {
@@ -636,8 +404,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
-            transition: 0.6s;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: var(--transition);
         }
         
         .filter-btn:hover::before {
@@ -648,32 +416,30 @@
             border-color: var(--secondary);
             color: var(--secondary);
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
         
         .filter-btn.active {
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            background-color: var(--secondary);
             color: var(--primary);
-            border-color: transparent;
+            border-color: var(--secondary);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
         }
         
-        /* Produtos Grid com destaque */
+        /* Produtos - Layout Melhorado COM ANIMAÇÕES AVANÇADAS */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 35px;
             position: relative;
-            z-index: 2;
         }
         
         .product-card {
-            background: rgba(255, 255, 255, 0.95);
+            background-color: white;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
             transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
             opacity: 0;
@@ -683,8 +449,7 @@
             flex-direction: column;
             height: 100%;
             will-change: transform, box-shadow;
-            border: 1px solid rgba(255,255,255,0.2);
-            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.1);
         }
         
         .product-card:nth-child(1) { animation-delay: 0.1s; }
@@ -692,6 +457,9 @@
         .product-card:nth-child(3) { animation-delay: 0.3s; }
         .product-card:nth-child(4) { animation-delay: 0.4s; }
         .product-card:nth-child(5) { animation-delay: 0.5s; }
+        .product-card:nth-child(6) { animation-delay: 0.6s; }
+        .product-card:nth-child(7) { animation-delay: 0.7s; }
+        .product-card:nth-child(8) { animation-delay: 0.8s; }
         
         .product-card::before {
             content: '';
@@ -711,8 +479,8 @@
         
         .product-card:hover {
             transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 40px 80px rgba(0,0,0,0.4), 0 0 30px rgba(212, 175, 55, 0.3);
-            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            border-color: rgba(212, 175, 55, 0.3);
         }
         
         .product-badge {
@@ -726,7 +494,7 @@
             font-size: 12px;
             font-weight: 800;
             z-index: 2;
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
             text-transform: uppercase;
             letter-spacing: 1px;
             animation: badgePulse 3s infinite;
@@ -752,7 +520,7 @@
             transform: scale(1.15) rotate(2deg);
         }
         
-        /* Ícone de visualização rápida flutuante */
+        /* Ícone de visualização rápida flutuante - NOVO */
         .quick-view-icon {
             position: absolute;
             top: 50%;
@@ -1144,7 +912,7 @@
             left: -100%;
         }
         
-        /* Efeito de brilho ao adicionar ao carrinho */
+        /* Efeito de brilho ao adicionar ao carrinho - NOVO */
         @keyframes cartAddGlow {
             0% {
                 box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
@@ -1161,7 +929,7 @@
             animation: cartAddGlow 0.8s ease-out;
         }
         
-        /* SEÇÃO NOVIDADES */
+        /* SEÇÃO NOVIDADES - TOTALMENTE REFEITA */
         #novidades {
             background: linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(26,26,26,0.9) 100%), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
@@ -2064,46 +1832,6 @@
             }
         }
         
-        @keyframes floatShape {
-            0% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            25% {
-                transform: translateY(-20px) rotate(90deg);
-            }
-            50% {
-                transform: translateY(0px) rotate(180deg);
-            }
-            75% {
-                transform: translateY(20px) rotate(270deg);
-            }
-            100% {
-                transform: translateY(0px) rotate(360deg);
-            }
-        }
-        
-        @keyframes gridMove {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: 50px 50px;
-            }
-        }
-        
-        @keyframes pulseDot {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 0.6;
-                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
-            }
-            50% {
-                transform: scale(1.5);
-                opacity: 1;
-                box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
-            }
-        }
-        
         @keyframes shimmer {
             0% {
                 background-position: -1000px 0;
@@ -2136,10 +1864,6 @@
             
             .products-grid {
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            }
-            
-            .shape {
-                opacity: 0.3;
             }
         }
         
@@ -2192,14 +1916,6 @@
             
             #novidades .section-title {
                 font-size: 38px;
-            }
-            
-            .shape {
-                opacity: 0.2;
-            }
-            
-            .pulse-dot {
-                opacity: 0.4;
             }
             
             .quick-view-icon {
@@ -2273,29 +1989,6 @@
                 padding: 10px 20px;
                 font-size: 13px;
             }
-            
-            .shape {
-                display: none;
-            }
-            
-            .pulse-dot {
-                display: none;
-            }
-            
-            .golden-grid {
-                opacity: 0.5;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .hero-buttons .btn {
-                margin: 10px 0;
-                width: 100%;
-                max-width: 300px;
-            }
         }
         
         @media (max-width: 576px) {
@@ -2346,27 +2039,6 @@
                 width: 100%;
                 max-width: 200px;
             }
-            
-            #produtos .section-subtitle {
-                font-size: 16px;
-                padding: 0 10px;
-            }
-            
-            .modal-content {
-                margin: 20px auto;
-            }
-            
-            .product-detail-info {
-                padding: 20px;
-            }
-            
-            .product-detail-title {
-                font-size: 28px;
-            }
-            
-            .product-detail-price {
-                font-size: 32px;
-            }
         }
     </style>
 </head>
@@ -2388,22 +2060,12 @@
                 <div class="cart-icon" id="cartIcon">
                     <i class="fas fa-shopping-bag"></i> <span class="cart-count">0</span>
                 </div>
-                <div class="mobile-menu" id="mobileMenu">
+                <div class="mobile-menu">
                     <i class="fas fa-bars"></i>
                 </div>
             </div>
         </div>
     </header>
-
-    <!-- Menu Mobile -->
-    <div class="mobile-nav" id="mobileNav">
-        <span class="close-mobile-menu" id="closeMobileMenu">&times;</span>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#novidades">Novidades</a></li>
-            <li><a href="#produtos">Produtos</a></li>
-        </ul>
-    </div>
 
     <!-- Home com Vídeo -->
     <section id="home" class="hero">
@@ -2426,7 +2088,7 @@
         </div>
     </section>
 
-    <!-- Novidades -->
+    <!-- Novidades - TOTALMENTE REFEITA -->
     <section id="novidades">
         <div class="container">
             <div class="section-header">
@@ -2439,43 +2101,21 @@
         </div>
     </section>
 
-    <!-- Produtos com Fundo Animado -->
+    <!-- Produtos -->
     <section id="produtos">
-        <!-- Fundo animado -->
-        <div class="produtos-bg">
-            <div class="geometric-pattern"></div>
-            <div class="floating-shapes">
-                <div class="shape"></div>
-                <div class="shape"></div>
-                <div class="shape"></div>
-                <div class="shape"></div>
-                <div class="shape"></div>
-                <div class="shape"></div>
-            </div>
-            <div class="golden-grid"></div>
-            <div class="pulse-dots">
-                <div class="pulse-dot"></div>
-                <div class="pulse-dot"></div>
-                <div class="pulse-dot"></div>
-                <div class="pulse-dot"></div>
-                <div class="pulse-dot"></div>
-                <div class="pulse-dot"></div>
-                <div class="pulse-dot"></div>
-                <div class="pulse-dot"></div>
-            </div>
-        </div>
-        
-        <div class="container produtos-content">
+        <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Nossa Coleção</h2>
                 <p class="section-subtitle">Explore nossa linha completa de camisas masculinas, onde qualidade, conforto e estilo se encontram em cada detalhe.</p>
             </div>
             
-            <!-- Menu de Filtros -->
+            <!-- Menu de Filtros - NOVO -->
             <div class="products-filter" id="productsFilter">
                 <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="featured">Em Destaque</button>
                 <button class="filter-btn" data-filter="boss">Boss</button>
                 <button class="filter-btn" data-filter="armani">Armani</button>
+                <button class="filter-btn" data-filter="novo">Novidades</button>
             </div>
             
             <div class="products-grid" id="productsGrid">
@@ -2566,7 +2206,6 @@
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -2575,20 +2214,11 @@
                         <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
                         <li><a href="#novidades"><i class="fas fa-chevron-right"></i> Novidades</a></li>
                         <li><a href="#produtos"><i class="fas fa-chevron-right"></i> Produtos</a></li>
-                        <li><a href="#" onclick="openCartModal()"><i class="fas fa-chevron-right"></i> Carrinho</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contato</h3>
-                    <ul class="footer-links">
-                        <li><a href="https://wa.me/5551992520046" target="_blank"><i class="fab fa-whatsapp"></i> (51) 99252-0046</a></li>
-                        <li><a href="mailto:dcstore@gmail.com"><i class="fas fa-envelope"></i> dcstore@gmail.com</a></li>
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Porto Alegre/MG</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy;2025 DC Store</p> 
+                <p>&copy; 2025 DC-Store. Todos os direitos reservados</p>
             </div>
         </div>
     </footer>
@@ -2603,7 +2233,7 @@
                 images: [
                     "BossPreta.png"                                     
                 ],
-                description: "Uma peça desenvolvida para quem não abre mão de qualidade e estilo, a Camiseta Estampada Boss Life é um item indispensável no seu guarda-roupa. Confeccionada em algodão premium com estampa exclusiva.",
+                description: "Uma peça desenvolvida para quem não abre mão de qualidade e estilo, a Camiseta Estampada Boss Life é um item indispensável no seu guarda-roupa.",
                 featured: true,
                 badge: "Novo",
                 rating: 5.0,
@@ -2617,7 +2247,7 @@
                 images: [
                     "boss_azul.jpeg"                    
                 ],
-                description: "A elegância do azul marinho combinada com a qualidade Boss. Perfeita para ocasiões casuais e eventos sociais. Conforto e estilo em uma única peça.",
+                description: "Uma peça desenvolvida para quem não abre mão de qualidade e estilo, a Camiseta Estampada Boss Life é um item indispensável no seu guarda-roupa.",
                 featured: true,
                 rating: 5.0,
                 category: "boss",
@@ -2630,9 +2260,9 @@
                 images: [
                     "boss_branca (1).jpeg"
                 ],
-                description: "Clássica e atemporal, a camisa branca Boss é um must-have no guarda-roupa masculino. Versátil e sofisticada para qualquer ocasião.",
+                description: "Uma peça desenvolvida para quem não abre mão de qualidade e estilo, a Camiseta Estampada Boss Life é um item indispensável no seu guarda-roupa.",
                 featured: false,
-                rating: 4.8,
+                rating: 5.0,
                 category: "boss",
                 tags: ["boss"]
             },
@@ -2643,7 +2273,7 @@
                 images: [
                     "armani (1).jpeg"                                       
                 ],
-                description: "Design minimalista e sofisticado da Armani Exchange. Camisa em algodão egípcio com corte moderno e acabamento impecável.",
+                description: "Uma peça desenvolvida para quem não abre mão de qualidade e estilo, a Camiseta Estampada Boss Life é um item indispensável no seu guarda-roupa.",
                 featured: true,
                 rating: 5.0,
                 category: "armani",
@@ -2656,15 +2286,15 @@
                 images: [
                     "armani_bege (1).jpeg"                                       
                 ],
-                description: "Tonalidade bege que combina com tudo. Elegância discreta e conforto superior em uma peça versátil para o dia a dia.",
+                description: "Uma peça desenvolvida para quem não abre mão de qualidade e estilo, a Camiseta Estampada Boss Life é um item indispensável no seu guarda-roupa.",
                 featured: true,
-                rating: 4.9,
+                rating: 5.0,
                 category: "armani",
                 tags: ["armani", "featured"]
             }
         ];
 
-        // Dados das novidades
+        // Dados das novidades - TOTALMENTE REFEITO
         const novidades = [
             {
                 id: 101,
@@ -2674,6 +2304,7 @@
                 tag: "EM BREVE",
                 description: "Linha especial inspirada no lifestyle surf, com tecidos tecnológicos e designs modernos.",
                 badge: "Novidades",
+                // Data de lançamento: 15 dias a partir de hoje
                 launchDate: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000)
             },
             {
@@ -2684,6 +2315,7 @@
                 tag: "EM BREVE", 
                 description: "Conforto e estilo em moletons de alta qualidade para o inverno 2025.",
                 badge: "Novidades",
+                // Data de lançamento: 8 dias a partir de hoje
                 launchDate: new Date(Date.now() + 8 * 24 * 60 * 60 * 1000)
             },
             {
@@ -2692,8 +2324,9 @@
                 price: 0.00,
                 image: "bermu.png",
                 tag: "EM BREVE",
-                description: "Bermudas masculinas com cortes modernos e tecidos de última geração. Ideais para o verão com estilo urbano.",
+                description: "Bermudas masculinas com cortes modernos e tecidos de última geração.",
                 badge: "Novidades",
+                // Data de lançamento: 22 dias a partir de hoje
                 launchDate: new Date(Date.now() + 22 * 24 * 60 * 60 * 1000)
             }    
         ];
@@ -2721,9 +2354,6 @@
         const whatsappFloat = document.getElementById('whatsappFloat');
         const cartCount = document.querySelector('.cart-count');
         const header = document.getElementById('header');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileNav = document.getElementById('mobileNav');
-        const closeMobileMenu = document.getElementById('closeMobileMenu');
 
         // Variáveis globais
         let cart = [];
@@ -2756,12 +2386,14 @@
             // Controle do vídeo para melhor performance
             const heroVideo = document.querySelector('.hero-video');
             
+            // Tenta reproduzir o vídeo (útil para alguns navegadores móveis)
             if (heroVideo) {
                 heroVideo.play().catch(function(error) {
                     console.log('Reprodução automática do vídeo não permitida:', error);
                 });
             }
             
+            // Pausa o vídeo quando a página não está visível (para economizar recursos)
             document.addEventListener('visibilitychange', function() {
                 if (heroVideo) {
                     if (document.hidden) {
@@ -2791,6 +2423,7 @@
                 });
             }, observerOptions);
             
+            // Observar elementos para animação
             document.querySelectorAll('.product-card, .novidade-card, .section-header, .products-filter').forEach(el => {
                 observer.observe(el);
             });
@@ -2801,14 +2434,19 @@
             const filterButtons = productsFilter.querySelectorAll('.filter-btn');
             filterButtons.forEach(btn => {
                 btn.addEventListener('click', () => {
+                    // Remover classe active de todos os botões
                     filterButtons.forEach(b => b.classList.remove('active'));
+                    
+                    // Adicionar classe active ao botão clicado
                     btn.classList.add('active');
                     
+                    // Aplicar animação de clique
                     btn.style.transform = 'scale(0.95)';
                     setTimeout(() => {
                         btn.style.transform = 'scale(1)';
                     }, 150);
                     
+                    // Filtrar produtos
                     currentFilter = btn.dataset.filter;
                     renderProducts();
                 });
@@ -2819,6 +2457,7 @@
         function renderProducts() {
             productsGrid.innerHTML = '';
             
+            // Filtrar produtos baseado na seleção atual
             let filteredProducts = products;
             
             if (currentFilter === 'featured') {
@@ -2831,12 +2470,14 @@
                 filteredProducts = products.filter(p => p.tags.includes('novo'));
             }
             
+            // Resetar delays de animação para evitar sobreposição
             filteredProducts.forEach((product, index) => {
                 const productCard = createProductCard(product);
                 productCard.style.animationDelay = `${index * 0.1}s`;
                 productsGrid.appendChild(productCard);
             });
             
+            // Adicionar efeito de entrada em cascata
             animateCardsIn();
         }
 
@@ -2855,7 +2496,7 @@
             });
         }
 
-        // Criar card de produto
+        // Criar card de produto com animações avançadas
         function createProductCard(product) {
             const card = document.createElement('div');
             card.className = 'product-card';
@@ -2866,6 +2507,7 @@
                 badgeHTML = `<div class="product-badge">${product.badge}</div>`;
             }
             
+            // Criar estrelas de avaliação
             let starsHTML = '';
             for (let i = 1; i <= 5; i++) {
                 if (i <= Math.floor(product.rating)) {
@@ -2877,14 +2519,52 @@
                 }
             }
             
+            // Criar galeria de imagens
+            let galleryHTML = '';
+            if (product.images && product.images.length > 1) {
+                let thumbnailsHTML = '';
+                product.images.forEach((img, index) => {
+                    const activeClass = index === 0 ? 'active' : '';
+                    thumbnailsHTML += `
+                        <div class="gallery-thumb ${activeClass}" data-index="${index}">
+                            <img src="${img}" alt="${product.name}" loading="lazy">
+                        </div>
+                    `;
+                });
+                
+                galleryHTML = `
+                    <div class="product-gallery">
+                        <div class="gallery-main">
+                            <img src="${product.images[0]}" alt="${product.name}" class="product-image" data-id="${product.id}" loading="lazy">
+                            <div class="quick-view-icon" data-id="${product.id}">
+                                <i class="fas fa-expand"></i>
+                            </div>
+                            <div class="gallery-nav prev"><i class="fas fa-chevron-left"></i></div>
+                            <div class="gallery-nav next"><i class="fas fa-chevron-right"></i></div>
+                            <div class="mobile-gallery-indicator">
+                                <i class="fas fa-images"></i>
+                                <span>${product.images.length} imagens</span>
+                            </div>
+                        </div>
+                        <div class="gallery-thumbnails">
+                            ${thumbnailsHTML}
+                        </div>
+                    </div>
+                `;
+            } else {
+                galleryHTML = `
+                    <div class="product-image-container">
+                        <img src="${product.images ? product.images[0] : product.image}" alt="${product.name}" class="product-image" data-id="${product.id}" loading="lazy">
+                        <div class="quick-view-icon" data-id="${product.id}">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                `;
+            }
+            
             card.innerHTML = `
                 ${badgeHTML}
-                <div class="product-image-container">
-                    <img src="${product.images ? product.images[0] : product.image}" alt="${product.name}" class="product-image" data-id="${product.id}" loading="lazy">
-                    <div class="quick-view-icon" data-id="${product.id}">
-                        <i class="fas fa-expand"></i>
-                    </div>
-                </div>
+                ${galleryHTML}
                 <div class="product-info">
                     <h3 class="product-title">${product.name}</h3>
                     <p class="product-description">${product.description}</p>
@@ -2910,9 +2590,69 @@
                 </div>
             `;
             
+            // Configurar galeria de imagens se houver múltiplas imagens
+            if (product.images && product.images.length > 1) {
+                setupProductGallery(card, product);
+            }
+            
+            // Configurar seleção de tamanho
             setupSizeSelector(card, product.id);
             
             return card;
+        }
+
+        // Configurar galeria de imagens para um produto
+        function setupProductGallery(card, product) {
+            const galleryMain = card.querySelector('.gallery-main');
+            const mainImage = galleryMain.querySelector('img');
+            const thumbs = card.querySelectorAll('.gallery-thumb');
+            const prevBtn = card.querySelector('.gallery-nav.prev');
+            const nextBtn = card.querySelector('.gallery-nav.next');
+            
+            let currentImageIndex = 0;
+            
+            // Navegação por miniaturas
+            thumbs.forEach((thumb, index) => {
+                thumb.addEventListener('click', () => {
+                    currentImageIndex = index;
+                    updateGallery();
+                });
+            });
+            
+            // Navegação por botões
+            prevBtn.addEventListener('click', () => {
+                currentImageIndex = (currentImageIndex - 1 + product.images.length) % product.images.length;
+                updateGallery();
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                currentImageIndex = (currentImageIndex + 1) % product.images.length;
+                updateGallery();
+            });
+            
+            // Atualizar galeria
+            function updateGallery() {
+                // Efeito de transição
+                mainImage.style.opacity = '0';
+                mainImage.style.transform = 'scale(1.1)';
+                
+                setTimeout(() => {
+                    mainImage.src = product.images[currentImageIndex];
+                    mainImage.style.opacity = '1';
+                    mainImage.style.transform = 'scale(1)';
+                }, 200);
+                
+                // Atualizar miniaturas ativas
+                thumbs.forEach((thumb, index) => {
+                    if (index === currentImageIndex) {
+                        thumb.classList.add('active');
+                        thumb.style.transform = 'scale(1.1)';
+                    } else {
+                        thumb.classList.remove('active');
+                        thumb.style.transform = 'scale(1)';
+                    }
+                });
+            }
         }
 
         // Configurar seletor de tamanho para um produto
@@ -2922,18 +2662,22 @@
             
             sizeOptions.forEach(option => {
                 option.addEventListener('click', () => {
+                    // Remover seleção de todos os tamanhos
                     sizeOptions.forEach(opt => {
                         opt.classList.remove('selected');
                         opt.style.transform = 'scale(1)';
                     });
                     
+                    // Selecionar o tamanho clicado
                     option.classList.add('selected');
                     option.style.transform = 'scale(1.1)';
                     
+                    // Habilitar botão de adicionar ao carrinho
                     addToCartBtn.disabled = false;
                     addToCartBtn.style.background = 'linear-gradient(135deg, var(--secondary), var(--accent))';
                     addToCartBtn.style.color = 'var(--primary)';
                     
+                    // Animação de confirmação
                     option.style.animation = 'none';
                     setTimeout(() => {
                         option.style.animation = 'badgePulse 0.5s ease';
@@ -2956,6 +2700,7 @@
             const card = document.createElement('div');
             card.className = 'novidade-card';
             
+            // Calcular tempo restante
             const now = new Date();
             const timeRemaining = novidade.launchDate - now;
             
@@ -2963,6 +2708,7 @@
             let hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             let minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
             
+            // Garantir que os valores não sejam negativos
             days = Math.max(0, days);
             hours = Math.max(0, hours);
             minutes = Math.max(0, minutes);
@@ -2977,6 +2723,19 @@
                     <p class="novidade-description">${novidade.description}</p>
                     <div class="novidade-badge">${novidade.badge}</div>
                     <div class="countdown-timer" id="countdown-${index}">
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="days-${index}">${days}</span>
+                            <span class="countdown-label">Dias</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="hours-${index}">${hours}</span>
+                            <span class="countdown-label">Horas</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="minutes-${index}">${minutes}</span>
+                            <span class="countdown-label">Min</span>
+                        </div>
+                    </div>
                     <div class="novidade-cta">
                         <button class="notify-btn" onclick="notifyMe('${novidade.name}')">
                             <i class="fas fa-bell"></i> Avise-me
@@ -2985,6 +2744,7 @@
                 </div>
             `;
             
+            // Iniciar contador para este card
             startCountdownForNovidade(novidade, index);
             
             return card;
@@ -3005,6 +2765,7 @@
             const timeRemaining = novidade.launchDate - now;
             
             if (timeRemaining <= 0) {
+                // Lançamento ocorreu
                 document.getElementById(`days-${index}`).textContent = '0';
                 document.getElementById(`hours-${index}`).textContent = '0';
                 document.getElementById(`minutes-${index}`).textContent = '0';
@@ -3015,6 +2776,7 @@
             let hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             let minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
             
+            // Atualizar elementos DOM
             document.getElementById(`days-${index}`).textContent = days;
             document.getElementById(`hours-${index}`).textContent = hours;
             document.getElementById(`minutes-${index}`).textContent = minutes;
@@ -3022,26 +2784,11 @@
 
         // Configurar event listeners
         function setupEventListeners() {
-            // Menu mobile
-            mobileMenu.addEventListener('click', () => {
-                mobileNav.classList.add('active');
-            });
-            
-            closeMobileMenu.addEventListener('click', () => {
-                mobileNav.classList.remove('active');
-            });
-            
-            // Fechar menu ao clicar em um link
-            mobileNav.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileNav.classList.remove('active');
-                });
-            });
-            
-            // Abrir modal do produto
+            // Abrir modal do produto ao clicar na imagem, ícone ou botão
             document.addEventListener('click', (e) => {
                 if (e.target.classList.contains('product-image') || 
-                    e.target.classList.contains('quick-view') ||
+                    e.target.classList.contains('quick-view') || 
+                    e.target.classList.contains('mobile-gallery-indicator') ||
                     e.target.classList.contains('quick-view-icon') ||
                     e.target.closest('.quick-view-icon')) {
                     
@@ -3087,6 +2834,7 @@
                     option.style.transform = 'scale(1.1)';
                     selectedSize = option.getAttribute('data-size');
                     
+                    // Animação de confirmação
                     option.style.animation = 'none';
                     setTimeout(() => {
                         option.style.animation = 'badgePulse 0.5s ease';
@@ -3098,14 +2846,10 @@
             addToCartBtn.addEventListener('click', addToCart);
 
             // Abrir/fechar carrinho
-            cartIcon.addEventListener('click', openCartModal);
-            
-            function openCartModal() {
+            cartIcon.addEventListener('click', () => {
                 cartModal.style.display = 'block';
                 renderCart();
-            }
-            
-            window.openCartModal = openCartModal;
+            });
 
             closeCart.addEventListener('click', () => {
                 cartModal.style.display = 'none';
@@ -3166,16 +2910,19 @@
                 modalPrice.textContent = `R$ ${selectedProduct.price.toFixed(2)}`;
                 modalDescription.textContent = selectedProduct.description;
                 
+                // Resetar seleção de tamanho
                 sizeOptions.forEach(opt => {
                     opt.classList.remove('selected');
                     opt.style.transform = 'scale(1)';
                 });
                 selectedSize = null;
                 
+                // Configurar galeria no modal
                 setupModalGallery(selectedProduct);
                 
                 productModal.style.display = 'block';
                 
+                // Adicionar animação de entrada para a imagem
                 modalImage.style.opacity = '0';
                 modalImage.style.transform = 'scale(0.9)';
                 setTimeout(() => {
@@ -3197,6 +2944,7 @@
                     thumb.innerHTML = `<img src="${img}" alt="${product.name}">`;
                     
                     thumb.addEventListener('click', () => {
+                        // Atualizar imagem principal com animação
                         modalImage.style.opacity = '0';
                         modalImage.style.transform = 'scale(1.1)';
                         
@@ -3208,6 +2956,7 @@
                         
                         currentModalImageIndex = index;
                         
+                        // Atualizar miniaturas ativas
                         document.querySelectorAll('.modal-gallery-thumb').forEach(t => {
                             t.classList.remove('active');
                             t.style.transform = 'scale(1)';
@@ -3247,10 +2996,12 @@
 
                 updateCartCount();
                 
+                // Feedback visual avançado
                 const button = card.querySelector('.add-to-cart');
                 const originalText = button.textContent;
                 const originalBg = button.style.background;
                 
+                // Animação de confirmação
                 button.classList.add('cart-add-animation');
                 button.textContent = '✓ Adicionado!';
                 button.style.background = '#27ae60';
@@ -3265,11 +3016,13 @@
                     button.classList.remove('cart-add-animation');
                 }, 1500);
                 
+                // Animação do ícone do carrinho
                 cartIcon.style.transform = 'scale(1.2)';
                 setTimeout(() => {
                     cartIcon.style.transform = 'scale(1)';
                 }, 300);
                 
+                // Animação do contador do carrinho
                 cartCount.style.transform = 'scale(1.3)';
                 setTimeout(() => {
                     cartCount.style.transform = 'scale(1)';
@@ -3304,6 +3057,7 @@
             updateCartCount();
             productModal.style.display = 'none';
             
+            // Feedback visual
             const originalText = addToCartBtn.textContent;
             addToCartBtn.textContent = '✓ Adicionado!';
             addToCartBtn.style.background = '#27ae60';
@@ -3315,6 +3069,7 @@
                 addToCartBtn.classList.remove('cart-add-animation');
             }, 1500);
             
+            // Animação do ícone do carrinho
             cartIcon.style.transform = 'scale(1.2)';
             cartCount.style.transform = 'scale(1.3)';
             
@@ -3362,6 +3117,7 @@
 
             cartTotal.textContent = `R$ ${total.toFixed(2)}`;
             
+            // Adicionar event listeners para os botões de quantidade
             document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const index = parseInt(e.target.getAttribute('data-index'));
@@ -3391,6 +3147,7 @@
                 renderCart();
                 updateCartCount();
                 
+                // Animação de feedback
                 const plusBtn = document.querySelector(`.quantity-btn.plus[data-index="${index}"]`);
                 plusBtn.style.transform = 'scale(1.2)';
                 setTimeout(() => {
@@ -3407,6 +3164,7 @@
                     renderCart();
                     updateCartCount();
                     
+                    // Animação de feedback
                     const minusBtn = document.querySelector(`.quantity-btn.minus[data-index="${index}"]`);
                     minusBtn.style.transform = 'scale(1.2)';
                     setTimeout(() => {
@@ -3421,6 +3179,7 @@
         // Remover item do carrinho
         function removeItem(index) {
             if (cart[index]) {
+                // Animação de remoção
                 const itemElement = document.querySelector(`.cart-item:nth-child(${index + 1})`);
                 if (itemElement) {
                     itemElement.style.transform = 'translateX(100%)';
@@ -3445,6 +3204,7 @@
             const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
             cartCount.textContent = totalItems;
             
+            // Animação do contador
             if (totalItems > 0) {
                 cartCount.style.transform = 'scale(1.2)';
                 setTimeout(() => {
@@ -3476,10 +3236,13 @@
             message += `💳 Forma de Pagamento: \n\n`;
             message += `Aguardo confirmação! Obrigado.`;
             
+            // Codificar a mensagem para URL
             const encodedMessage = encodeURIComponent(message);
             
+            // Abrir WhatsApp com a mensagem
             window.open(`https://wa.me/5551992520046?text=${encodedMessage}`, '_blank');
             
+            // Limpar carrinho após um delay
             setTimeout(() => {
                 cart = [];
                 updateCartCount();
