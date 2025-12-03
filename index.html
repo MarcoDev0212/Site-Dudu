@@ -201,7 +201,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            color: white;
+            color: rgb(255, 255, 255);
             text-align: center;
             padding: 0;
         }
@@ -210,14 +210,12 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translateX(-50%) translateY(-50%);
-            z-index: -1;
+            width: 100%;
+            height: 100%;
+            transform: translate(-50%, -50%);
             object-fit: cover;
-        }
+            z-index: -1;
+            }
         
         .hero-overlay {
             position: absolute;
@@ -225,7 +223,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%);
             z-index: 0;
         }
         
@@ -1208,7 +1205,7 @@
             cursor: pointer;
             color: var(--primary);
             z-index: 10;
-            background: white;
+            background: rgb(255, 255, 255);
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -2231,17 +2228,17 @@
                 <div class="footer-column">
                     <h3>Links Rápidos</h3>
                     <ul class="footer-links">
-                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="#novidades"><i class="fas fa-chevron-right"></i> Novidades</a></li>
-                        <li><a href="#produtos"><i class="fas fa-chevron-right"></i> Produtos</a></li>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i><b>Home</b></a></li>
+                        <li><a href="#novidades"><i class="fas fa-chevron-right"></i><b>Novidades</b></a></li>
+                        <li><a href="#produtos"><i class="fas fa-chevron-right"></i><b>Produtos</b></a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Contatos</h3>
                     <ul class="footer-links">
-                        <li><a href="#telefone"><i class="fas fa-chevron-right"></i> 51992520046</a></li>
-                        <li><a href="mailto:contato@seudominio.com"><i class="fas fa-chevron-right"></i> dcstore@gmail.com</a></li>
-                        <li><a href="#cidade"><i class="fas fa-chevron-right"></i> Três Marias - MG</a></li>
+                        <li><a href="#telefone"><i class="fas fa-chevron-right"></i><b>Contato:</b>38998287571</a></li>
+                        <li><a href="mailto:contato@seudominio.com"><i class="fas fa-chevron-right"></i><b>E-mail:</b> dcstore@gmail.com</a></li>
+                        <li><a href="#cidade"><i class="fas fa-chevron-right"></i><b>Cidade:</b> Três Marias - MG / CEP 39205-000</a></li>
                     </ul>
                 </div>
             </div>
@@ -2913,7 +2910,7 @@
 
             // Botão WhatsApp
             whatsappFloat.addEventListener('click', () => {
-                window.open(`https://wa.me/5551992520046`, '_blank');
+                window.open(`https://wa.me/5538998287571`, '_blank');
             });
             
             // Smooth scrolling para links internos
@@ -3281,7 +3278,7 @@
             const encodedMessage = encodeURIComponent(message);
             
             // Abrir WhatsApp com a mensagem
-            window.open(`https://wa.me/5551992520046?text=${encodedMessage}`, '_blank');
+            window.open(`https://wa.me/5538998287571?text=${encodedMessage}`, '_blank');
             
             // Limpar carrinho após um delay
             setTimeout(() => {
