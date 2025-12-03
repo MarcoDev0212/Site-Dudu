@@ -215,7 +215,7 @@
             transform: translate(-50%, -50%);
             object-fit: cover;
             z-index: -1;
-            }
+        }
         
         .hero-overlay {
             position: absolute;
@@ -367,7 +367,7 @@
             line-height: 1.7;
         }
         
-        /* Menu de Filtros - NOVO */
+        /* Menu de Filtros */
         .products-filter {
             display: flex;
             justify-content: center;
@@ -378,11 +378,11 @@
             transform: translateY(20px);
             animation: fadeInUp 0.8s ease-out 0.3s forwards;
         }
-        /*Esse menu é responsavel pela cor da categoria dos produtos*/
+        
         .filter-btn {
             padding: 12px 28px;
-            background: white;
-            border: 2px solid #000000;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
             border-radius: 30px;
             font-weight: 600;
             cursor: pointer;
@@ -392,6 +392,7 @@
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            color: white;
         }
         
         .filter-btn::before {
@@ -424,29 +425,31 @@
             box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
         }
         
-        /* Produtos - Layout Melhorado COM ANIMAÇÕES AVANÇADAS */
+        /* Produtos - Layout com estilo de Novidades */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 35px;
             position: relative;
         }
-        /*Borda dos Produtos */
+        
+        /* MODIFICAÇÃO: Product-card com estilo igual ao novidade-card */
         .product-card {
-            background-color: rgb(10, 9, 9);
+            background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
             transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
             opacity: 0;
-            transform: translateY(40px) scale(0.95);
-            animation: fadeInUpScale 0.8s ease-out forwards;
+            transform: translateY(50px) scale(0.95);
+            animation: fadeInUp 0.8s ease-out forwards;
             display: flex;
             flex-direction: column;
             height: 100%;
             will-change: transform, box-shadow;
-            border: 1px solid rgba(255,255,255,0.1);
         }
         
         .product-card:nth-child(1) { animation-delay: 0.1s; }
@@ -465,9 +468,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: 0.8s;
-            z-index: 1;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: var(--transition);
         }
         
         .product-card:hover::before {
@@ -476,7 +478,7 @@
         
         .product-card:hover {
             transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.2);
             border-color: rgba(212, 175, 55, 0.3);
         }
         
@@ -484,7 +486,7 @@
             position: absolute;
             top: 20px;
             left: 20px;
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            background: linear-gradient(135deg, var(--secondary), #ffd700);
             color: var(--primary);
             padding: 8px 18px;
             border-radius: 25px;
@@ -502,7 +504,7 @@
             height: 380px;
             overflow: hidden;
             position: relative;
-            background: linear-gradient(135deg, #f3f3f3, #e0e0e0);
+            background: rgba(0, 0, 0, 0.3);
         }
         
         .product-image {
@@ -517,21 +519,16 @@
             transform: scale(1.15) rotate(2deg);
         }
 
-        /* DEVERÁ SER ADICIONADO NO SEU ARQUIVO CSS */
-        /* Se sua seção de Produtos tiver o ID 'produtos' no HTML, use assim: */
-
-        #produtos, #novidades { /* AQUI ESTÁ A ALTERAÇÃO */
+        /* MODIFICAÇÃO: Fundo das seções Produtos e Novidades */
+        #produtos, #novidades {
             background: linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(26,26,26,0.9) 100%), url('dc.jpeg');
-            background-size: cover; /* Mantenha essas propriedades */
+            background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            color: white; /* Garante que o texto fique legível */
+            color: white;
             position: relative;
             overflow: hidden;
         }
-
-        /* Opcional: Remova o fundo claro do 'body' para o texto ficar visível */
-        /* Você deve ter mudado o body ou a primeira 'section' para black, como na resposta anterior. */
 
         /* Adapte os títulos dentro dessas seções */
         #produtos .section-title, #novidades .section-title {
@@ -541,7 +538,7 @@
             color: rgba(255,255,255,0.8);
         }
         
-        /* Ícone de visualização rápida flutuante - NOVO */
+        /* Ícone de visualização rápida flutuante */
         .quick-view-icon {
             position: absolute;
             top: 50%;
@@ -706,12 +703,13 @@
             animation: bounce 2s infinite;
         }
         
+        /* MODIFICAÇÃO: Informações do produto com tema escuro */
         .product-info {
             padding: 25px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
-            background: white;
+            background: transparent;
             position: relative;
             z-index: 2;
         }
@@ -720,7 +718,7 @@
             font-size: 20px;
             margin-bottom: 12px;
             font-weight: 700;
-            color: var(--primary);
+            color: white;
             line-height: 1.3;
             transition: var(--transition);
         }
@@ -730,7 +728,7 @@
         }
         
         .product-description {
-            color: var(--gray);
+            color: rgba(255,255,255,0.8);
             font-size: 14px;
             margin-bottom: 15px;
             line-height: 1.6;
@@ -744,7 +742,7 @@
         .product-price {
             font-size: 24px;
             font-weight: 800;
-            color: var(--primary);
+            color: white;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -766,7 +764,7 @@
         }
         
         .product-rating span {
-            color: var(--gray);
+            color: rgba(255,255,255,0.8);
             font-size: 14px;
             margin-left: 8px;
         }
@@ -784,12 +782,13 @@
             transform: translateY(0);
         }
         
+        /* MODIFICAÇÃO: Tamanho do seletor para tema escuro */
         .size-selector-card label {
             display: block;
             margin-bottom: 10px;
             font-weight: 700;
             font-size: 14px;
-            color: var(--dark);
+            color: white;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
@@ -802,7 +801,7 @@
         .size-option-card {
             width: 42px;
             height: 42px;
-            border: 2px solid #e0e0e0;
+            border: 2px solid rgba(255,255,255,0.2);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -811,7 +810,8 @@
             font-weight: 800;
             border-radius: 10px;
             font-size: 14px;
-            background: rgb(32, 31, 31);
+            background: rgba(255,255,255,0.1);
+            color: white;
         }
         
         .size-option-card:hover {
@@ -822,7 +822,7 @@
         
         .size-option-card.selected {
             background: linear-gradient(135deg, var(--secondary), var(--accent));
-            color: white;
+            color: var(--primary);
             border-color: transparent;
             transform: scale(1.1) translateY(-3px);
             box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
@@ -842,10 +842,11 @@
             transform: translateY(0);
         }
         
+        /* MODIFICAÇÃO: Botões para tema escuro */
         .quick-view {
-            background-color: var(--primary);
+            background-color: rgba(255,255,255,0.1);
             color: white;
-            border: none;
+            border: 1px solid rgba(255,255,255,0.2);
             padding: 14px 20px;
             border-radius: 10px;
             cursor: pointer;
@@ -879,6 +880,7 @@
             color: var(--primary);
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+            border-color: var(--secondary);
         }
         
         .add-to-cart {
@@ -922,18 +924,19 @@
         }
         
         .add-to-cart:disabled {
-            background: #e0e0e0;
-            color: #9e9e9e;
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
             cursor: not-allowed;
             transform: none;
             box-shadow: none;
+            border: 1px solid rgba(255,255,255,0.1);
         }
         
         .add-to-cart:disabled:hover::before {
             left: -100%;
         }
         
-        /* Efeito de brilho ao adicionar ao carrinho - NOVO */
+        /* Efeito de brilho ao adicionar ao carrinho */
         @keyframes cartAddGlow {
             0% {
                 box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
@@ -950,7 +953,7 @@
             animation: cartAddGlow 0.8s ease-out;
         }
         
-        /* SEÇÃO NOVIDADES - TOTALMENTE REFEITA */
+        /* SEÇÃO NOVIDADES */
         #novidades {
             background: linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(26,26,26,0.9) 100%), url('dc.jpeg');
             background-size: cover;
@@ -1649,7 +1652,7 @@
         .whatsapp-float img {
             width: 35px;
             height: 35px;
-            filter: none; /* Deixa o ícone branco */
+            filter: none;
         }
         
         /* Footer */
@@ -1923,12 +1926,10 @@
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             }
             
-            /* Mostrar indicador de galeria no mobile */
             .mobile-gallery-indicator {
                 display: flex;
             }
             
-            /* Ajustes para galeria no modal no mobile */
             .modal-gallery-thumbs {
                 display: flex;
             }
@@ -2107,7 +2108,7 @@
         </div>
     </section>
 
-    <!-- Novidades - TOTALMENTE REFEITA -->
+    <!-- Novidades -->
     <section id="novidades">
         <div class="container">
             <div class="section-header">
@@ -2128,7 +2129,7 @@
                 <p class="section-subtitle">Explore nossa linha completa de camisas masculinas, onde qualidade, conforto e estilo se encontram em cada detalhe.</p>
             </div>
             
-            <!-- Menu de Filtros - NOVO -->
+            <!-- Menu de Filtros -->
             <div class="products-filter" id="productsFilter">
                 <button class="filter-btn active" data-filter="all">Todos</button>
                 <button class="filter-btn" data-filter="boss">Boss</button>
@@ -2344,7 +2345,7 @@
             }
         ];
 
-        // Dados das novidades - TOTALMENTE REFEITO
+        // Dados das novidades
         const novidades = [
             {
                 id: 101,
@@ -2354,7 +2355,6 @@
                 tag: "EM BREVE",
                 description: "Linha especial inspirada no lifestyle surf, com tecidos tecnológicos e designs modernos.",
                 badge: "Novidades",
-                // Data de lançamento: 15 dias a partir de hoje
                 launchDate: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000)
             },
             {
@@ -2365,7 +2365,6 @@
                 tag: "EM BREVE", 
                 description: "Conforto e estilo em moletons de alta qualidade para o inverno 2025.",
                 badge: "Novidades",
-                // Data de lançamento: 8 dias a partir de hoje
                 launchDate: new Date(Date.now() + 8 * 24 * 60 * 60 * 1000)
             },
             {
@@ -2376,7 +2375,6 @@
                 tag: "EM BREVE",
                 description: "Bermudas masculinas com cortes modernos e tecidos de última geração.",
                 badge: "Novidades",
-                // Data de lançamento: 22 dias a partir de hoje
                 launchDate: new Date(Date.now() + 22 * 24 * 60 * 60 * 1000)
             }    
         ];
@@ -2436,14 +2434,12 @@
             // Controle do vídeo para melhor performance
             const heroVideo = document.querySelector('.hero-video');
             
-            // Tenta reproduzir o vídeo (útil para alguns navegadores móveis)
             if (heroVideo) {
                 heroVideo.play().catch(function(error) {
                     console.log('Reprodução automática do vídeo não permitida:', error);
                 });
             }
             
-            // Pausa o vídeo quando a página não está visível (para economizar recursos)
             document.addEventListener('visibilitychange', function() {
                 if (heroVideo) {
                     if (document.hidden) {
@@ -2473,7 +2469,6 @@
                 });
             }, observerOptions);
             
-            // Observar elementos para animação
             document.querySelectorAll('.product-card, .novidade-card, .section-header, .products-filter').forEach(el => {
                 observer.observe(el);
             });
@@ -2484,19 +2479,14 @@
             const filterButtons = productsFilter.querySelectorAll('.filter-btn');
             filterButtons.forEach(btn => {
                 btn.addEventListener('click', () => {
-                    // Remover classe active de todos os botões
                     filterButtons.forEach(b => b.classList.remove('active'));
-                    
-                    // Adicionar classe active ao botão clicado
                     btn.classList.add('active');
                     
-                    // Aplicar animação de clique
                     btn.style.transform = 'scale(0.95)';
                     setTimeout(() => {
                         btn.style.transform = 'scale(1)';
                     }, 150);
                     
-                    // Filtrar produtos
                     currentFilter = btn.dataset.filter;
                     renderProducts();
                 });
@@ -2507,7 +2497,6 @@
         function renderProducts() {
             productsGrid.innerHTML = '';
             
-            // Filtrar produtos baseado na seleção atual
             let filteredProducts = products;
             
             if (currentFilter === 'featured') {
@@ -2520,14 +2509,12 @@
                 filteredProducts = products.filter(p => p.tags.includes('novo'));
             }
             
-            // Resetar delays de animação para evitar sobreposição
             filteredProducts.forEach((product, index) => {
                 const productCard = createProductCard(product);
                 productCard.style.animationDelay = `${index * 0.1}s`;
                 productsGrid.appendChild(productCard);
             });
             
-            // Adicionar efeito de entrada em cascata
             animateCardsIn();
         }
 
@@ -2546,7 +2533,7 @@
             });
         }
 
-        // Criar card de produto com animações avançadas
+        // Criar card de produto
         function createProductCard(product) {
             const card = document.createElement('div');
             card.className = 'product-card';
@@ -2557,7 +2544,6 @@
                 badgeHTML = `<div class="product-badge">${product.badge}</div>`;
             }
             
-            // Criar estrelas de avaliação
             let starsHTML = '';
             for (let i = 1; i <= 5; i++) {
                 if (i <= Math.floor(product.rating)) {
@@ -2569,7 +2555,6 @@
                 }
             }
             
-            // Criar galeria de imagens
             let galleryHTML = '';
             if (product.images && product.images.length > 1) {
                 let thumbnailsHTML = '';
@@ -2640,12 +2625,10 @@
                 </div>
             `;
             
-            // Configurar galeria de imagens se houver múltiplas imagens
             if (product.images && product.images.length > 1) {
                 setupProductGallery(card, product);
             }
             
-            // Configurar seleção de tamanho
             setupSizeSelector(card, product.id);
             
             return card;
@@ -2661,7 +2644,6 @@
             
             let currentImageIndex = 0;
             
-            // Navegação por miniaturas
             thumbs.forEach((thumb, index) => {
                 thumb.addEventListener('click', () => {
                     currentImageIndex = index;
@@ -2669,7 +2651,6 @@
                 });
             });
             
-            // Navegação por botões
             prevBtn.addEventListener('click', () => {
                 currentImageIndex = (currentImageIndex - 1 + product.images.length) % product.images.length;
                 updateGallery();
@@ -2680,9 +2661,7 @@
                 updateGallery();
             });
             
-            // Atualizar galeria
             function updateGallery() {
-                // Efeito de transição
                 mainImage.style.opacity = '0';
                 mainImage.style.transform = 'scale(1.1)';
                 
@@ -2692,7 +2671,6 @@
                     mainImage.style.transform = 'scale(1)';
                 }, 200);
                 
-                // Atualizar miniaturas ativas
                 thumbs.forEach((thumb, index) => {
                     if (index === currentImageIndex) {
                         thumb.classList.add('active');
@@ -2712,22 +2690,18 @@
             
             sizeOptions.forEach(option => {
                 option.addEventListener('click', () => {
-                    // Remover seleção de todos os tamanhos
                     sizeOptions.forEach(opt => {
                         opt.classList.remove('selected');
                         opt.style.transform = 'scale(1)';
                     });
                     
-                    // Selecionar o tamanho clicado
                     option.classList.add('selected');
                     option.style.transform = 'scale(1.1)';
                     
-                    // Habilitar botão de adicionar ao carrinho
                     addToCartBtn.disabled = false;
                     addToCartBtn.style.background = 'linear-gradient(135deg, var(--secondary), var(--accent))';
                     addToCartBtn.style.color = 'var(--primary)';
                     
-                    // Animação de confirmação
                     option.style.animation = 'none';
                     setTimeout(() => {
                         option.style.animation = 'badgePulse 0.5s ease';
@@ -2750,7 +2724,6 @@
             const card = document.createElement('div');
             card.className = 'novidade-card';
             
-            // Calcular tempo restante
             const now = new Date();
             const timeRemaining = novidade.launchDate - now;
             
@@ -2758,7 +2731,6 @@
             let hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             let minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
             
-            // Garantir que os valores não sejam negativos
             days = Math.max(0, days);
             hours = Math.max(0, hours);
             minutes = Math.max(0, minutes);
@@ -2782,7 +2754,6 @@
                 </div>
             `;
             
-            // Iniciar contador para este card
             startCountdownForNovidade(novidade, index);
             
             return card;
@@ -2803,7 +2774,6 @@
             const timeRemaining = novidade.launchDate - now;
             
             if (timeRemaining <= 0) {
-                // Lançamento ocorreu
                 document.getElementById(`days-${index}`).textContent = '0';
                 document.getElementById(`hours-${index}`).textContent = '0';
                 document.getElementById(`minutes-${index}`).textContent = '0';
@@ -2814,7 +2784,6 @@
             let hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             let minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
             
-            // Atualizar elementos DOM
             document.getElementById(`days-${index}`).textContent = days;
             document.getElementById(`hours-${index}`).textContent = hours;
             document.getElementById(`minutes-${index}`).textContent = minutes;
@@ -2822,7 +2791,6 @@
 
         // Configurar event listeners
         function setupEventListeners() {
-            // Abrir modal do produto ao clicar na imagem, ícone ou botão
             document.addEventListener('click', (e) => {
                 if (e.target.classList.contains('product-image') || 
                     e.target.classList.contains('quick-view') || 
@@ -2835,7 +2803,6 @@
                     openProductModal(productId);
                 }
                 
-                // Adicionar ao carrinho diretamente do card
                 if (e.target.classList.contains('add-to-cart') && !e.target.classList.contains('add-to-cart-btn')) {
                     const productId = parseInt(e.target.getAttribute('data-id'));
                     const card = e.target.closest('.product-card');
@@ -2848,19 +2815,16 @@
                 }
             });
 
-            // Fechar modal do produto
             closeModal.addEventListener('click', () => {
                 productModal.style.display = 'none';
             });
 
-            // Fechar modal ao clicar fora
             window.addEventListener('click', (e) => {
                 if (e.target === productModal) {
                     productModal.style.display = 'none';
                 }
             });
 
-            // Selecionar tamanho no modal
             sizeOptions.forEach(option => {
                 option.addEventListener('click', () => {
                     sizeOptions.forEach(opt => {
@@ -2872,7 +2836,6 @@
                     option.style.transform = 'scale(1.1)';
                     selectedSize = option.getAttribute('data-size');
                     
-                    // Animação de confirmação
                     option.style.animation = 'none';
                     setTimeout(() => {
                         option.style.animation = 'badgePulse 0.5s ease';
@@ -2880,10 +2843,8 @@
                 });
             });
 
-            // Adicionar ao carrinho do modal
             addToCartBtn.addEventListener('click', addToCart);
 
-            // Abrir/fechar carrinho
             cartIcon.addEventListener('click', () => {
                 cartModal.style.display = 'block';
                 renderCart();
@@ -2893,27 +2854,22 @@
                 cartModal.style.display = 'none';
             });
 
-            // Fechar carrinho ao clicar fora (em telas grandes)
             window.addEventListener('click', (e) => {
                 if (window.innerWidth > 992 && e.target === cartModal) {
                     cartModal.style.display = 'none';
                 }
             });
 
-            // Continuar comprando
             continueShopping.addEventListener('click', () => {
                 cartModal.style.display = 'none';
             });
 
-            // Finalizar compra
             checkoutBtn.addEventListener('click', finalizePurchase);
 
-            // Botão WhatsApp
             whatsappFloat.addEventListener('click', () => {
                 window.open(`https://wa.me/5538998287571`, '_blank');
             });
             
-            // Smooth scrolling para links internos
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -2948,19 +2904,16 @@
                 modalPrice.textContent = `R$ ${selectedProduct.price.toFixed(2)}`;
                 modalDescription.textContent = selectedProduct.description;
                 
-                // Resetar seleção de tamanho
                 sizeOptions.forEach(opt => {
                     opt.classList.remove('selected');
                     opt.style.transform = 'scale(1)';
                 });
                 selectedSize = null;
                 
-                // Configurar galeria no modal
                 setupModalGallery(selectedProduct);
                 
                 productModal.style.display = 'block';
                 
-                // Adicionar animação de entrada para a imagem
                 modalImage.style.opacity = '0';
                 modalImage.style.transform = 'scale(0.9)';
                 setTimeout(() => {
@@ -2982,7 +2935,6 @@
                     thumb.innerHTML = `<img src="${img}" alt="${product.name}">`;
                     
                     thumb.addEventListener('click', () => {
-                        // Atualizar imagem principal com animação
                         modalImage.style.opacity = '0';
                         modalImage.style.transform = 'scale(1.1)';
                         
@@ -2994,7 +2946,6 @@
                         
                         currentModalImageIndex = index;
                         
-                        // Atualizar miniaturas ativas
                         document.querySelectorAll('.modal-gallery-thumb').forEach(t => {
                             t.classList.remove('active');
                             t.style.transform = 'scale(1)';
@@ -3034,12 +2985,10 @@
 
                 updateCartCount();
                 
-                // Feedback visual avançado
                 const button = card.querySelector('.add-to-cart');
                 const originalText = button.textContent;
                 const originalBg = button.style.background;
                 
-                // Animação de confirmação
                 button.classList.add('cart-add-animation');
                 button.textContent = '✓ Adicionado!';
                 button.style.background = '#27ae60';
@@ -3054,13 +3003,11 @@
                     button.classList.remove('cart-add-animation');
                 }, 1500);
                 
-                // Animação do ícone do carrinho
                 cartIcon.style.transform = 'scale(1.2)';
                 setTimeout(() => {
                     cartIcon.style.transform = 'scale(1)';
                 }, 300);
                 
-                // Animação do contador do carrinho
                 cartCount.style.transform = 'scale(1.3)';
                 setTimeout(() => {
                     cartCount.style.transform = 'scale(1)';
@@ -3095,7 +3042,6 @@
             updateCartCount();
             productModal.style.display = 'none';
             
-            // Feedback visual
             const originalText = addToCartBtn.textContent;
             addToCartBtn.textContent = '✓ Adicionado!';
             addToCartBtn.style.background = '#27ae60';
@@ -3107,7 +3053,6 @@
                 addToCartBtn.classList.remove('cart-add-animation');
             }, 1500);
             
-            // Animação do ícone do carrinho
             cartIcon.style.transform = 'scale(1.2)';
             cartCount.style.transform = 'scale(1.3)';
             
@@ -3155,7 +3100,6 @@
 
             cartTotal.textContent = `R$ ${total.toFixed(2)}`;
             
-            // Adicionar event listeners para os botões de quantidade
             document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const index = parseInt(e.target.getAttribute('data-index'));
@@ -3185,7 +3129,6 @@
                 renderCart();
                 updateCartCount();
                 
-                // Animação de feedback
                 const plusBtn = document.querySelector(`.quantity-btn.plus[data-index="${index}"]`);
                 plusBtn.style.transform = 'scale(1.2)';
                 setTimeout(() => {
@@ -3202,7 +3145,6 @@
                     renderCart();
                     updateCartCount();
                     
-                    // Animação de feedback
                     const minusBtn = document.querySelector(`.quantity-btn.minus[data-index="${index}"]`);
                     minusBtn.style.transform = 'scale(1.2)';
                     setTimeout(() => {
@@ -3217,7 +3159,6 @@
         // Remover item do carrinho
         function removeItem(index) {
             if (cart[index]) {
-                // Animação de remoção
                 const itemElement = document.querySelector(`.cart-item:nth-child(${index + 1})`);
                 if (itemElement) {
                     itemElement.style.transform = 'translateX(100%)';
@@ -3242,7 +3183,6 @@
             const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
             cartCount.textContent = totalItems;
             
-            // Animação do contador
             if (totalItems > 0) {
                 cartCount.style.transform = 'scale(1.2)';
                 setTimeout(() => {
@@ -3274,13 +3214,10 @@
             message += `💳 Forma de Pagamento: \n\n`;
             message += `Aguardo confirmação! Obrigado.`;
             
-            // Codificar a mensagem para URL
             const encodedMessage = encodeURIComponent(message);
             
-            // Abrir WhatsApp com a mensagem
             window.open(`https://wa.me/5538998287571?text=${encodedMessage}`, '_blank');
             
-            // Limpar carrinho após um delay
             setTimeout(() => {
                 cart = [];
                 updateCartCount();
