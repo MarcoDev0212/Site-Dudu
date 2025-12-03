@@ -194,7 +194,7 @@
             color: var(--secondary);
         }
         
-        /* Hero Section com Vídeo */
+        /* Hero Section sem Vídeo - Substituído por imagem de fundo */
         .hero {
             position: relative;
             overflow: hidden;
@@ -204,26 +204,10 @@
             color: rgb(255, 255, 255);
             text-align: center;
             padding: 0;
-        }
-        
-        .hero-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-            z-index: -1;
-        }
-        
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
+            background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.9)), url('https://www.mirassolconectada.com.br/wp-content/uploads/2021/02/DRESS-UP-ROUPAS-MASCULINAS-1024x576.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
         
         .hero::before {
@@ -233,7 +217,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.2) 0%, transparent 50%);
+            background: radial-gradient(circle at 30% 50%, rgba(226, 226, 226, 0.2) 0%, transparent 50%);
             animation: glow 8s infinite alternate;
             z-index: 1;
         }
@@ -2087,17 +2071,8 @@
         </div>
     </header>
 
-    <!-- Home com Vídeo -->
+    <!-- Home com imagem de fundo -->
     <section id="home" class="hero">
-        <!-- Vídeo de fundo -->
-        <video autoplay muted loop playsinline class="hero-video">
-            <source src="grok-video-d868d1dc-d717-433c-a0b5-43b26c164368.mp4" type="video/mp4">
-            Seu navegador não suporta o elemento de vídeo.
-        </video>
-        
-        <!-- Overlay para melhor legibilidade do texto -->
-        <div class="hero-overlay"></div>
-        
         <div class="container hero-content">
             <h1>O VISUAL QUE CONQUISTA RESPEITO</h1>
             <p>Cortes precisos, tecidos superiores e design pensado para elevar sua postura e sua autoconfiança.</p>
@@ -2430,27 +2405,6 @@
             
             // Animação de entrada para elementos ao rolar
             setupScrollAnimations();
-            
-            // Controle do vídeo para melhor performance
-            const heroVideo = document.querySelector('.hero-video');
-            
-            if (heroVideo) {
-                heroVideo.play().catch(function(error) {
-                    console.log('Reprodução automática do vídeo não permitida:', error);
-                });
-            }
-            
-            document.addEventListener('visibilitychange', function() {
-                if (heroVideo) {
-                    if (document.hidden) {
-                        heroVideo.pause();
-                    } else {
-                        heroVideo.play().catch(function(error) {
-                            console.log('Erro ao retomar o vídeo:', error);
-                        });
-                    }
-                }
-            });
         });
 
         // Configurar animações de scroll
@@ -2745,7 +2699,7 @@
                     <p class="novidade-description">${novidade.description}</p>
                     <div class="novidade-badge">${novidade.badge}</div>
                     <div class="countdown-timer" id="countdown-${index}">
-        
+                        
                     <div class="novidade-cta">
                         <button class="notify-btn" onclick="notifyMe('${novidade.name}')">
                             <i class="fas fa-bell"></i> Avise-me
